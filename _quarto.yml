@@ -1,0 +1,27 @@
+project:
+  type: website
+  render:
+    - "*.qmd"
+
+website:
+  search: false
+  title: "Guillermo Solovey"
+  navbar:
+    pinned: true
+    background: "#f5f7f6"
+    right:
+      - href: index.qmd
+        text: "{{< fa home >}} home"
+      - href: research.qmd
+        text: "{{< fa calendar >}} publicaciones"
+      - href: teaching.qmd
+        text: "{{< fa code >}} docencia"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    backgroundcolor: "#f5f7f6"
+
+editor: visual
+
