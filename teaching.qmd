@@ -4,7 +4,6 @@ toc: false
 editor: visual
 ---
 
-
 ```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
 require(fontawesome)
 require(gsheet)
@@ -13,14 +12,13 @@ require(gtExtras)
 require(tidyverse)
 ```
 
-
 ### Cursos dictados como profesor
 
 ```{r teaching, results='asis'}
 #| echo: false
 
 gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=852428719") %>%
-  filter(cargo == "prof") %>% 
+  filter(cargo %in% c("prof","doc")) %>% 
   mutate(materia = ifelse(!is.na(url), paste("[", materia, "]", "(", url , ")", sep = ""), materia)) %>% 
   select(year, materia, carrera) %>% 
   gt() %>% 
@@ -36,5 +34,3 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
      table.background.color = "#f5f7f6") 
 
 ```
-
-
