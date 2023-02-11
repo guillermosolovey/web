@@ -75,34 +75,3 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
 ```
 
 
-### Publicaciones en conferencias
-(\*: *equal contribution*)
-
-```{r pub-conf, results='asis'}
-#| echo: false
-
-gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1000751275") %>% 
-  filter(type == "conference-article") %>% 
-  mutate(author = str_replace_all(author, "G. Solovey", "**G. Solovey**")) %>% 
-  mutate(paper = paste("[**", title, "**]", "(", url , ")" , "<br />",
-                         author, "<br />", 
-                        "*",  journaltitle, "*", "<br />", 
-                         "[pdf]", "(/publications/", pdf, ")", sep = "")) %>% 
-  mutate(paper = ifelse(!is.na(github), paste(paper, "| [github]", "(", github, ")", sep = ""), paper)) %>% 
-  mutate(paper = ifelse(!is.na(osf), paste(paper, "| [osf]", "(", osf, ")", sep = ""), paper)) %>% 
-  select(year, paper) %>% 
-  gt() %>% 
-  fmt_markdown(columns = everything()) %>% 
-  cols_width(year ~ px(50)) %>% 
-  tab_style(
-    style = cell_text(v_align = "top", weight = "bold"),
-    locations = cells_body(
-      columns = year)
-    ) %>% 
-  tab_options(
-    column_labels.hidden = TRUE,
-     table.background.color = "#f5f7f6"
-    ) 
-
-```
-

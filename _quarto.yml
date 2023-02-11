@@ -9,13 +9,24 @@ website:
   navbar:
     pinned: true
     background: "#f5f7f6"
-    right:
+    left:
       - href: index.qmd
         text: "{{< fa home >}} home"
       - href: research.qmd
         text: "{{< fa calendar >}} publicaciones"
       - href: teaching.qmd
         text: "{{< fa code >}} docencia"
+    right:
+      - icon: envelope
+        aria-label: email
+        href: "mailto:gsolovey@gmail.com"
+      - icon: github
+        aria-label: github
+        href: https://github.com/guillermosolovey
+
+  page-footer:
+    right: |
+      <a href="https://www.ic.fcen.uba.ar" target="_blank">Instituto de Cálculo</a>
 
 format:
   html:
