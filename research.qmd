@@ -43,7 +43,8 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
      table.background.color = "#f5f7f6") 
 
 ```
-### Publicaciones en revistas
+
+### En revistas
 (\*: *equal contribution*)
 
 ```{r pubs, results='asis'}

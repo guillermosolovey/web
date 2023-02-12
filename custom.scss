@@ -1,0 +1,17 @@
+/*-- scss:defaults --*/
+$h1-font-size:          1.6rem !default;
+$h2-font-size:          1.6rem !default;
+$h3-font-size:          1.2rem !default;
+$font-size-root:        1.0rem !default;
+$headings-font-weight:  500 !default;
+
+/*-- scss:rules --*/
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, .3);
+}
+
+/*-- scss:defaults --*/
+// Base document colors
+$body-bg: white;
+$body-color: black;
+$link-color: darkblue;

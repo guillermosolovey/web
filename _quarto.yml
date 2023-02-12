@@ -30,7 +30,11 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      - cosmo
+      - custom.scss
+    fontsize: 1.1em
+    linestretch: 1.3
     toc: true
     backgroundcolor: "#f5f7f6"
 
