@@ -20,7 +20,7 @@ about:
 
 Soy profesor de [Exactas-UBA](http://www.exactas.uba.ar), investigador de CONICET y vice-director del [Instituto de Cálculo](http://www.ic.fcen.uba.ar). 
 
-Me dedico a investigar en ciencias cognitivas. Uso modelos estadísticos y experimentos comportamentales para entender cómo las personas procesan información, cómo forman sus creencias frente a evidencia, incertidumbre y desinformación, así como el papel de la metacognición. 
+Mi área de investigación es ciencias cognitivas. En mi trabajo uso modelos estadísticos y experimentos comportamentales para entender cómo las personas procesan información, cómo forman sus creencias frente a evidencia, incertidumbre y desinformación, así como el papel de la metacognición. 
 
 En docencia, doy cursos de ciencia de datos, estadística bayesiana, reproducibilidad y visualización de datos. Desde el 2021, también doy un curso sobre comprensión de datos y estadística para periodistas. 
 

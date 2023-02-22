@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+_site/.DS_Store
+_site/site_libs/.DS_Store
+
+/.quarto/
