@@ -18,7 +18,7 @@ website:
       - href: teaching.qmd
         text: "{{< fa chalkboard-user >}} docencia"
       - href: grupo.qmd
-        text: "{{< fa people-group >}}grupo"
+        text: "{{< fa people-group >}} grupo"
 
   page-footer:
     background: "#ffffff"
