@@ -3,20 +3,27 @@ title: ""
 toc: false
 sidebar: false
 image: avatar.jpg
+page-layout: full
 about:
+  # template: solana
   template: trestles
   image-shape: rounded
   image-width: 15em
+  links:
+    - text: GitHub
+      icon: github
+      url: "https://github.com/guillermosolovey"
+    - text: Email
+      icon: envelope
+      url: "mailto:gsolovey+site@gmail.com"
 ---
 
-Soy Profesor de la [Facultad de Ciencias Exactas y Naturales](http://www.exactas.uba.ar) de 
-la [Universidad de Buenos Aires](http://www.uba.ar), investigador de CONICET y vice-director
-del [Instituto de Cálculo](http://www.ic.fcen.uba.ar). 
+Soy profesor de [Exactas-UBA](http://www.exactas.uba.ar), investigador de CONICET y vice-director del [Instituto de Cálculo](http://www.ic.fcen.uba.ar). 
 
-Investigo en distintos temas de ciencias cognitivas buscando entender cómo las personas
-usamos evidencia para actualizar nuestras creencias y tomar decisiones. Doy cursos de grado
-y posgrado sobre estadística y ciencia de datos. 
+Me dedico a investigar en ciencias cognitivas. Uso modelos estadísticos y experimentos comportamentales para entender cómo las personas procesan información, cómo forman sus creencias frente a evidencia, incertidumbre y desinformación, así como el papel de la metacognición. 
 
-Este es mi [cv](CV-Solovey.pdf).
+En docencia, doy cursos de ciencia de datos, estadística bayesiana, reproducibilidad y visualización de datos. Desde el 2021, también doy un curso sobre comprensión de datos y estadística para periodistas. 
+
+Acá se puede bajar mi [cv completo](CV-Solovey.pdf).
 
 

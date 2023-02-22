@@ -1,0 +1,17 @@
+---
+title: "Grupo de trabajo"
+toc: false
+editor: source
+---
+
+## Estudiantes de doctorado actuales
+
+  1. **Gastón Bujía**. *Búsqueda visual* (inicio 2019, co-director).  
+  1. **Iair Embón**. *Percepción y metacognición en el trastorno del espectro autista* (inicio 2021, director).
+  1. **Alejandro Usaj**. *Modelos de influencia social en la toma de decisiones* (inicio 2021, director).  
+  1. **Nicolás Comay**. *Toma de decisiones con múltiples alternativas* (inicio 2021, co-director).  
+
+## Estudiantes de grado actuales
+
+  1. **Paloma Urtizberea**. *Modelos de deriva-difusión para detección de desinformación* (inicio 2022). Licenciatura en Física.
+

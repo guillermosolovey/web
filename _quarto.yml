@@ -8,25 +8,23 @@ website:
   title: "Guillermo Solovey"
   navbar:
     pinned: true
-    background: "#f5f7f6"
+    background: "#ffffff"
     left:
-      - href: index.qmd
+      - icon: "{{< fa calendar >}}"
+        href: index.qmd
         text: "{{< fa home >}} home"
       - href: research.qmd
-        text: "{{< fa calendar >}} publicaciones"
+        text: "{{< fa newspaper >}} publicaciones"
       - href: teaching.qmd
-        text: "{{< fa code >}} docencia"
-    right:
-      - icon: envelope
-        aria-label: email
-        href: "mailto:gsolovey@gmail.com"
-      - icon: github
-        aria-label: github
-        href: https://github.com/guillermosolovey
+        text: "{{< fa chalkboard-user >}} docencia"
+      - href: grupo.qmd
+        text: "{{< fa people-group >}}grupo"
 
   page-footer:
+    background: "#ffffff"
     right: |
       <a href="https://www.ic.fcen.uba.ar" target="_blank">Instituto de Cálculo</a>
+      
 
 format:
   html:
