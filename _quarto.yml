@@ -10,8 +10,7 @@ website:
     pinned: true
     background: "#ffffff"
     left:
-      - icon: "{{< fa calendar >}}"
-        href: index.qmd
+      - href: index.qmd
         text: "{{< fa home >}} home"
       - href: research.qmd
         text: "{{< fa newspaper >}} publicaciones"
