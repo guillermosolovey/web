@@ -1,7 +1,7 @@
 ---
 title: "docencia"
 toc: false
-editor: visual
+editor: source
 ---
 
 ```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}

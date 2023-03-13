@@ -16,6 +16,7 @@ about:
     - text: Email
       icon: envelope
       url: "mailto:gsolovey+site@gmail.com"
+editor: source      
 ---
 
 Soy profesor de [Exactas-UBA](http://www.exactas.uba.ar), investigador de CONICET y vice-director del [Instituto de Cálculo](http://www.ic.fcen.uba.ar). 
