@@ -32,7 +32,8 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
   select(year, paper) %>% 
   gt() %>% 
   fmt_markdown(columns = everything()) %>% 
-  cols_width(year ~ px(50)) %>% 
+  cols_width(year ~ px(50),
+             paper ~ px(600)) %>% 
   tab_style(
     style = cell_text(v_align = "top", weight = "bold"),
     locations = cells_body(
@@ -62,7 +63,8 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
   select(year, paper) %>% 
   gt() %>% 
   fmt_markdown(columns = everything()) %>% 
-  cols_width(year ~ px(50)) %>% 
+  cols_width(year ~ px(50),
+             paper ~ px(600)) %>% 
   tab_style(
     style = cell_text(v_align = "top", weight = "bold"),
     locations = cells_body(
@@ -74,5 +76,4 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
     ) 
 
 ```
-
 
