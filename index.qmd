@@ -16,9 +16,7 @@ about:
 editor: source      
 ---
 
-Soy profesor de [Exactas-UBA](http://www.exactas.uba.ar), investigador de CONICET y vice-director del [Instituto de Cálculo](http://www.ic.fcen.uba.ar). 
-
-Mi área de investigación es ciencias cognitivas. Con mi [grupo](grupo.html) de trabajo hacemos experimentos y modelos computacionales para entender el proceso de toma de decisiones humanas, el rol de la incertidumbre la metacognición. Doy [cursos](teaching.html) de ciencia de datos, estadística bayesiana, reproducibilidad y visualización.
+Soy profesor de [Exactas-UBA](http://www.exactas.uba.ar), investigador de CONICET y vice-director del [Instituto de Cálculo](http://www.ic.fcen.uba.ar). Mi área de investigación es ciencias cognitivas. Con mi [grupo](grupo.html) de trabajo hacemos experimentos y modelos computacionales para entender el proceso de toma de decisiones humanas, el rol de la incertidumbre la metacognición. Doy [cursos](teaching.html) de ciencia de datos, estadística bayesiana, reproducibilidad y visualización.
 
 Acá se puede bajar mi [cv completo](CV-Solovey.pdf).
 
