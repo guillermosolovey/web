@@ -14,7 +14,7 @@ require(tidyverse)
 ```
 
 
-### Pre-prints
+### Pre-prints | Enviados
 (\*: *equal contribution*)
 
 ```{r preprints, results='asis'}
@@ -26,9 +26,11 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
   mutate(paper = paste("[**", title, "**]", "(", url , ")" , "<br />",
                          author, "<br />", 
                         "*",  journaltitle, "*", "<br />",
-                         "[pdf]", "(", url, ")", sep = "")) %>%  ## OJO ACA PUSE URL
+                         sep = "")) %>%  ## OJO ACA PUSE URL
+                         # "[pdf]", "(", url, ")", sep = "")) %>%  ## OJO ACA PUSE URL
+  mutate(paper = ifelse(!is.na(url),    paste(paper, "[pdf]", "(", url, ")", sep = ""), paper)) %>% 
   mutate(paper = ifelse(!is.na(github), paste(paper, "| [github]", "(", github, ")", sep = ""), paper)) %>% 
-  mutate(paper = ifelse(!is.na(osf), paste(paper, "| [osf]", "(", osf, ")", sep = ""), paper)) %>% 
+  mutate(paper = ifelse(!is.na(osf),    paste(paper, "| [osf]", "(", osf, ")", sep = ""), paper)) %>% 
   select(year, paper) %>% 
   gt() %>% 
   fmt_markdown(columns = everything()) %>% 
