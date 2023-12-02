@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -46,7 +46,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -70,22 +71,24 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">
+    <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-home" aria-label="home"></i> home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./research.html" aria-current="page">
+    <a class="nav-link active" href="./research.html" rel="" target="" aria-current="page">
  <span class="menu-text"><i class="fa-solid fa-newspaper" aria-label="newspaper"></i> publicaciones</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching.html">
+    <a class="nav-link" href="./teaching.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-chalkboard-user" aria-label="chalkboard-user"></i> docencia</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./grupo.html">
+    <a class="nav-link" href="./grupo.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-people-group" aria-label="people-group"></i> grupo</span></a>
   </li>  
 </ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -120,26 +123,14 @@ ul.task-list li input[type="checkbox"] {
 <p>(*: <em>equal contribution</em>)</p>
 <div class="cell-output-display">
 
-<div id="fbwozkhbfp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fbwozkhbfp table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<div id="pzddzapmyb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#fbwozkhbfp thead, #fbwozkhbfp tbody, #fbwozkhbfp tfoot, #fbwozkhbfp tr, #fbwozkhbfp td, #fbwozkhbfp th {
-  border-style: none;
-}
-
-#fbwozkhbfp p {
-  margin: 0;
-  padding: 0;
-}
-
-#fbwozkhbfp .gt_table {
+#pzddzapmyb .gt_table {
   display: table;
   border-collapse: collapse;
-  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -162,36 +153,7 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#fbwozkhbfp .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#fbwozkhbfp .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #F5F7F6;
-  border-bottom-width: 0;
-}
-
-#fbwozkhbfp .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #F5F7F6;
-  border-top-width: 0;
-}
-
-#fbwozkhbfp .gt_heading {
+#pzddzapmyb .gt_heading {
   background-color: #F5F7F6;
   text-align: center;
   border-bottom-color: #F5F7F6;
@@ -203,13 +165,42 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#fbwozkhbfp .gt_bottom_border {
+#pzddzapmyb .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#pzddzapmyb .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #F5F7F6;
+  border-bottom-width: 0;
+}
+
+#pzddzapmyb .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #F5F7F6;
+  border-top-width: 0;
+}
+
+#pzddzapmyb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fbwozkhbfp .gt_col_headings {
+#pzddzapmyb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -224,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#fbwozkhbfp .gt_col_heading {
+#pzddzapmyb .gt_col_heading {
   color: #333333;
   background-color: #F5F7F6;
   font-size: 100%;
@@ -244,7 +235,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#fbwozkhbfp .gt_column_spanner_outer {
+#pzddzapmyb .gt_column_spanner_outer {
   color: #333333;
   background-color: #F5F7F6;
   font-size: 100%;
@@ -256,15 +247,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#fbwozkhbfp .gt_column_spanner_outer:first-child {
+#pzddzapmyb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fbwozkhbfp .gt_column_spanner_outer:last-child {
+#pzddzapmyb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fbwozkhbfp .gt_column_spanner {
+#pzddzapmyb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -276,11 +267,7 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#fbwozkhbfp .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#fbwozkhbfp .gt_group_heading {
+#pzddzapmyb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -306,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#fbwozkhbfp .gt_empty_group_heading {
+#pzddzapmyb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #F5F7F6;
@@ -321,15 +308,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#fbwozkhbfp .gt_from_md > :first-child {
+#pzddzapmyb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fbwozkhbfp .gt_from_md > :last-child {
+#pzddzapmyb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fbwozkhbfp .gt_row {
+#pzddzapmyb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -348,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#fbwozkhbfp .gt_stub {
+#pzddzapmyb .gt_stub {
   color: #333333;
   background-color: #F5F7F6;
   font-size: 100%;
@@ -361,7 +348,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#fbwozkhbfp .gt_stub_row_group {
+#pzddzapmyb .gt_stub_row_group {
   color: #333333;
   background-color: #F5F7F6;
   font-size: 100%;
@@ -375,15 +362,11 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#fbwozkhbfp .gt_row_group_first td {
+#pzddzapmyb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fbwozkhbfp .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#fbwozkhbfp .gt_summary_row {
+#pzddzapmyb .gt_summary_row {
   color: #333333;
   background-color: #F5F7F6;
   text-transform: inherit;
@@ -393,16 +376,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#fbwozkhbfp .gt_first_summary_row {
+#pzddzapmyb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fbwozkhbfp .gt_first_summary_row.thick {
+#pzddzapmyb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fbwozkhbfp .gt_last_summary_row {
+#pzddzapmyb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -412,7 +395,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#fbwozkhbfp .gt_grand_summary_row {
+#pzddzapmyb .gt_grand_summary_row {
   color: #333333;
   background-color: #F5F7F6;
   text-transform: inherit;
@@ -422,7 +405,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#fbwozkhbfp .gt_first_grand_summary_row {
+#pzddzapmyb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -432,21 +415,11 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#fbwozkhbfp .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#fbwozkhbfp .gt_striped {
+#pzddzapmyb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fbwozkhbfp .gt_table_body {
+#pzddzapmyb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -455,7 +428,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#fbwozkhbfp .gt_footnotes {
+#pzddzapmyb .gt_footnotes {
   color: #333333;
   background-color: #F5F7F6;
   border-bottom-style: none;
@@ -469,16 +442,16 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#fbwozkhbfp .gt_footnote {
+#pzddzapmyb .gt_footnote {
   margin: 0px;
   font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#fbwozkhbfp .gt_sourcenotes {
+#pzddzapmyb .gt_sourcenotes {
   color: #333333;
   background-color: #F5F7F6;
   border-bottom-style: none;
@@ -492,7 +465,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#fbwozkhbfp .gt_sourcenote {
+#pzddzapmyb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -500,89 +473,117 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#fbwozkhbfp .gt_left {
+#pzddzapmyb .gt_left {
   text-align: left;
 }
 
-#fbwozkhbfp .gt_center {
+#pzddzapmyb .gt_center {
   text-align: center;
 }
 
-#fbwozkhbfp .gt_right {
+#pzddzapmyb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fbwozkhbfp .gt_font_normal {
+#pzddzapmyb .gt_font_normal {
   font-weight: normal;
 }
 
-#fbwozkhbfp .gt_font_bold {
+#pzddzapmyb .gt_font_bold {
   font-weight: bold;
 }
 
-#fbwozkhbfp .gt_font_italic {
+#pzddzapmyb .gt_font_italic {
   font-style: italic;
 }
 
-#fbwozkhbfp .gt_super {
+#pzddzapmyb .gt_super {
   font-size: 65%;
 }
 
-#fbwozkhbfp .gt_footnote_marks {
+#pzddzapmyb .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
-  position: initial;
 }
 
-#fbwozkhbfp .gt_asterisk {
+#pzddzapmyb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fbwozkhbfp .gt_indent_1 {
+#pzddzapmyb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fbwozkhbfp .gt_indent_2 {
+#pzddzapmyb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fbwozkhbfp .gt_indent_3 {
+#pzddzapmyb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fbwozkhbfp .gt_indent_4 {
+#pzddzapmyb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fbwozkhbfp .gt_indent_5 {
+#pzddzapmyb .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" style="table-layout: fixed;; width: 0px" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <colgroup>
-    <col style="width:50px;">
-    <col style="width:600px;">
-  </colgroup>
-  
-  <tbody class="gt_table_body">
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2023</p>
+
+<table class="gt_table table" data-quarto-postprocess="true">
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2023</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="NA"><strong>Knowledge as a necessary condition to advantageous decision making under uncertainty: metacognitive sensitivity on the Iowa Gambling Task</strong></a><br>J. Zapata, N. Comay, P. Barttfeld, <strong>G. Solovey</strong>, A. Saal, J. V. Ahumada<br><em>Submitted</em><br></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2023</p>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="NA"><strong>Large environmental changes are associated with alterations in information integration: an ecological study during the COVID-19 pandemic</strong></a><br>
+J. C. Beron, <strong>G. Solovey</strong>, M. E. Pedreira, R. S. Fernández<br>
+<em>Submitted</em><br>
+</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="NA"><strong>The development of inequity aversion in Argentine children and different SES populations</strong></a><br>P. Guerra, <strong>G. Solovey</strong> &amp; B. Mesurado<br><em>Submitted</em><br></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2023</p>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2023</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://psyarxiv.com/at4r2/"><strong>Trait-Anxiety and Belief Updating: Exploring the predictions of the negativity bias and contrast avoidance model</strong></a><br><strong>G. Solovey</strong>, A. Usaj, S. Picco, M. Sued, M. E. Szretter Noste, L. Bavassi, M. E. Pedreira &amp; R. S. Fernández<br><em>PsyArXiv</em><br><a href="https://psyarxiv.com/at4r2/">pdf</a></p>
-</div></td></tr>
-  </tbody>
-  
-  
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="NA"><strong>Knowledge as a necessary condition to advantageous decision making under uncertainty: metacognitive sensitivity on the Iowa Gambling Task</strong></a><br>
+J. Zapata, N. Comay, P. Barttfeld, <strong>G. Solovey</strong>, A. Saal, J. V. Ahumada<br>
+<em>Submitted</em><br>
+</p>
+</div></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2023</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="NA"><strong>The development of inequity aversion in Argentine children and different SES populations</strong></a><br>
+P. Guerra, <strong>G. Solovey</strong> &amp; B. Mesurado<br>
+<em>Submitted</em><br>
+</p>
+</div></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2023</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://psyarxiv.com/at4r2/"><strong>Trait-Anxiety and Belief Updating: Exploring the predictions of the negativity bias and contrast avoidance model</strong></a><br>
+<strong>G. Solovey</strong>, A. Usaj, S. Picco, M. Sued, M. E. Szretter Noste, L. Bavassi, M. E. Pedreira &amp; R. S. Fernández<br>
+<em>Submitted</em><br>
+<a href="https://psyarxiv.com/at4r2/">pdf</a></p>
+</div></td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </section>
@@ -591,26 +592,14 @@ ul.task-list li input[type="checkbox"] {
 <p>(*: <em>equal contribution</em>)</p>
 <div class="cell-output-display">
 
-<div id="bmggcpbavl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bmggcpbavl table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<div id="dfamhinlyx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#bmggcpbavl thead, #bmggcpbavl tbody, #bmggcpbavl tfoot, #bmggcpbavl tr, #bmggcpbavl td, #bmggcpbavl th {
-  border-style: none;
-}
-
-#bmggcpbavl p {
-  margin: 0;
-  padding: 0;
-}
-
-#bmggcpbavl .gt_table {
+#dfamhinlyx .gt_table {
   display: table;
   border-collapse: collapse;
-  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -633,36 +622,7 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#bmggcpbavl .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#bmggcpbavl .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #F5F7F6;
-  border-bottom-width: 0;
-}
-
-#bmggcpbavl .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #F5F7F6;
-  border-top-width: 0;
-}
-
-#bmggcpbavl .gt_heading {
+#dfamhinlyx .gt_heading {
   background-color: #F5F7F6;
   text-align: center;
   border-bottom-color: #F5F7F6;
@@ -674,13 +634,42 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#bmggcpbavl .gt_bottom_border {
+#dfamhinlyx .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dfamhinlyx .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #F5F7F6;
+  border-bottom-width: 0;
+}
+
+#dfamhinlyx .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #F5F7F6;
+  border-top-width: 0;
+}
+
+#dfamhinlyx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bmggcpbavl .gt_col_headings {
+#dfamhinlyx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -695,7 +684,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#bmggcpbavl .gt_col_heading {
+#dfamhinlyx .gt_col_heading {
   color: #333333;
   background-color: #F5F7F6;
   font-size: 100%;
@@ -715,7 +704,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#bmggcpbavl .gt_column_spanner_outer {
+#dfamhinlyx .gt_column_spanner_outer {
   color: #333333;
   background-color: #F5F7F6;
   font-size: 100%;
@@ -727,15 +716,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#bmggcpbavl .gt_column_spanner_outer:first-child {
+#dfamhinlyx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bmggcpbavl .gt_column_spanner_outer:last-child {
+#dfamhinlyx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bmggcpbavl .gt_column_spanner {
+#dfamhinlyx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -747,11 +736,7 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#bmggcpbavl .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#bmggcpbavl .gt_group_heading {
+#dfamhinlyx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -777,7 +762,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#bmggcpbavl .gt_empty_group_heading {
+#dfamhinlyx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #F5F7F6;
@@ -792,15 +777,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#bmggcpbavl .gt_from_md > :first-child {
+#dfamhinlyx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bmggcpbavl .gt_from_md > :last-child {
+#dfamhinlyx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bmggcpbavl .gt_row {
+#dfamhinlyx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -819,7 +804,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#bmggcpbavl .gt_stub {
+#dfamhinlyx .gt_stub {
   color: #333333;
   background-color: #F5F7F6;
   font-size: 100%;
@@ -832,7 +817,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#bmggcpbavl .gt_stub_row_group {
+#dfamhinlyx .gt_stub_row_group {
   color: #333333;
   background-color: #F5F7F6;
   font-size: 100%;
@@ -846,15 +831,11 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#bmggcpbavl .gt_row_group_first td {
+#dfamhinlyx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bmggcpbavl .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#bmggcpbavl .gt_summary_row {
+#dfamhinlyx .gt_summary_row {
   color: #333333;
   background-color: #F5F7F6;
   text-transform: inherit;
@@ -864,16 +845,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#bmggcpbavl .gt_first_summary_row {
+#dfamhinlyx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bmggcpbavl .gt_first_summary_row.thick {
+#dfamhinlyx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bmggcpbavl .gt_last_summary_row {
+#dfamhinlyx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -883,7 +864,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#bmggcpbavl .gt_grand_summary_row {
+#dfamhinlyx .gt_grand_summary_row {
   color: #333333;
   background-color: #F5F7F6;
   text-transform: inherit;
@@ -893,7 +874,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#bmggcpbavl .gt_first_grand_summary_row {
+#dfamhinlyx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -903,21 +884,11 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#bmggcpbavl .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#bmggcpbavl .gt_striped {
+#dfamhinlyx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bmggcpbavl .gt_table_body {
+#dfamhinlyx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -926,7 +897,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#bmggcpbavl .gt_footnotes {
+#dfamhinlyx .gt_footnotes {
   color: #333333;
   background-color: #F5F7F6;
   border-bottom-style: none;
@@ -940,16 +911,16 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#bmggcpbavl .gt_footnote {
+#dfamhinlyx .gt_footnote {
   margin: 0px;
   font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#bmggcpbavl .gt_sourcenotes {
+#dfamhinlyx .gt_sourcenotes {
   color: #333333;
   background-color: #F5F7F6;
   border-bottom-style: none;
@@ -963,7 +934,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#bmggcpbavl .gt_sourcenote {
+#dfamhinlyx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -971,181 +942,370 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#bmggcpbavl .gt_left {
+#dfamhinlyx .gt_left {
   text-align: left;
 }
 
-#bmggcpbavl .gt_center {
+#dfamhinlyx .gt_center {
   text-align: center;
 }
 
-#bmggcpbavl .gt_right {
+#dfamhinlyx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bmggcpbavl .gt_font_normal {
+#dfamhinlyx .gt_font_normal {
   font-weight: normal;
 }
 
-#bmggcpbavl .gt_font_bold {
+#dfamhinlyx .gt_font_bold {
   font-weight: bold;
 }
 
-#bmggcpbavl .gt_font_italic {
+#dfamhinlyx .gt_font_italic {
   font-style: italic;
 }
 
-#bmggcpbavl .gt_super {
+#dfamhinlyx .gt_super {
   font-size: 65%;
 }
 
-#bmggcpbavl .gt_footnote_marks {
+#dfamhinlyx .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
-  position: initial;
 }
 
-#bmggcpbavl .gt_asterisk {
+#dfamhinlyx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bmggcpbavl .gt_indent_1 {
+#dfamhinlyx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bmggcpbavl .gt_indent_2 {
+#dfamhinlyx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bmggcpbavl .gt_indent_3 {
+#dfamhinlyx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bmggcpbavl .gt_indent_4 {
+#dfamhinlyx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bmggcpbavl .gt_indent_5 {
+#dfamhinlyx .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" style="table-layout: fixed;; width: 0px" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <colgroup>
-    <col style="width:50px;">
-    <col style="width:600px;">
-  </colgroup>
-  
-  <tbody class="gt_table_body">
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2023</p>
+
+<table class="gt_table table" data-quarto-postprocess="true">
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2023</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1016/j.cognition.2023.105377"><strong>The presence of irrelevant alternatives paradoxically increases confidence in perceptual decisions</strong></a><br>N. Comay, G. Della Bella, P. Lamberti, M. Sigman, <strong>G. Solovey</strong>* &amp; P. Barttfeld*<br><em>Cognition</em><br><a href="./publications/2023_Comay.pdf">pdf</a>| <a href="https://github.com/nicolascomay/confidence_dud.git">github</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2023</p>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1016/j.cognition.2023.105377"><strong>The presence of irrelevant alternatives paradoxically increases confidence in perceptual decisions</strong></a><br>
+N. Comay, G. Della Bella, P. Lamberti, M. Sigman, <strong>G. Solovey</strong>* &amp; P. Barttfeld*<br>
+<em>Cognition</em><br>
+<a href="./publications/2023_Comay.pdf">pdf</a>| <a href="https://github.com/nicolascomay/confidence_dud.git">github</a></p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1016/j.concog.2023.103502"><strong>Is visual metacognition associated with autistic traits? A regression analysis shows no link between visual metacognition and Autism-Spectrum Quotient scores</strong></a><br>I. Embon, S. Cukier, A. Iorio, P. Barttfeld* &amp; <strong>G. Solovey</strong>*<br><em>Consciousness and Cognition</em><br><a href="./publications/2023_Embon.pdf">pdf</a>| <a href="https://github.com/iair-embon/metacog-autistic-traits-2022">github</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2023</p>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2023</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://psyarxiv.com/u9eyw"><strong>Interactive crowdsourcing to fact-check politicians</strong></a><br>S. E. Mairal, F. Bustos, <strong>G. Solovey</strong> &amp; J. Navajas<br><em>En prensa en “Journal of Experimental Psychology: Applied”</em><br><a href="./publications/2023_Espina.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2022</p>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1016/j.concog.2023.103502"><strong>Is visual metacognition associated with autistic traits? A regression analysis shows no link between visual metacognition and Autism-Spectrum Quotient scores</strong></a><br>
+I. Embon, S. Cukier, A. Iorio, P. Barttfeld* &amp; <strong>G. Solovey</strong>*<br>
+<em>Consciousness and Cognition</em><br>
+<a href="./publications/2023_Embon.pdf">pdf</a>| <a href="https://github.com/iair-embon/metacog-autistic-traits-2022">github</a></p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.3389%2Ffnsys.2022.882315"><strong>Modeling Human Visual Search in Natural Scenes: A Combined Bayesian Searcher and Saliency Map Approach</strong></a><br>G. Bujia, M. Sclar, S. Vita, <strong>G. Solovey</strong> &amp; J. E. Kamienkowski<br><em>Frontiers in Systems Neuroscience</em><br><a href="./publications/2022_Bujia.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2022</p>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2023</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.5334%2Fjoc.200"><strong>Running online behavioral experiments using R: Implementation of a response-time decision making task as an R-Shiny app</strong></a><br>A. P. Santangelo &amp; <strong>G. Solovey</strong><br><em>Journal of Cognition</em><br><a href="./publications/2022_Santangelo.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2021</p>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1038/s41598-023-47939-3"><strong>Understanding belief in political statements using a model-driven experimental approach: a registered report</strong></a><br>
+A. P. Santangelo &amp; <strong>G. Solovey</strong><br>
+<em>Scientific Reports</em><br>
+<a href="./publications/2023_Santangelo.pdf">pdf</a>| <a href="https://osf.io/mhsr8/">github</a></p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.3389/fmed.2021.640688"><strong>Active surveillance of asymptomatic, presymptomatic, and oligosymptomatic SARS-CoV-2-infected individuals in communities inhabiting closed or semi-closed institutions</strong></a><br>N. Ambrosis, P. M. Aispuro, K. Belhart, D. Bottero, R. L. Crisp, M. V. Dansey, M. Gabrielli, O. Filevich, V. Genoud, A. Giordano, M. C. Lin, A. Lodeiro, F. Marceca, N. Pregi, F. Remes Lenicov, L. Rocha-Viegas, E. Rudi, <strong>G. Solovey</strong>, E. Zurita, A. Pecci, R. Etchenique &amp; D. Hozbor<br><em>Frontiers in Medicine</em><br><a href="./publications/2021_Ambrosis.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2021</p>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2023</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="http://www.scirevfew.net/index.php/sciencereviews/article/view/38"><strong>Mathematical and Computational Initiatives from the University of Buenos Aires to Contribute to Decision-Making in the Context of COVID-19 in Argentina</strong></a><br>M Arrar, L. Belloli, A. Bianco, L. Boechi, R. Castro, G. A. Duran, R. Etchenique, N. B. Fernández, L. Ferrer, D. Garbervetsky, R. Goldsmit, C. Grillo, R. Maidana, M. Mendiluce, S. Minoldo, L. Pepino, M. Pecker, E. Puerta, R. Quiroga, <strong>G. Solovey</strong>, M. Valdora &amp; M. Zapatero<br><em>Science Reviews-from the end of the world</em><br><a href="./publications/2021_Arrar.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2020</p>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://psycnet.apa.org/doi/10.1037/xap0000492"><strong>Interactive crowdsourcing to fact-check politicians</strong></a><br>
+S. E. Mairal, F. Bustos, <strong>G. Solovey</strong> &amp; J. Navajas<br>
+<em>Journal of Experimental Psychology: Applied</em><br>
+<a href="./publications/2023_Espina.pdf">pdf</a></p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="http://www.dii.uchile.cl/~ris/RIS2020/p2_iniciativas_uba_covid19_argentina.pdf"><strong>Iniciativas matemático computacionales desde la Universidad de Buenos Aires para contribuir a la toma de decisiones en el contexto del COVID-19</strong></a><br>M Arrar, L. Belloli, A. Bianco, L. Boechi, R. Castro, G. A. Duran, R. Etchenique, N. B. Fernández, L. Ferrer, D. Garbervetsky, R. Goldsmit, C. Grillo, R. Maidana, M. Mendiluce, S. Minoldo, L. Pepino, M. Pecker, E. Puerta, R. Quiroga, <strong>G. Solovey</strong>, M. Valdora &amp; M. Zapatero<br><em>Revista Ingeniería de Sistemas</em><br><a href="./publications/2020_Arrar.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2019</p>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2022</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1038/s41562-019-0531-8"><strong>Opportunities and challenges for a maturing science of consciousness</strong></a><br>M. Michel, D. Beck, N. Block, H. Blumenfeld, R. Brown, D. Carmel, M. Carrasco, M. Chirimuuta, M. Chun, A. Cleeremans, S. Dehaene, S. M. Fleming, C. Frith, P. Haggard, B. J. He, C. Heyes, M. A. Goodale, L. Irvine, M. Kawato, R. Kentridge, J.-R. King, R. T. Knight, S. Kouider, V. Lamme, D. Lamy, H. Lau, S. Laureys, J. LeDoux, Y.-T. Lin, K. Liu, S. L. Macknik, S. Martinez-Conde, G. A. Mashour, L. Melloni, L. Miracchi, M. Mylopoulos, L. Naccache, A. M. Owen, R. E. Passingham, L. Pessoa, M. A. K. Peters, D. Rahnev, T. Ro, D. Rosenthal, Y. Sasaki, C. Sergent, <strong>G. Solovey</strong>, N. D. Schiff, A. Seth, C. Tallon-Baudry, M. Tamietto, F. Tong, S. van Gaal, A. Vlassova, T. Watanabe, J. Weisberg, K. Yan &amp; M.Yoshida<br><em>Nature human behaviour</em><br><a href="./publications/2019_NHB.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2019</p>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.3389%2Ffnsys.2022.882315"><strong>Modeling Human Visual Search in Natural Scenes: A Combined Bayesian Searcher and Saliency Map Approach</strong></a><br>
+G. Bujia, M. Sclar, S. Vita, <strong>G. Solovey</strong> &amp; J. E. Kamienkowski<br>
+<em>Frontiers in Systems Neuroscience</em><br>
+<a href="./publications/2022_Bujia.pdf">pdf</a></p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1038/s41598-019-41345-4"><strong>Single-trial classification of awareness state during anesthesia by measuring critical dynamics of global brain activity</strong></a><br>L. Alonso*, <strong>G. Solovey</strong>*, T. Yanagawa, A. Proekt, G. A. Cecchi &amp; M. O. Magnasco<br><em>Scientific Reports</em><br><a href="./publications/2019_SRep.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2018</p>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2022</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1523/JNEUROSCI.0322-17.2017"><strong>Behavioral, modeling, and electrophysiological evidence for supramodality in human metacognition</strong></a><br>N. Faivre, E. Filevich, <strong>G. Solovey</strong>, S. Kühn &amp; O. Blanke<br><em>Journal of Neuroscience</em><br><a href="./publications/2018_JofN.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2016</p>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.5334%2Fjoc.200"><strong>Running online behavioral experiments using R: Implementation of a response-time decision making task as an R-Shiny app</strong></a><br>
+A. P. Santangelo &amp; <strong>G. Solovey</strong><br>
+<em>Journal of Cognition</em><br>
+<a href="./publications/2022_Santangelo.pdf">pdf</a></p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1016/j.concog.2016.08.010"><strong>Perceptual learning effect on decision and confidence thresholds</strong></a><br><strong>G. Solovey</strong>, D. Shalom, V. Pérez-Schuster &amp; M. Sigman<br><em>Consciousness and Cognition</em><br><a href="./publications/2016_CC.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2015</p>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2021</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.3758/s13414-014-0769-1"><strong>A decisional account of subjective inflation of visual perception at the periphery</strong></a><br><strong>G. Solovey</strong>, G. G. Graney &amp; H. Lau<br><em>Attention, Perception, &amp; Psychophysics</em><br><a href="./publications/2015_app_periphery.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2015</p>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.3389/fmed.2021.640688"><strong>Active surveillance of asymptomatic, presymptomatic, and oligosymptomatic SARS-CoV-2-infected individuals in communities inhabiting closed or semi-closed institutions</strong></a><br>
+N. Ambrosis, P. M. Aispuro, K. Belhart, D. Bottero, R. L. Crisp, M. V. Dansey, M. Gabrielli, O. Filevich, V. Genoud, A. Giordano, M. C. Lin, A. Lodeiro, F. Marceca, N. Pregi, F. Remes Lenicov, L. Rocha-Viegas, E. Rudi, <strong>G. Solovey</strong>, E. Zurita, A. Pecci, R. Etchenique &amp; D. Hozbor<br>
+<em>Frontiers in Medicine</em><br>
+<a href="./publications/2021_Ambrosis.pdf">pdf</a></p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.3758/s13414-015-0897-2"><strong>Low attention impairs optimal incorporation of prior knowledge in perceptual decisions</strong></a><br>J. Morales*, <strong>G. Solovey</strong>*, B. Maniscalco, D. Rahnev, F. de Lange &amp; H. Lau<br><em>Attention, Perception, &amp; Psychophysics</em><br><a href="./publications/2015_APP_bayes.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2015</p>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2021</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1523/JNEUROSCI.4895-14.2015"><strong>Loss of consciousness is associated with stabilization of cortical activity</strong></a><br><strong>G. Solovey</strong>*, L. M. Alonso*, T. Yanagawa, N. Fujii, M. O. Magnasco, G. A. Cecchi &amp; A. Proekt<br><em>Journal of Neuroscience</em><br><a href="./publications/2015_JofN.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2012</p>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="http://www.scirevfew.net/index.php/sciencereviews/article/view/38"><strong>Mathematical and Computational Initiatives from the University of Buenos Aires to Contribute to Decision-Making in the Context of COVID-19 in Argentina</strong></a><br>
+M Arrar, L. Belloli, A. Bianco, L. Boechi, R. Castro, G. A. Duran, R. Etchenique, N. B. Fernández, L. Ferrer, D. Garbervetsky, R. Goldsmit, C. Grillo, R. Maidana, M. Mendiluce, S. Minoldo, L. Pepino, M. Pecker, E. Puerta, R. Quiroga, <strong>G. Solovey</strong>, M. Valdora &amp; M. Zapatero<br>
+<em>Science Reviews-from the end of the world</em><br>
+<a href="./publications/2021_Arrar.pdf">pdf</a></p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.3389/fnint.2012.00044"><strong>Self-regulated dynamical criticality in human ECoG</strong></a><br><strong>G. Solovey</strong>, K. J. Miller, J. G. Ojemann, M. O. Magnasco, G. A. Cecchi<br><em>Frontiers in Integrative Neuroscience</em><br><a href="./publications/2012_frontiers.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2011</p>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2020</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.3389/fphys.2011.00046"><strong>Mean field strategies induce unrealistic non-linearities in calcium puffs</strong></a><br><strong>G. Solovey</strong>, D. Fraiman &amp; S. Ponce Dawson<br><em>Frontiers in Physiology</em><br><a href="./publications/2011_frontiers.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2010</p>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="http://www.dii.uchile.cl/~ris/RIS2020/p2_iniciativas_uba_covid19_argentina.pdf"><strong>Iniciativas matemático computacionales desde la Universidad de Buenos Aires para contribuir a la toma de decisiones en el contexto del COVID-19</strong></a><br>
+M Arrar, L. Belloli, A. Bianco, L. Boechi, R. Castro, G. A. Duran, R. Etchenique, N. B. Fernández, L. Ferrer, D. Garbervetsky, R. Goldsmit, C. Grillo, R. Maidana, M. Mendiluce, S. Minoldo, L. Pepino, M. Pecker, E. Puerta, R. Quiroga, <strong>G. Solovey</strong>, M. Valdora &amp; M. Zapatero<br>
+<em>Revista Ingeniería de Sistemas</em><br>
+<a href="./publications/2020_Arrar.pdf">pdf</a></p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1016/j.ceca.2009.12.012"><strong>Quantifying calcium fluxes underlying calcium puffs in Xenopus laevis oocytes</strong></a><br>L. Bruno*, <strong>G. Solovey</strong>*, A. C. Ventura, S. Dargan &amp; S. Ponce Dawson<br><em>Cell calcium</em><br><a href="./publications/2010_cellcalcium.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2010</p>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2019</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1371/journal.pone.0008997"><strong>Intra-cluster percolation of calcium signals</strong></a><br><strong>G. Solovey</strong> &amp; S. Ponce Dawson<br><em>PloS one</em><br><a href="./publications/2010_plosone.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2010</p>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1038/s41562-019-0531-8"><strong>Opportunities and challenges for a maturing science of consciousness</strong></a><br>
+M. Michel, D. Beck, N. Block, H. Blumenfeld, R. Brown, D. Carmel, M. Carrasco, M. Chirimuuta, M. Chun, A. Cleeremans, S. Dehaene, S. M. Fleming, C. Frith, P. Haggard, B. J. He, C. Heyes, M. A. Goodale, L. Irvine, M. Kawato, R. Kentridge, J.-R. King, R. T. Knight, S. Kouider, V. Lamme, D. Lamy, H. Lau, S. Laureys, J. LeDoux, Y.-T. Lin, K. Liu, S. L. Macknik, S. Martinez-Conde, G. A. Mashour, L. Melloni, L. Miracchi, M. Mylopoulos, L. Naccache, A. M. Owen, R. E. Passingham, L. Pessoa, M. A. K. Peters, D. Rahnev, T. Ro, D. Rosenthal, Y. Sasaki, C. Sergent, <strong>G. Solovey</strong>, N. D. Schiff, A. Seth, C. Tallon-Baudry, M. Tamietto, F. Tong, S. van Gaal, A. Vlassova, T. Watanabe, J. Weisberg, K. Yan &amp; M.Yoshida<br>
+<em>Nature human behaviour</em><br>
+<a href="./publications/2019_NHB.pdf">pdf</a></p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1098/rsta.2010.0273"><strong>Observable effects of Ca2+ buffers on local Ca2+ signals</strong></a><br><strong>G. Solovey</strong> &amp; S. Ponce Dawson<br><em>Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences</em><br><a href="./publications/2010_phil.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2008</p>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2019</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1103/PhysRevE.78.041915"><strong>Simplified model of cytosolic Ca 2+ dynamics in the presence of one or several clusters of Ca 2+-release channels</strong></a><br><strong>G. Solovey</strong>, D. Fraiman, B. Pando &amp; S. Ponce Dawson<br><em>Physical Review E</em><br><a href="./publications/2008_PRE.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2004</p>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1038/s41598-019-41345-4"><strong>Single-trial classification of awareness state during anesthesia by measuring critical dynamics of global brain activity</strong></a><br>
+L. Alonso*, <strong>G. Solovey</strong>*, T. Yanagawa, A. Proekt, G. A. Cecchi &amp; M. O. Magnasco<br>
+<em>Scientific Reports</em><br>
+<a href="./publications/2019_SRep.pdf">pdf</a></p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1103/PhysRevE.69.016123"><strong>Dielectric breakdown model for conductor-loaded and insulator-loaded composite materials</strong></a><br>P. Bergero, F. Peruani, <strong>G. Solovey</strong>, I. M. Irurzun, J. L. Vicente &amp; E. E. Mola<br><em>Physical Review E</em><br><a href="./publications/2004_PRE.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2004</p>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2018</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1016/j.physa.2004.06.068"><strong>On cell resistance and immune response time lag in a model for the HIV infection</strong></a><br><strong>G. Solovey</strong>, F. Peruani, S. Ponce Dawson &amp; R. M. Zorzenon Dos Santos<br><em>Physica A: Statistical Mechanics and its Applications</em><br><a href="./publications/2004_PhysA.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2003</p>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1523/JNEUROSCI.0322-17.2017"><strong>Behavioral, modeling, and electrophysiological evidence for supramodality in human metacognition</strong></a><br>
+N. Faivre, E. Filevich, <strong>G. Solovey</strong>, S. Kühn &amp; O. Blanke<br>
+<em>Journal of Neuroscience</em><br>
+<a href="./publications/2018_JofN.pdf">pdf</a></p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1103/PhysRevE.67.066121"><strong>Dielectric breakdown model for composite materials</strong></a><br>F. Peruani, <strong>G. Solovey</strong>, I. M. Irurzun, E. E. Mola, A. Marzzoca &amp; J. L. Vicente<br><em>Physical Review E</em><br><a href="./publications/2003_PRE.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2003</p>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2016</p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1119/1.1571838"><strong>Variable mass oscillator</strong></a><br>J. Flores, <strong>G. Solovey</strong> &amp; S. Gil<br><em>American Journal of Physics</em><br><a href="./publications/2003b_AJP.pdf">pdf</a></p>
-</div></td></tr>
-    <tr><td headers="year" class="gt_row gt_right" style="vertical-align: top; font-weight: bold;"><div class="gt_from_md"><p>2003</p>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1016/j.concog.2016.08.010"><strong>Perceptual learning effect on decision and confidence thresholds</strong></a><br>
+<strong>G. Solovey</strong>, D. Shalom, V. Pérez-Schuster &amp; M. Sigman<br>
+<em>Consciousness and Cognition</em><br>
+<a href="./publications/2016_CC.pdf">pdf</a></p>
 </div></td>
-<td headers="paper" class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://doi.org/10.1119/1.1571837"><strong>Flow of sand and a variable mass Atwood machine</strong></a><br>J. Flores, <strong>G. Solovey</strong> &amp; S. Gil<br><em>American Journal of Physics</em><br><a href="./publications/2003_AJP.pdf">pdf</a></p>
-</div></td></tr>
-  </tbody>
-  
-  
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2015</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.3758/s13414-014-0769-1"><strong>A decisional account of subjective inflation of visual perception at the periphery</strong></a><br>
+<strong>G. Solovey</strong>, G. G. Graney &amp; H. Lau<br>
+<em>Attention, Perception, &amp; Psychophysics</em><br>
+<a href="./publications/2015_app_periphery.pdf">pdf</a></p>
+</div></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2015</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.3758/s13414-015-0897-2"><strong>Low attention impairs optimal incorporation of prior knowledge in perceptual decisions</strong></a><br>
+J. Morales*, <strong>G. Solovey</strong>*, B. Maniscalco, D. Rahnev, F. de Lange &amp; H. Lau<br>
+<em>Attention, Perception, &amp; Psychophysics</em><br>
+<a href="./publications/2015_APP_bayes.pdf">pdf</a></p>
+</div></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2015</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1523/JNEUROSCI.4895-14.2015"><strong>Loss of consciousness is associated with stabilization of cortical activity</strong></a><br>
+<strong>G. Solovey</strong>*, L. M. Alonso*, T. Yanagawa, N. Fujii, M. O. Magnasco, G. A. Cecchi &amp; A. Proekt<br>
+<em>Journal of Neuroscience</em><br>
+<a href="./publications/2015_JofN.pdf">pdf</a></p>
+</div></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2012</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.3389/fnint.2012.00044"><strong>Self-regulated dynamical criticality in human ECoG</strong></a><br>
+<strong>G. Solovey</strong>, K. J. Miller, J. G. Ojemann, M. O. Magnasco, G. A. Cecchi<br>
+<em>Frontiers in Integrative Neuroscience</em><br>
+<a href="./publications/2012_frontiers.pdf">pdf</a></p>
+</div></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2011</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.3389/fphys.2011.00046"><strong>Mean field strategies induce unrealistic non-linearities in calcium puffs</strong></a><br>
+<strong>G. Solovey</strong>, D. Fraiman &amp; S. Ponce Dawson<br>
+<em>Frontiers in Physiology</em><br>
+<a href="./publications/2011_frontiers.pdf">pdf</a></p>
+</div></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2010</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1016/j.ceca.2009.12.012"><strong>Quantifying calcium fluxes underlying calcium puffs in Xenopus laevis oocytes</strong></a><br>
+L. Bruno*, <strong>G. Solovey</strong>*, A. C. Ventura, S. Dargan &amp; S. Ponce Dawson<br>
+<em>Cell calcium</em><br>
+<a href="./publications/2010_cellcalcium.pdf">pdf</a></p>
+</div></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2010</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1371/journal.pone.0008997"><strong>Intra-cluster percolation of calcium signals</strong></a><br>
+<strong>G. Solovey</strong> &amp; S. Ponce Dawson<br>
+<em>PloS one</em><br>
+<a href="./publications/2010_plosone.pdf">pdf</a></p>
+</div></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2010</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1098/rsta.2010.0273"><strong>Observable effects of Ca2+ buffers on local Ca2+ signals</strong></a><br>
+<strong>G. Solovey</strong> &amp; S. Ponce Dawson<br>
+<em>Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences</em><br>
+<a href="./publications/2010_phil.pdf">pdf</a></p>
+</div></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2008</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1103/PhysRevE.78.041915"><strong>Simplified model of cytosolic Ca 2+ dynamics in the presence of one or several clusters of Ca 2+-release channels</strong></a><br>
+<strong>G. Solovey</strong>, D. Fraiman, B. Pando &amp; S. Ponce Dawson<br>
+<em>Physical Review E</em><br>
+<a href="./publications/2008_PRE.pdf">pdf</a></p>
+</div></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2004</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1103/PhysRevE.69.016123"><strong>Dielectric breakdown model for conductor-loaded and insulator-loaded composite materials</strong></a><br>
+P. Bergero, F. Peruani, <strong>G. Solovey</strong>, I. M. Irurzun, J. L. Vicente &amp; E. E. Mola<br>
+<em>Physical Review E</em><br>
+<a href="./publications/2004_PRE.pdf">pdf</a></p>
+</div></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2004</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1016/j.physa.2004.06.068"><strong>On cell resistance and immune response time lag in a model for the HIV infection</strong></a><br>
+<strong>G. Solovey</strong>, F. Peruani, S. Ponce Dawson &amp; R. M. Zorzenon Dos Santos<br>
+<em>Physica A: Statistical Mechanics and its Applications</em><br>
+<a href="./publications/2004_PhysA.pdf">pdf</a></p>
+</div></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2003</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1103/PhysRevE.67.066121"><strong>Dielectric breakdown model for composite materials</strong></a><br>
+F. Peruani, <strong>G. Solovey</strong>, I. M. Irurzun, E. E. Mola, A. Marzzoca &amp; J. L. Vicente<br>
+<em>Physical Review E</em><br>
+<a href="./publications/2003_PRE.pdf">pdf</a></p>
+</div></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2003</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1119/1.1571838"><strong>Variable mass oscillator</strong></a><br>
+J. Flores, <strong>G. Solovey</strong> &amp; S. Gil<br>
+<em>American Journal of Physics</em><br>
+<a href="./publications/2003b_AJP.pdf">pdf</a></p>
+</div></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="year" style="vertical-align: top; font-weight: bold"><div class="gt_from_md">
+<p>2003</p>
+</div></td>
+<td class="gt_row gt_left" headers="paper"><div class="gt_from_md">
+<p><a href="https://doi.org/10.1119/1.1571837"><strong>Flow of sand and a variable mass Atwood machine</strong></a><br>
+J. Flores, <strong>G. Solovey</strong> &amp; S. Gil<br>
+<em>American Journal of Physics</em><br>
+<a href="./publications/2003_AJP.pdf">pdf</a></p>
+</div></td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 
@@ -1180,9 +1340,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1247,6 +1421,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1289,6 +1549,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right"><a href="https://www.ic.fcen.uba.ar" target="_blank">Instituto de Cálculo</a></div>
   </div>
 </footer>
