@@ -13,11 +13,11 @@ website:
       - href: index.qmd
         text: "{{< fa home >}} home"
       - href: research.qmd
-        text: "{{< fa newspaper >}} publicaciones"
+        text: "{{< fa newspaper >}} investigación"
       - href: teaching.qmd
         text: "{{< fa chalkboard-user >}} docencia"
       - href: grupo.qmd
-        text: "{{< fa people-group >}} grupo"
+        text: "{{< fa people-group >}} estudiantes"
 
   page-footer:
     background: "#ffffff"

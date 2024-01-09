@@ -1,17 +1,94 @@
 ---
-title: "Grupo de trabajo"
+title: ""
 toc: false
 editor: source
 ---
 
-## Estudiantes de doctorado actuales
+```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
+require(fontawesome)
+require(gsheet)
+require(gt)
+require(gtExtras)
+require(tidyverse)
+```
 
-  1. **Gastón Bujía**. *Búsqueda visual* (inicio 2019, co-director).  
-  1. **Iair Embón**. *Percepción y metacognición en el trastorno del espectro autista* (inicio 2021, director).
-  1. **Nicolás Comay**. *Toma de decisiones con múltiples alternativas* (inicio 2021, co-director).  
+### Actuales
 
-## Estudiantes de grado actuales
+```{r current-students, results='asis'}
+#| echo: false
 
-  1. **Paloma Urtizberea**. *Modelos de deriva-difusión para detección de desinformación* (inicio 2022). Licenciatura en Física.
-  1. **César Montero**. *Estudio de la sensibilidad de estimación en modelos de deriva-difusión para toma de decisiones* (inicio 2023). Licenciatura en Física.
-  
+
+gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1834640090") %>%
+  filter(fecha %in% c("actual")) %>% 
+  mutate(student = ifelse(!is.na(proyecto), 
+                          paste("**", nombre, "**", "<br />",
+                                proyecto, "<br />", 
+                                carrera, "<br />", 
+                                sep = ""),
+                          paste("**", nombre, "**", "<br />",
+                                carrera, "<br />", 
+                                sep = ""))) %>% 
+  select(student) %>% 
+  # mutate(proyecto = ifelse(is.na(proyecto), " ", proyecto)) %>% 
+  gt() %>% 
+  fmt_markdown(columns = everything()) %>% 
+  cols_width(student ~ px(600)) %>% 
+  tab_style(
+    style = list(
+      cell_text(v_align = "top"),
+      cell_borders(sides = "all", color = "#f5f7f6", style = "solid", weight = px(1))
+      ),
+    locations = cells_body(
+      columns = student)
+  ) %>% 
+  tab_options(
+    column_labels.hidden = TRUE,
+    table.align = "left",
+    table.background.color = "#f5f7f6",
+    table.border.top.style = "hidden",
+    table.border.bottom.style = "hidden"
+  )  
+
+```
+
+
+
+### Anteriores
+
+```{r past-students, results='asis'}
+#| echo: false
+
+gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1834640090") %>%
+  filter(fecha %in% c("pasado")) %>% 
+  mutate(student = ifelse(!is.na(proyecto), 
+                          paste("**", nombre, "**", "<br />",
+                                proyecto, "<br />", 
+                                carrera, "<br />", 
+                                sep = ""),
+                          paste("**", nombre, "**", "<br />",
+                                carrera, "<br />", 
+                                sep = ""))) %>% 
+  select(student) %>% 
+  # mutate(proyecto = ifelse(is.na(proyecto), " ", proyecto)) %>% 
+  gt() %>% 
+  fmt_markdown(columns = everything()) %>% 
+  cols_width(student ~ px(600)) %>% 
+  tab_style(
+    style = list(
+      cell_text(v_align = "top"),
+      cell_borders(sides = "all", color = "#f5f7f6", style = "solid", weight = px(1))
+      ),
+    locations = cells_body(
+      columns = student)
+  ) %>% 
+  tab_options(
+    column_labels.hidden = TRUE,
+    table.align = "left",
+    table.background.color = "#f5f7f6",
+    table.border.top.style = "hidden",
+    table.border.bottom.style = "hidden"
+  )  
+
+```
+
+

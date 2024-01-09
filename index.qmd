@@ -12,7 +12,7 @@ about:
   links:
     - text: Email
       icon: envelope
-      url: "mailto:gsolovey+site@gmail.com"
+      url: "mailto:gsolovey@gmail.com"
     - text: Scholar
       url: "https://scholar.google.com/citations?hl=en&user=N9vE3kgAAAAJ"
 editor: source      
