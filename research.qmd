@@ -47,7 +47,7 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
 
 ```
 
-### Publicaciones
+### Publications
 (\*: *equal contribution*)
 
 ```{r pubs, results='asis'}

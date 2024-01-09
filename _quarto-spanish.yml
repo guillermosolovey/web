@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: _site-spanish
   render:
     - "*.qmd"
 
@@ -13,17 +14,23 @@ website:
       - href: index.qmd
         text: "{{< fa home >}} home"
       - href: research.qmd
-        text: "{{< fa newspaper >}} research"
+        text: "{{< fa newspaper >}} investigación"
       - href: teaching.qmd
-        text: "{{< fa chalkboard-user >}} teaching"
+        text: "{{< fa chalkboard-user >}} docencia"
       - href: grupo.qmd
-        text: "{{< fa people-group >}} students"
+        text: "{{< fa people-group >}} estudiantes"
+    right:
+      - href: ../_site-spanish/
+        text: Español
+      - href: ../_site-english/
+        text: English
 
   page-footer:
     background: "#ffffff"
     right: |
       <a href="https://www.ic.fcen.uba.ar" target="_blank">Instituto de Cálculo</a>
       
+lang: es
 
 format:
   html:
@@ -36,3 +43,4 @@ format:
     backgroundcolor: "#f5f7f6"
 
 editor: visual
+
