@@ -12,7 +12,7 @@ website:
     background: "#ffffff"
     left:
       - href: ./index.qmd
-        text: "{{< fa home >}} home"
+        text: "{{< fa home >}}"
       - href: ./research.qmd
         text: "{{< fa newspaper >}} research"
       - href: ./teaching.qmd

@@ -12,7 +12,7 @@ website:
     background: "#ffffff"
     left:
       - href: ../es/index.html
-        text: "{{< fa home >}} home"
+        text: "{{< fa home >}}"
       - href: ../es/research.html
         text: "{{< fa newspaper >}} investigación"
       - href: ../es/teaching.html
