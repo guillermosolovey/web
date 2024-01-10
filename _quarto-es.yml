@@ -1,0 +1,46 @@
+project:
+  type: website
+  output-dir: ./_site/es
+  render:
+    - "*.qmd"
+
+website:
+  search: false
+  title: "Guillermo Solovey"
+  navbar:
+    pinned: true
+    background: "#ffffff"
+    left:
+      - href: ../es/index.html
+        text: "{{< fa home >}} home"
+      - href: ../es/research.html
+        text: "{{< fa newspaper >}} investigación"
+      - href: ../es/teaching.html
+        text: "{{< fa chalkboard-user >}} docencia"
+      - href: ../es/grupo.html
+        text: "{{< fa people-group >}} estudiantes"
+    right:
+      - href: ../es/
+        text: "Español"
+      - href: ../
+        text: "English"
+
+  page-footer:
+    background: "#ffffff"
+    right: |
+      <a href="https://www.ic.fcen.uba.ar" target="_blank">Instituto de Cálculo</a>
+      
+lang: es
+
+format:
+  html:
+    theme: 
+      - cosmo
+      - custom.scss
+    fontsize: 1.1em
+    linestretch: 1.3
+    toc: true
+    backgroundcolor: "#f5f7f6"
+
+editor: visual
+
