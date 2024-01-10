@@ -14,8 +14,15 @@ require(tidyverse)
 ```
 
 
+::: {.content-visible when-profile="en"}
 ### Pre-prints 
 (\*: *equal contribution*)
+:::
+
+::: {.content-visible when-profile="es"}
+### Pre-prints 
+(\*: *contribuyeron igualitariamente*)
+:::
 
 ```{r preprints, results='asis'}
 #| echo: false
@@ -47,8 +54,16 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
 
 ```
 
+
+::: {.content-visible when-profile="en"}
 ### Publications
 (\*: *equal contribution*)
+:::
+
+::: {.content-visible when-profile="es"}
+### Publicaciones
+(\*: *contribuyeron igualitariamente*)
+:::
 
 ```{r pubs, results='asis'}
 #| echo: false

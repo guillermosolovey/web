@@ -12,7 +12,13 @@ require(gtExtras)
 require(tidyverse)
 ```
 
+
+::: {.content-visible when-profile="en"}
 ### Courses
+:::
+::: {.content-visible when-profile="es"}
+### Cursos
+:::
 
 ```{r teaching, results='asis'}
 #| echo: false

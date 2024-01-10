@@ -12,7 +12,13 @@ require(gtExtras)
 require(tidyverse)
 ```
 
-### Current
+
+::: {.content-visible when-profile="en"}
+### Current students
+:::
+::: {.content-visible when-profile="es"}
+### Actuales
+:::
 
 ```{r current-students, results='asis'}
 #| echo: false
@@ -52,8 +58,13 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
 ```
 
 
+::: {.content-visible when-profile="en"}
+### Past students
+:::
+::: {.content-visible when-profile="es"}
+### Anteriores
+:::
 
-### Past
 
 ```{r past-students, results='asis'}
 #| echo: false
