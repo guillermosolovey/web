@@ -21,7 +21,7 @@ require(tidyverse)
 
 ::: {.content-visible when-profile="es"}
 ### Pre-prints 
-(\*: *contribuyeron igualitariamente*)
+(\*: *igual contribución*)
 :::
 
 ```{r preprints, results='asis'}
