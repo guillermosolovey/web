@@ -25,7 +25,7 @@ editor: source
 ::: {.content-visible when-profile="en"}
 Professor at the University of Buenos Aires. 
 
-Vice-chair of the [Instituto de Cálculo](http://www.ic.fcen.uba.ar). 
+Chair of the [Instituto de Cálculo](http://www.ic.fcen.uba.ar). 
 
 [Full CV](CV-Solovey-eng.pdf)
 
@@ -33,7 +33,7 @@ Research interests: cognitive science, statistics, data science.
 :::
 
 ::: {.content-visible when-profile="es"}
-Soy profesor de [Exactas-UBA](http://www.exactas.uba.ar), investigador de CONICET y vice-director del [Instituto de Cálculo](http://www.ic.fcen.uba.ar). Este es mi [cv completo](CV-Solovey.pdf).
+Soy profesor de [Exactas-UBA](http://www.exactas.uba.ar), investigador de CONICET y Director del [Instituto de Cálculo](http://www.ic.fcen.uba.ar). Este es mi [cv completo](CV-Solovey.pdf).
 
 Mi área de investigación es ciencias cognitivas. Con mi [grupo](grupo.html) de trabajo hacemos experimentos y modelos computacionales para entender el proceso de toma de decisiones humanas, el rol de la incertidumbre y la metacognición. Dicto [materias](teaching.html) de ciencia de datos, estadística bayesiana, reproducibilidad y visualización.
 :::
