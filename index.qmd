@@ -22,6 +22,10 @@ editor: source
 <!-- "quarto render --profile es" -->
 <!-- luego, desde este qmd, hacer Render -->
 
+<!-- require(usethis) -->
+<!-- usethis::create_github_token() -->
+<!-- gitcreds::gitcreds_set() -->
+
 ::: {.content-visible when-profile="en"}
 Professor at the University of Buenos Aires. 
 
