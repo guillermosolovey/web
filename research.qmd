@@ -38,16 +38,15 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
   mutate(paper = ifelse(!is.na(url),    paste(paper, "[pdf]", "(", url, ")", sep = ""), paper)) %>% 
   mutate(paper = ifelse(!is.na(github), paste(paper, "| [github]", "(", github, ")", sep = ""), paper)) %>% 
   mutate(paper = ifelse(!is.na(osf),    paste(paper, "| [osf]", "(", osf, ")", sep = ""), paper)) %>% 
-  select(year, paper) %>% 
+  select(paper) %>% 
   gt() %>% 
   fmt_markdown(columns = everything()) %>% 
-  cols_width(year ~ px(50),
-             paper ~ px(600)) %>% 
-  tab_style(
-    style = cell_text(v_align = "top", weight = "bold"),
-    locations = cells_body(
-      columns = year)
-    ) %>% 
+  cols_width(paper ~ px(600)) %>% 
+  # tab_style(
+  #   style = cell_text(v_align = "top", weight = "bold"),
+  #   locations = cells_body(
+  #     columns = year)
+  #   ) %>% 
   tab_options(
     column_labels.hidden = TRUE,
      table.background.color = "#f5f7f6") 
