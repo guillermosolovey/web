@@ -14,7 +14,7 @@ require(tidyverse)
 
 
 ::: {.content-visible when-profile="en"}
-### Current students
+### Current 
 :::
 ::: {.content-visible when-profile="es"}
 ### Actuales
