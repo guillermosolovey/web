@@ -27,7 +27,7 @@ editor: source
 <!-- gitcreds::gitcreds_set() -->
 
 ::: {.content-visible when-profile="en"}
-Professor at the University of Buenos Aires, on leave. Currently Visiting Professor at the Business School of Torcuato Di Tella University.
+Currently Visiting Professor at the Business School of Torcuato Di Tella University. Professor at the University of Buenos Aires, on leave. 
 
 Independent Researcher at CONICET.
 
@@ -39,7 +39,7 @@ Research interests: cognitive science, statistics, data science.
 :::
 
 ::: {.content-visible when-profile="es"}
-Soy profesor de [Exactas-UBA](http://www.exactas.uba.ar) (en licencia), investigador Independiente de CONICET y Director del [Instituto de Cálculo](http://www.ic.fcen.uba.ar). Este es mi [cv completo](CV-Solovey.pdf). Actualmente soy Profesor Visitante de la Escuela de Negocios de la Universidad Torcuato Di Tella.
+Actualmente soy Profesor Visitante de la Escuela de Negocios de la Universidad Torcuato Di Tella. Soy investigador Independiente de CONICET en el [Instituto de Cálculo](http://www.ic.fcen.uba.ar) y profesor (en licencia) de [Exactas-UBA](http://www.exactas.uba.ar). Este es mi [cv completo](CV-Solovey.pdf). 
 
 Mi área de investigación es ciencias cognitivas. Con mi [grupo](grupo.html) de trabajo hacemos experimentos y modelos computacionales para entender el proceso de toma de decisiones humanas, el rol de la incertidumbre y la metacognición. Dicto [materias](teaching.html) de ciencia de datos, estadística bayesiana, reproducibilidad y visualización.
 :::
