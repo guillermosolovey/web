@@ -29,9 +29,7 @@ editor: source
 ::: {.content-visible when-profile="en"}
 Currently Visiting Professor at the Business School of Torcuato Di Tella University. Professor at the University of Buenos Aires, on leave. 
 
-Independent Researcher at CONICET.
-
-Chair of the [Instituto de Cálculo](http://www.ic.fcen.uba.ar). 
+Independent CONICET Researcher at [Instituto de Cálculo](http://www.ic.fcen.uba.ar). 
 
 [Full CV](CV-Solovey-eng.pdf)
 
