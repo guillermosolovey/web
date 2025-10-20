@@ -18,7 +18,7 @@ website:
       - href: ./teaching.qmd
         text: "{{< fa chalkboard-user >}} teaching"
       - href: ./grupo.qmd
-        text: "{{< fa people-group >}} students"
+        text: "{{< fa people-group >}} group"
     right:
       - href: ../es/
         text: "Español"

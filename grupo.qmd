@@ -59,7 +59,7 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
 
 
 ::: {.content-visible when-profile="en"}
-### Past students
+### Past members
 :::
 ::: {.content-visible when-profile="es"}
 ### Anteriores
