@@ -120,6 +120,7 @@ PDF files live in `publications/` with naming convention `YYYY_AuthorLastname.pd
 - [ ] **Google Sheet privado** — migrate from `gsheet` to `googlesheets4` with service account auth
 - [ ] **Auto-update via GitHub Actions** — scheduled workflow to render and deploy automatically
 - [ ] **Abstracts colapsables** — add abstract column to publicaciones sheet, implement toggle in research.qmd
+- [ ] **Actividades de extensión** — agregar sección o página con contenido de la hoja gid=117290007 del Google Sheet
 - [ ] Remove `gt` and `gtExtras` dependencies (no longer used after switching to list format)
 - [ ] Add `.gitattributes` to fix LF/CRLF warnings on Windows
 
