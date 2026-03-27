@@ -19,6 +19,8 @@ website:
         text: "{{< fa chalkboard-user >}} docencia"
       - href: ../es/grupo.html
         text: "{{< fa people-group >}} grupo"
+      - href: ../es/media.html
+        text: "{{< fa satellite-dish >}} medios"
     right:
       - href: ../es/index.html
         text: "Español"

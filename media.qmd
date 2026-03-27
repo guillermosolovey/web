@@ -1,0 +1,97 @@
+---
+title: ""
+toc: false
+editor: source
+---
+
+```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
+library(gsheet)
+library(tidyverse)
+
+MEDIA_SHEET_URL  <- "https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=625135132"
+PUBS_SHEET_URL   <- "https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1000751275"
+```
+
+::: {.content-visible when-profile="en"}
+### Interviews & press
+:::
+::: {.content-visible when-profile="es"}
+### Entrevistas y prensa
+:::
+
+```{r interviews, results='asis'}
+#| echo: false
+
+media <- gsheet2tbl(MEDIA_SHEET_URL) %>%
+  arrange(desc(year))
+
+for (i in seq_len(nrow(media))) {
+  m <- media[i, ]
+
+  title_str <- if (!is.na(m$url) && m$url != "")
+    paste0("[**", m$title, "**](", m$url, ")")
+  else
+    paste0("**", m$title, "**")
+
+  medio_str <- if (!is.na(m$medio) && m$medio != "")
+    paste0("*", m$medio, "*\\\n") else ""
+
+  # Build links
+  links <- character(0)
+  if (!is.na(m$url)  && m$url  != "") links <- c(links, paste0('[link](', m$url, ')'))
+  if (!is.na(m$url2) && m$url2 != "") links <- c(links, paste0('[link 2](', m$url2, ')'))
+  links_html <- if (length(links) > 0) {
+    paste0(
+      '<span class="pub-links">',
+      paste(sapply(links, function(l) {
+        mt <- regmatches(l, regexec("\\[(.+?)\\]\\((.+?)\\)", l))[[1]]
+        paste0('<a href="', mt[3], '">', mt[2], '</a>')
+      }), collapse = ""),
+      '</span>'
+    )
+  } else ""
+
+  cat(paste0(
+    '::: {.pub-entry}\n',
+    '**', m$title, '**\\\n',
+    medio_str,
+    m$year, '\\\n',
+    links_html, '\n',
+    ':::\n\n'
+  ))
+}
+```
+
+::: {.content-visible when-profile="en"}
+### Articles & outreach
+:::
+::: {.content-visible when-profile="es"}
+### Artículos de divulgación
+:::
+
+```{r outreach, results='asis'}
+#| echo: false
+
+outreach <- gsheet2tbl(PUBS_SHEET_URL) %>%
+  filter(type == "media") %>%
+  arrange(desc(year))
+
+for (i in seq_len(nrow(outreach))) {
+  p <- outreach[i, ]
+  title_str <- if (!is.na(p$url) && p$url != "")
+    paste0("[**", p$title, "**](", p$url, ")")
+  else
+    paste0("**", p$title, "**")
+
+  journal_str <- if (!is.na(p$journaltitle) && p$journaltitle != "")
+    paste0("*", p$journaltitle, "*\\\n") else ""
+
+  cat(paste0(
+    '::: {.pub-entry}\n',
+    title_str, '\\\n',
+    journal_str,
+    p$year, '\n',
+    ':::\n\n'
+  ))
+}
+```

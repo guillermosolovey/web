@@ -5,13 +5,11 @@ editor: source
 ---
 
 ```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
-library(fontawesome)
 library(gsheet)
-library(gt)
-library(gtExtras)
 library(tidyverse)
-```
 
+SHEET_URL <- "https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=852428719"
+```
 
 ::: {.content-visible when-profile="en"}
 ### Courses
@@ -23,20 +21,28 @@ library(tidyverse)
 ```{r teaching, results='asis'}
 #| echo: false
 
-gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=852428719") %>%
-  filter(cargo %in% c("prof","doc")) %>% 
-  mutate(materia = ifelse(!is.na(url), paste("[", materia, "]", "(", url , ")", sep = ""), materia)) %>% 
-  select(year, materia, carrera) %>% 
-  gt() %>% 
-  fmt_markdown(columns = everything()) %>% 
-  cols_width(year ~ px(50)) %>% 
-  tab_style(
-    style = cell_text(v_align = "top"),
-    locations = cells_body(
-      columns = everything())
-    ) %>% 
-  tab_options(
-    column_labels.hidden = TRUE,
-     table.background.color = "#f5f7f6") 
+courses <- gsheet2tbl(SHEET_URL) %>%
+  filter(cargo %in% c("prof", "doc")) %>%
+  mutate(
+    materia = ifelse(!is.na(url) & url != "",
+                     paste0("[", materia, "](", url, ")"),
+                     materia)
+  ) %>%
+  arrange(desc(year))
 
+years <- unique(courses$year)
+
+for (yr in years) {
+  cat(paste0("#### ", yr, "\n\n"))
+  yr_courses <- filter(courses, year == yr)
+  for (i in seq_len(nrow(yr_courses))) {
+    c <- yr_courses[i, ]
+    cat(paste0(
+      '::: {.pub-entry}\n',
+      '**', c$materia, '**\\\n',
+      '*', c$carrera, '*\n',
+      ':::\n\n'
+    ))
+  }
+}
 ```
