@@ -1,17 +1,55 @@
 /*-- scss:defaults --*/
 $h1-font-size:          1.6rem !default;
-$h2-font-size:          1.6rem !default;
-$h3-font-size:          1.2rem !default;
+$h2-font-size:          1.4rem !default;
+$h3-font-size:          1.15rem !default;
 $font-size-root:        1.0rem !default;
 $headings-font-weight:  500 !default;
 
+// Base colors
+$body-bg:               #ffffff;
+$body-color:            #2d2d2d;
+$link-color:            #2c5f8a;
+
 /*-- scss:rules --*/
-h1, h2, h3, h4, h5, h6 {
-  text-shadow: -1px -1px 0 rgba(0, 0, 0, .3);
+
+// Clean navbar with subtle border
+.navbar {
+  border-bottom: 1px solid #e8e8e8;
+  box-shadow: none !important;
 }
 
-/*-- scss:defaults --*/
-// Base document colors
-$body-bg: white;
-$body-color: black;
-$link-color: darkblue;
+// Publications list
+.pub-entry {
+  margin-bottom: 1.6rem;
+  line-height: 1.65;
+}
+
+// Year headers inside publication list
+h4.anchored {
+  font-size: 1.0rem;
+  font-weight: 600;
+  color: #888;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 0.35rem;
+  margin-top: 2rem;
+  margin-bottom: 1.1rem;
+}
+
+// Small pill-style links [pdf] [github] etc.
+.pub-links a {
+  display: inline-block;
+  font-size: 0.78rem;
+  color: #2c5f8a;
+  border: 1px solid #bcd0e0;
+  border-radius: 3px;
+  padding: 1px 7px;
+  margin-right: 4px;
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+.pub-links a:hover {
+  background-color: #eef4f9;
+  text-decoration: none;
+}

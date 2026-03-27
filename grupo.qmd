@@ -5,11 +5,11 @@ editor: source
 ---
 
 ```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
-require(fontawesome)
-require(gsheet)
-require(gt)
-require(gtExtras)
-require(tidyverse)
+library(fontawesome)
+library(gsheet)
+library(gt)
+library(gtExtras)
+library(tidyverse)
 ```
 
 
@@ -34,11 +34,10 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
                           paste("**", nombre, "**", "<br />",
                                 carrera, "<br />", 
                                 sep = ""))) %>% 
-  select(student) %>% 
-  # mutate(proyecto = ifelse(is.na(proyecto), " ", proyecto)) %>% 
-  gt() %>% 
-  fmt_markdown(columns = everything()) %>% 
-  cols_width(student ~ px(600)) %>% 
+  select(student) %>%
+  gt() %>%
+  fmt_markdown(columns = everything()) %>%
+  cols_width(student ~ px(600)) %>%
   tab_style(
     style = list(
       cell_text(v_align = "top"),
@@ -46,14 +45,14 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
       ),
     locations = cells_body(
       columns = student)
-  ) %>% 
+  ) %>%
   tab_options(
     column_labels.hidden = TRUE,
     table.align = "left",
     table.background.color = "#f5f7f6",
     table.border.top.style = "hidden",
     table.border.bottom.style = "hidden"
-  )  
+  )
 
 ```
 
@@ -70,17 +69,16 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
 #| echo: false
 
 gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1834640090") %>%
-  filter(fecha %in% c("pasado")) %>% 
-  mutate(student = ifelse(!is.na(proyecto), 
+  filter(fecha %in% c("pasado")) %>%
+  mutate(student = ifelse(!is.na(proyecto),
                           paste("**", nombre, "**", "<br />",
-                                proyecto, "<br />", 
-                                carrera, "<br />", 
+                                proyecto, "<br />",
+                                carrera, "<br />",
                                 sep = ""),
                           paste("**", nombre, "**", "<br />",
-                                carrera, "<br />", 
-                                sep = ""))) %>% 
-  select(student) %>% 
-  # mutate(proyecto = ifelse(is.na(proyecto), " ", proyecto)) %>% 
+                                carrera, "<br />",
+                                sep = ""))) %>%
+  select(student) %>%
   gt() %>% 
   fmt_markdown(columns = everything()) %>% 
   cols_width(student ~ px(600)) %>% 

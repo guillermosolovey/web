@@ -11,18 +11,18 @@ website:
     pinned: true
     background: "#ffffff"
     left:
-      - href: ./index.qmd
+      - href: ./index.html
         text: "{{< fa home >}}"
-      - href: ./research.qmd
+      - href: ./research.html
         text: "{{< fa newspaper >}} research"
-      - href: ./teaching.qmd
+      - href: ./teaching.html
         text: "{{< fa chalkboard-user >}} teaching"
-      - href: ./grupo.qmd
+      - href: ./grupo.html
         text: "{{< fa people-group >}} group"
     right:
-      - href: ../es/
+      - href: ./es/index.html
         text: "Español"
-      - href: ../
+      - href: ./
         text: "English"
 
   page-footer:
@@ -34,13 +34,13 @@ lang: en
 
 format:
   html:
-    theme: 
-      - cosmo
+    theme:
+      - flatly
       - custom.scss
-    fontsize: 1.1em
-    linestretch: 1.3
+    fontsize: 1.05em
+    linestretch: 1.5
     toc: true
-    backgroundcolor: "#f5f7f6"
+    backgroundcolor: "#ffffff"
 
 editor: visual
 

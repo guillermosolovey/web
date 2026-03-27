@@ -5,11 +5,11 @@ editor: source
 ---
 
 ```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
-require(fontawesome)
-require(gsheet)
-require(gt)
-require(gtExtras)
-require(tidyverse)
+library(fontawesome)
+library(gsheet)
+library(gt)
+library(gtExtras)
+library(tidyverse)
 ```
 
 

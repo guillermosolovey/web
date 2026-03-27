@@ -6,51 +6,74 @@ editor: source
 
 
 ```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
-require(fontawesome)
-require(gsheet)
-require(gt)
-require(gtExtras)
-require(tidyverse)
+library(fontawesome)
+library(gsheet)
+library(gt)
+library(gtExtras)
+library(tidyverse)
+
+# Helper: render one publication entry as markdown
+render_entry <- function(p, use_pdf_col = FALSE) {
+  # Title linked to URL
+  title_link <- if (!is.na(p$url) && p$url != "") {
+    paste0("[**", p$title, "**](", p$url, ")")
+  } else {
+    paste0("**", p$title, "**")
+  }
+
+  # Build links
+  links <- character(0)
+  if (use_pdf_col && !is.na(p$pdf) && p$pdf != "") {
+    links <- c(links, paste0("[pdf](/publications/", p$pdf, ")"))
+  } else if (!use_pdf_col && !is.na(p$url) && p$url != "") {
+    links <- c(links, paste0("[pdf](", p$url, ")"))
+  }
+  if (!is.na(p$github) && p$github != "") links <- c(links, paste0("[github](", p$github, ")"))
+  if (!is.na(p$osf)    && p$osf    != "") links <- c(links, paste0("[osf](", p$osf, ")"))
+
+  links_html <- if (length(links) > 0) {
+    paste0(
+      '<span class="pub-links">',
+      paste(sapply(links, function(l) {
+        m <- regmatches(l, regexec("\\[(.+?)\\]\\((.+?)\\)", l))[[1]]
+        paste0('<a href="', m[3], '">', m[2], '</a>')
+      }), collapse = ""),
+      '</span>'
+    )
+  } else ""
+
+  cat(paste0(
+    '::: {.pub-entry}\n',
+    title_link, '\\\n',
+    p$author, '\\\n',
+    '*', p$journaltitle, '*\\\n',
+    links_html, '\n',
+    ':::\n\n'
+  ))
+}
 ```
 
 
 ::: {.content-visible when-profile="en"}
-### Pre-prints 
+### Pre-prints
 (\*: *equal contribution*)
 :::
 
 ::: {.content-visible when-profile="es"}
-### Pre-prints 
+### Pre-prints
 (\*: *igual contribución*)
 :::
 
 ```{r preprints, results='asis'}
 #| echo: false
 
-gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1000751275") %>% 
-  filter(type == "pre-print") %>% 
-  mutate(author = str_replace_all(author, "G. Solovey", "**G. Solovey**")) %>% 
-  mutate(paper = paste("[**", title, "**]", "(", url , ")" , "<br />",
-                         author, "<br />", 
-                        "*",  journaltitle, "*", "<br />",
-                         sep = "")) %>%  ## OJO ACA PUSE URL
-                         # "[pdf]", "(", url, ")", sep = "")) %>%  ## OJO ACA PUSE URL
-  mutate(paper = ifelse(!is.na(url),    paste(paper, "[pdf]", "(", url, ")", sep = ""), paper)) %>% 
-  mutate(paper = ifelse(!is.na(github), paste(paper, "| [github]", "(", github, ")", sep = ""), paper)) %>% 
-  mutate(paper = ifelse(!is.na(osf),    paste(paper, "| [osf]", "(", osf, ")", sep = ""), paper)) %>% 
-  select(paper) %>% 
-  gt() %>% 
-  fmt_markdown(columns = everything()) %>% 
-  cols_width(paper ~ px(600)) %>% 
-  # tab_style(
-  #   style = cell_text(v_align = "top", weight = "bold"),
-  #   locations = cells_body(
-  #     columns = year)
-  #   ) %>% 
-  tab_options(
-    column_labels.hidden = TRUE,
-     table.background.color = "#f5f7f6") 
+preprints <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1000751275") %>%
+  filter(type == "pre-print") %>%
+  mutate(author = str_replace_all(author, "G. Solovey", "**G. Solovey**"))
 
+for (i in seq_len(nrow(preprints))) {
+  render_entry(preprints[i, ], use_pdf_col = FALSE)
+}
 ```
 
 
@@ -67,29 +90,16 @@ gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoH
 ```{r pubs, results='asis'}
 #| echo: false
 
-gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1000751275") %>% 
-  filter(type == "Article") %>% 
-  mutate(author = str_replace_all(author, "G. Solovey", "**G. Solovey**")) %>% 
-  mutate(paper = paste("[**", title, "**]", "(", url , ")" , "<br />",
-                         author, "<br />", 
-                        "*",  journaltitle, "*", "<br />", 
-                         "[pdf]", "(/publications/", pdf, ")", sep = "")) %>% 
-  mutate(paper = ifelse(!is.na(github), paste(paper, "| [github]", "(", github, ")", sep = ""), paper)) %>% 
-  mutate(paper = ifelse(!is.na(osf), paste(paper, "| [osf]", "(", osf, ")", sep = ""), paper)) %>% 
-  select(year, paper) %>% 
-  gt() %>% 
-  fmt_markdown(columns = everything()) %>% 
-  cols_width(year ~ px(50),
-             paper ~ px(600)) %>% 
-  tab_style(
-    style = cell_text(v_align = "top", weight = "bold"),
-    locations = cells_body(
-      columns = year)
-    ) %>% 
-  tab_options(
-    column_labels.hidden = TRUE,
-     table.background.color = "#f5f7f6"
-    ) 
+pubs <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1000751275") %>%
+  filter(type == "Article") %>%
+  mutate(author = str_replace_all(author, "G. Solovey", "**G. Solovey**")) %>%
+  arrange(desc(year))
 
+for (yr in unique(pubs$year)) {
+  cat(paste0("#### ", yr, "\n\n"))
+  yr_pubs <- filter(pubs, year == yr)
+  for (i in seq_len(nrow(yr_pubs))) {
+    render_entry(yr_pubs[i, ], use_pdf_col = TRUE)
+  }
+}
 ```
-
