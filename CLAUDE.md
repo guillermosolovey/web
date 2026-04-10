@@ -88,6 +88,8 @@ All dynamic content is fetched with `gsheet::gsheet2tbl()`. Single spreadsheet:
 | grupo.qmd    | group     | grupo        |
 | media.qmd    | media     | medios       |
 
+CV also appears in both navbars: links to `CV-Solovey-eng.pdf` (EN) and `es/CV-Solovey.pdf` (ES).
+
 ### Styling
 
 - Theme: `flatly` (Bootstrap) + `custom.scss`
@@ -123,6 +125,10 @@ PDF files live in `publications/` with naming convention `YYYY_AuthorLastname.pd
 - [ ] **Actividades de extensión** — agregar sección o página con contenido de la hoja gid=117290007 del Google Sheet
 - [ ] Remove `gt` and `gtExtras` dependencies (no longer used after switching to list format)
 - [ ] Add `.gitattributes` to fix LF/CRLF warnings on Windows
+- [ ] **Figuras por paper** — agregar columna `fig` en el Google Sheet (publicaciones) con URL de imagen por paper; implementar thumbnail a la izquierda de cada entrada en research.qmd. Estructura ya discutida, en espera de imágenes.
+- [ ] **Charlas y presentaciones futuras** — agregar `type == "talk"` en el Google Sheet (publicaciones); mostrar en research.qmd con etiqueta "Upcoming" para las que no ocurrieron aún. En espera de que Guillermo cargue datos.
+- [ ] **Unificar cuentas de GitHub** — actualmente `guillermosolovey` (personal, en el home) y `gsolovey-utdt` (Di Tella, en apps de teaching). Evaluar si consolidar en una sola cuenta.
+- [ ] **Merge a main** — cuando nueva-version esté lista, mergear a main para publicar en gsolovey.netlify.app
 
 ## Known issues
 
