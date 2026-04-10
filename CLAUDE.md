@@ -31,7 +31,7 @@ The `freeze: auto` setting means R code chunks are only re-executed when their s
 
 1. Pause Dropbox
 2. `quarto render --profile en` then `quarto render --profile es`
-3. `git add _site/ _freeze/` and commit
+3. `git add _site/ _freeze/` and commit — **always include `_site/` after rendering or Netlify will deploy stale HTML**
 4. `git push` → Netlify auto-deploys from the branch
 
 **Branches:**
