@@ -21,6 +21,8 @@ website:
         text: "{{< fa people-group >}} grupo"
       - href: ../es/media.html
         text: "{{< fa satellite-dish >}} medios"
+      - href: ../es/CV-Solovey.pdf
+        text: "{{< fa file >}} cv"
     right:
       - href: ../es/index.html
         text: "Español"

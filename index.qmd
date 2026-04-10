@@ -15,6 +15,8 @@ about:
       url: "mailto:gsolovey@gmail.com"
     - text: "{{< iconify academicons google-scholar >}} Google Scholar"
       url: "https://scholar.google.com/citations?hl=en&user=N9vE3kgAAAAJ"
+    - text: "{{< fa brands github >}} GitHub"
+      url: "https://github.com/guillermosolovey"
 editor: source      
 ---
 
@@ -27,19 +29,27 @@ editor: source
 <!-- gitcreds::gitcreds_set() -->
 
 ::: {.content-visible when-profile="en"}
-Currently Visiting Professor at the Business School of Torcuato Di Tella University. Professor at the University of Buenos Aires, on leave. 
+Visiting Professor at the Business School of Torcuato Di Tella University, Independent Researcher at CONICET, and Professor at the University of Buenos Aires (currently on leave). In 2024 I served as Director of the [Instituto de Cálculo](http://www.ic.fcen.uba.ar).
 
-Independent CONICET Researcher at [Instituto de Cálculo](http://www.ic.fcen.uba.ar). 
+My research is in cognitive science, with a focus on human decision-making, the role of uncertainty, and metacognition. I combine behavioral experiments with statistical and computational models to understand the processes underlying cognition and behavior.
+
+I hold a degree and PhD in Physics from the University of Buenos Aires. From 2009 to 2013 I was a postdoctoral fellow at Columbia University and The Rockefeller University in New York. My work has appeared in journals of experimental psychology, neuroscience, cognition, and consciousness.
+
+As a teacher, I have taught undergraduate and graduate courses in statistics, data visualization, and behavioral science. I have also participated in training programs on statistical literacy for public officials and journalists.
 
 [Full CV](CV-Solovey-eng.pdf)
-
-Research interests: cognitive science, statistics, data science.
 :::
 
 ::: {.content-visible when-profile="es"}
-Actualmente soy Profesor Visitante de la Escuela de Negocios de la Universidad Torcuato Di Tella. Soy investigador Independiente de CONICET en el [Instituto de Cálculo](http://www.ic.fcen.uba.ar) y profesor (en licencia) de [Exactas-UBA](http://www.exactas.uba.ar). Este es mi [cv completo](CV-Solovey.pdf). 
+Profesor Visitante en la Escuela de Negocios de la Universidad Torcuato Di Tella, Investigador Independiente de CONICET y Profesor de la Universidad de Buenos Aires (actualmente en licencia). En 2024 fui Director del [Instituto de Cálculo](http://www.ic.fcen.uba.ar).
 
-Mi área de investigación es ciencias cognitivas. Con mi [grupo](grupo.html) de trabajo hacemos experimentos y modelos computacionales para entender el proceso de toma de decisiones humanas, el rol de la incertidumbre y la metacognición. Dicto [materias](teaching.html) de ciencia de datos, estadística bayesiana, reproducibilidad y visualización.
+Mi investigación es en ciencias cognitivas, con foco en la toma de decisiones humanas, el rol de la incertidumbre y la metacognición. Combino experimentos conductuales con modelos estadísticos y computacionales para comprender los procesos subyacentes a la cognición y el comportamiento.
+
+Soy Licenciado y Doctor en Física por la Universidad de Buenos Aires. Entre 2009 y 2013 realicé estudios posdoctorales en la Universidad de Columbia y The Rockefeller University en Nueva York. Mis trabajos han sido publicados en revistas de psicología experimental, neurociencia, cognición y conciencia.
+
+Como docente, he dictado cursos de grado y posgrado en estadística, visualización de datos y ciencias del comportamiento. También he participado en capacitaciones sobre alfabetización estadística para funcionarios públicos y periodistas.
+
+[CV completo](CV-Solovey.pdf)
 :::
 
 

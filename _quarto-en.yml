@@ -21,10 +21,12 @@ website:
         text: "{{< fa people-group >}} group"
       - href: ./media.html
         text: "{{< fa satellite-dish >}} media"
+      - href: ./CV-Solovey-eng.pdf
+        text: "{{< fa file >}} cv"
     right:
       - href: ./es/index.html
         text: "Español"
-      - href: ./
+      - href: ./index.html
         text: "English"
 
   page-footer:

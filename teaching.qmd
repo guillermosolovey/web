@@ -12,9 +12,67 @@ SHEET_URL <- "https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQP
 ```
 
 ::: {.content-visible when-profile="en"}
+I have taught undergraduate and graduate courses at the University of Buenos Aires and Torcuato Di Tella University, covering statistics, Bayesian inference, data visualization, and behavioral science. I have also led training workshops on statistical literacy for public officials and journalists. My teaching aims to connect rigorous quantitative methods with real-world reasoning and decision-making.
+
+### Interactive Apps
+
+A collection of experiments and visualizations built for the course *Neurociencia y Psicología Experimental* at Torcuato Di Tella University. Try them in your browser — no installation needed.
+
+:::: {.pub-entry}
+**Experiments**
+
+::: {.pub-links}
+[Two-Armed Bandit](https://gsolovey-utdt.github.io/two-armed-bandit/) —
+[Stroop](https://gsolovey-utdt.github.io/stroop/) —
+[Gambling Game](https://gsolovey-utdt.github.io/azar/) —
+[Detection Threshold](https://gsolovey-utdt.github.io/umbral-de-deteccion/) —
+[Digit Memory](https://gsolovey-utdt.github.io/memoria-de-digitos/)
+:::
+::::
+
+:::: {.pub-entry}
+**Visualizations & Games**
+
+::: {.pub-links}
+[Correlation](https://gsolovey-utdt.github.io/correlacion/) —
+[Random Assignment](https://gsolovey-utdt.github.io/asignacion_aleatoria/) —
+[Random Sampling](https://gsolovey-utdt.github.io/muestreo_aleatorio/) —
+[Set](https://gsolovey-utdt.github.io/set/)
+:::
+::::
+
 ### Courses
 :::
 ::: {.content-visible when-profile="es"}
+Dicté cursos de grado y posgrado en la Universidad de Buenos Aires y la Universidad Torcuato Di Tella, en áreas como estadística, inferencia bayesiana, visualización de datos y ciencias del comportamiento. También coordiné capacitaciones sobre alfabetización estadística para funcionarios públicos y periodistas. Mi enfoque busca conectar métodos cuantitativos rigurosos con el razonamiento y la toma de decisiones en contextos reales.
+
+### Aplicaciones interactivas
+
+Una colección de experimentos y visualizaciones desarrollados para el curso *Neurociencia y Psicología Experimental* en la Universidad Torcuato Di Tella. Se pueden usar directamente en el navegador, sin instalación.
+
+:::: {.pub-entry}
+**Experimentos**
+
+::: {.pub-links}
+[Two-Armed Bandit](https://gsolovey-utdt.github.io/two-armed-bandit/) —
+[Stroop](https://gsolovey-utdt.github.io/stroop/) —
+[Juego del Azar](https://gsolovey-utdt.github.io/azar/) —
+[Umbral de Detección](https://gsolovey-utdt.github.io/umbral-de-deteccion/) —
+[Memoria de Dígitos](https://gsolovey-utdt.github.io/memoria-de-digitos/)
+:::
+::::
+
+:::: {.pub-entry}
+**Visualizaciones y Juegos**
+
+::: {.pub-links}
+[Correlación](https://gsolovey-utdt.github.io/correlacion/) —
+[Asignación aleatoria](https://gsolovey-utdt.github.io/asignacion_aleatoria/) —
+[Muestreo aleatorio](https://gsolovey-utdt.github.io/muestreo_aleatorio/) —
+[Set](https://gsolovey-utdt.github.io/set/)
+:::
+::::
+
 ### Cursos
 :::
 

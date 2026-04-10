@@ -13,9 +13,13 @@ PUBS_SHEET_URL   <- "https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP8
 ```
 
 ::: {.content-visible when-profile="en"}
+This page collects media appearances — interviews, press coverage, and radio segments — as well as outreach articles written for general audiences. Jump to: [Interviews & press](#interviews-press) · [Articles & outreach](#articles-outreach)
+
 ### Interviews & press
 :::
 ::: {.content-visible when-profile="es"}
+Esta página reúne apariciones en medios —entrevistas, notas de prensa y segmentos de radio— y artículos de divulgación escritos para el público general. Ir a: [Entrevistas y prensa](#entrevistas-y-prensa) · [Artículos de divulgación](#artículos-de-divulgación)
+
 ### Entrevistas y prensa
 :::
 
