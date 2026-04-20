@@ -23,21 +23,22 @@ SHEET_URL <- "https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQP
 #| echo: false
 
 members <- gsheet2tbl(SHEET_URL)
-
 current <- members %>% filter(fecha == "actual")
 
+cat('<div class="members-grid">\n')
 for (i in seq_len(nrow(current))) {
   m <- current[i, ]
-  proyecto_line <- if (!is.na(m$proyecto) && m$proyecto != "")
-    paste0(m$proyecto, "\\\n") else ""
+  proyecto_html <- if (!is.na(m$proyecto) && m$proyecto != "")
+    paste0('<div class="member-project">', m$proyecto, '</div>\n') else ""
   cat(paste0(
-    '::: {.pub-entry .current-member}\n',
-    '**', m$nombre, '**\\\n',
-    proyecto_line,
-    '*', m$carrera, '*\n',
-    ':::\n\n'
+    '<div class="member-card">\n',
+    '<div class="member-name">', m$nombre, '</div>\n',
+    proyecto_html,
+    '<div class="member-carrera">', m$carrera, '</div>\n',
+    '</div>\n'
   ))
 }
+cat('</div>\n\n')
 ```
 
 ::: {.content-visible when-profile="en"}
@@ -52,16 +53,18 @@ for (i in seq_len(nrow(current))) {
 
 past <- members %>% filter(fecha == "pasado")
 
+cat('<div class="members-grid">\n')
 for (i in seq_len(nrow(past))) {
   m <- past[i, ]
-  proyecto_line <- if (!is.na(m$proyecto) && m$proyecto != "")
-    paste0(m$proyecto, "\\\n") else ""
+  proyecto_html <- if (!is.na(m$proyecto) && m$proyecto != "")
+    paste0('<div class="member-project">', m$proyecto, '</div>\n') else ""
   cat(paste0(
-    '::: {.pub-entry .past-member}\n',
-    '**', m$nombre, '**\\\n',
-    proyecto_line,
-    '*', m$carrera, '*\n',
-    ':::\n\n'
+    '<div class="member-card">\n',
+    '<div class="member-name">', m$nombre, '</div>\n',
+    proyecto_html,
+    '<div class="member-carrera">', m$carrera, '</div>\n',
+    '</div>\n'
   ))
 }
+cat('</div>\n\n')
 ```

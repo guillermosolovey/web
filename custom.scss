@@ -1,115 +1,180 @@
 /*-- scss:defaults --*/
-$h1-font-size:          1.6rem !default;
-$h2-font-size:          1.4rem !default;
-$h3-font-size:          1.15rem !default;
-$font-size-root:        1.0rem !default;
-$headings-font-weight:  500 !default;
+$h1-font-size:           1.6rem !default;
+$h2-font-size:           1.4rem !default;
+$h3-font-size:           1.25rem !default;
+$font-size-root:         1.0rem !default;
+$headings-font-weight:   500 !default;
+$headings-font-family:   'EB Garamond', Georgia, serif !default;
 
-// Base colors
-$body-bg:               #ffffff;
-$body-color:            #2d2d2d;
-$link-color:            #2c5f8a;
+// Warm off-white palette
+$body-bg:                #faf9f7;
+$body-color:             #2d2d2d;
+$link-color:             #2a6e5a;
 
 /*-- scss:rules --*/
 
-// Clean navbar with subtle border
+// Navbar: matches warm background
 .navbar {
-  border-bottom: 1px solid #e8e8e8;
+  background-color: #faf9f7 !important;
+  border-bottom: 1px solid #e0ddd8;
   box-shadow: none !important;
 }
 
-// Navbar active page indicator
-.navbar-nav .nav-link.active {
-  border-bottom: 2px solid #2c5f8a;
-  font-weight: 500;
+.navbar-nav .nav-link {
+  color: #2d2d2d !important;
 }
 
-// Landing page: shrink left column so right (bio) gets more room
+.navbar-nav .nav-link:hover {
+  color: #2a6e5a !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: #2a6e5a !important;
+  font-weight: 600;
+}
+
+// Page footer
+.nav-footer {
+  background-color: #faf9f7 !important;
+  border-top: 1px solid #e0ddd8;
+}
+
+// Landing: trestles left column narrower so bio gets more room
 .quarto-about-trestles .about-entity {
   flex: 0 0 13em;
   max-width: 13em;
 }
 
-// Publications list
-.pub-entry {
-  margin-bottom: 1.0rem;
-  padding-bottom: 0.8rem;
-  border-bottom: 1px solid #f0f0f0;
-  line-height: 1.5;
+// Landing: larger first paragraph as lede
+.quarto-about-trestles .about-contents > p:first-of-type {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: #1a1a1a;
 }
 
-// Journal name / degree / metadata italics — blue-gray
-.pub-entry em {
-  color: #5b7f9e;
-  font-style: italic;
-}
-
-// Self-author highlight (G. Solovey)
-.self-author {
-  color: #2c5f8a;
-  font-weight: 700;
-}
-
-// Section headers (###): Pre-prints, Publications, Current members, etc.
+// Section headers (###) — serif, understated border
 h3.anchored {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #2c5f8a;
-  border-left: 3px solid #2c5f8a;
-  padding-left: 0.65rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  border-bottom: none;
-}
-
-// Year headers — pill badge style
-h4.anchored {
-  display: inline-block;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #2c5f8a;
-  background-color: #e8f0f7;
-  border-radius: 4px;
-  padding: 0.18rem 0.6rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border-bottom: none;
-  margin-top: 2rem;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #1a2a1e;
+  border-bottom: 1px solid #ddd9d3;
+  padding-bottom: 0.3rem;
+  margin-top: 2.2rem;
   margin-bottom: 1.1rem;
 }
 
-// Small pill-style links [pdf] [github] etc.
+// Year sub-headers (####) — small, muted, uppercase
+h4.anchored {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #c0bbb4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+// ---- Base pub-entry: teaching, media ----
+.pub-entry {
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #ece9e4;
+  line-height: 1.5;
+}
+
+.pub-entry em {
+  color: #5a8a7a;
+  font-style: italic;
+}
+
+// Self-author
+.self-author {
+  color: #2a6e5a;
+  font-weight: 700;
+}
+
+// ---- Research list: compact two-column grid ----
+.research-list .pub-entry {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  column-gap: 1.2rem;
+  align-items: start;
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.65rem;
+}
+
+.research-list .pub-entry:last-child {
+  border-bottom: none;
+}
+
+.pub-year-col {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #c0bbb4;
+  letter-spacing: 0.03em;
+  padding-top: 0.28em;
+  text-align: right;
+  line-height: 1.4;
+}
+
+.pub-title-row {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-bottom: 0.2rem;
+}
+
+.pub-title-row .journal-name {
+  font-size: 0.83rem;
+  color: #5a8a7a;
+  font-style: italic;
+  margin-left: 0.3rem;
+}
+
+.pub-sep {
+  color: #ccc;
+  margin: 0 0.1rem;
+}
+
+.pub-author-row {
+  font-size: 0.82rem;
+  color: #888;
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+}
+
+// Pill links
 .pub-links a {
   display: inline-block;
-  font-size: 0.78rem;
-  color: #2c5f8a;
-  border: 1px solid #bcd0e0;
+  font-size: 0.75rem;
+  color: #2a6e5a;
+  border: 1px solid #9ec8b8;
   border-radius: 3px;
-  padding: 1px 7px;
-  margin-right: 4px;
+  padding: 1px 6px;
+  margin-right: 3px;
   text-decoration: none;
   line-height: 1.6;
 }
 
 .pub-links a:hover {
-  background-color: #eef4f9;
+  background-color: #edf5f2;
   text-decoration: none;
 }
 
-// Abstract toggle — active state
 .pub-links a.abstract-toggle[aria-expanded="true"] {
-  background-color: #eef4f9;
-  color: #1a4a6e;
+  background-color: #edf5f2;
+  color: #1e5243;
 }
 
-// Abstract collapsible block
+// Abstract block
 .abstract-body {
-  margin-top: 0.65rem;
-  padding: 0.75rem 1rem;
-  background-color: #f8f9fa;
-  border-left: 3px solid #bcd0e0;
+  margin-top: 0.6rem;
+  padding: 0.7rem 1rem;
+  background-color: #f2f5f4;
+  border-left: 3px solid #9ec8b8;
   border-radius: 0 3px 3px 0;
-  font-size: 0.88rem;
+  font-size: 0.87rem;
   color: #555;
   line-height: 1.65;
 }
@@ -122,14 +187,37 @@ h4.anchored {
   margin-bottom: 0;
 }
 
-// Group page: current members — green left accent
-.current-member {
-  border-left: 3px solid #4a9e7a;
-  padding-left: 0.75rem;
+// ---- Group members: card grid ----
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17em, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1.8rem;
 }
 
-// Group page: past members — muted gray left accent
-.past-member {
-  border-left: 3px solid #c8c8c8;
-  padding-left: 0.75rem;
+.member-card {
+  padding: 0.85rem 1rem;
+  background-color: #ffffff;
+  border: 1px solid #e0ddd8;
+  border-radius: 5px;
+}
+
+.member-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #2d2d2d;
+  margin-bottom: 0.2rem;
+}
+
+.member-project {
+  font-size: 0.83rem;
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 0.2rem;
+}
+
+.member-carrera {
+  font-size: 0.78rem;
+  color: #2a6e5a;
+  font-style: italic;
 }

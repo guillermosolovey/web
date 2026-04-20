@@ -11,24 +11,33 @@ library(fontawesome)
 library(gsheet)
 library(tidyverse)
 
-# Helper: render one publication entry as markdown
-render_entry <- function(p, use_pdf_col = FALSE, row_id = "0") {
-  # Title linked to URL
-  title_link <- if (!is.na(p$url) && p$url != "") {
-    paste0("[**", p$title, "**](", p$url, ")")
-  } else {
-    paste0("**", p$title, "**")
-  }
+html_esc <- function(x) {
+  x <- gsub("&", "&amp;", as.character(x))
+  x <- gsub("<", "&lt;", x)
+  x <- gsub(">", "&gt;", x)
+  x
+}
 
-  # Build links
-  links <- character(0)
-  if (use_pdf_col && !is.na(p$pdf) && p$pdf != "") {
-    links <- c(links, paste0("[pdf](/publications/", p$pdf, ")"))
-  } else if (!use_pdf_col && !is.na(p$url) && p$url != "") {
-    links <- c(links, paste0("[pdf](", p$url, ")"))
-  }
-  if (!is.na(p$github) && p$github != "") links <- c(links, paste0("[github](", p$github, ")"))
-  if (!is.na(p$osf)    && p$osf    != "") links <- c(links, paste0("[osf](", p$osf, ")"))
+render_entry <- function(p, use_pdf_col = FALSE, row_id = "0", year_label = "") {
+  # Title
+  t <- html_esc(p$title)
+  title_html <- if (!is.na(p$url) && p$url != "")
+    paste0('<a href="', p$url, '">', t, '</a>') else t
+
+  # Journal
+  journal_html <- if (!is.na(p$journaltitle) && p$journaltitle != "")
+    paste0('<em class="journal-name">', html_esc(p$journaltitle), '</em>') else ""
+
+  # Links
+  link_tags <- character(0)
+  if (use_pdf_col && !is.na(p$pdf) && p$pdf != "")
+    link_tags <- c(link_tags, paste0('<a href="/publications/', p$pdf, '">pdf</a>'))
+  else if (!use_pdf_col && !is.na(p$url) && p$url != "")
+    link_tags <- c(link_tags, paste0('<a href="', p$url, '">pdf</a>'))
+  if (!is.na(p$github) && p$github != "")
+    link_tags <- c(link_tags, paste0('<a href="', p$github, '">github</a>'))
+  if (!is.na(p$osf) && p$osf != "")
+    link_tags <- c(link_tags, paste0('<a href="', p$osf, '">osf</a>'))
 
   # Abstract
   has_abstract <- "abstract" %in% names(p) &&
@@ -36,6 +45,8 @@ render_entry <- function(p, use_pdf_col = FALSE, row_id = "0") {
                   nchar(trimws(as.character(p$abstract))) > 0
   abs_id <- paste0("abs-", row_id)
 
+  abstract_btn <- ""
+  abstract_div <- ""
   if (has_abstract) {
     abs_text <- trimws(as.character(p$abstract))
     abs_text <- gsub("\r?\n\r?\n", "</p><p>", abs_text)
@@ -46,34 +57,29 @@ render_entry <- function(p, use_pdf_col = FALSE, row_id = "0") {
     )
     abstract_div <- paste0(
       '<div id="', abs_id, '" class="collapse abstract-body">',
-      '<p>', abs_text, '</p>',
-      '</div>'
+      '<p>', abs_text, '</p></div>'
     )
-  } else {
-    abstract_btn <- ""
-    abstract_div <- ""
   }
 
-  links_html <- if (length(links) > 0 || has_abstract) {
-    link_items <- paste(sapply(links, function(l) {
-      m <- regmatches(l, regexec("\\[(.+?)\\]\\((.+?)\\)", l))[[1]]
-      paste0('<a href="', m[3], '">', m[2], '</a>')
-    }), collapse = "")
-    paste0(
-      '<span class="pub-links">',
-      link_items,
-      abstract_btn,
-      '</span>'
-    )
-  } else ""
+  all_links <- c(link_tags, if (has_abstract) abstract_btn else character(0))
+  links_html <- if (length(all_links) > 0)
+    paste0('<span class="pub-links">', paste(all_links, collapse = ""), '</span>')
+  else ""
+
+  title_journal <- if (journal_html != "")
+    paste0(title_html, ' <span class="pub-sep">·</span> ', journal_html)
+  else title_html
 
   cat(paste0(
-    '::: {.pub-entry}\n',
-    title_link, '\\\n',
-    p$author, ' · *', p$journaltitle, '*\\\n',
+    '<div class="pub-entry">\n',
+    '<span class="pub-year-col">', year_label, '</span>\n',
+    '<div class="pub-body">\n',
+    '<div class="pub-title-row">', title_journal, '</div>\n',
+    '<div class="pub-author-row">', p$author, '</div>\n',
     links_html, '\n',
     abstract_div, '\n',
-    ':::\n\n'
+    '</div>\n',
+    '</div>\n\n'
   ))
 }
 ```
@@ -89,6 +95,8 @@ render_entry <- function(p, use_pdf_col = FALSE, row_id = "0") {
 (\*: *igual contribución*)
 :::
 
+::: {.research-list}
+
 ```{r preprints, results='asis'}
 #| echo: false
 
@@ -97,9 +105,11 @@ preprints <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6
   mutate(author = str_replace_all(author, "G. Solovey", '<strong class="self-author">G. Solovey</strong>'))
 
 for (i in seq_len(nrow(preprints))) {
-  render_entry(preprints[i, ], use_pdf_col = FALSE, row_id = paste0("pre", i))
+  render_entry(preprints[i, ], use_pdf_col = FALSE, row_id = paste0("pre", i), year_label = "")
 }
 ```
+
+:::
 
 
 ::: {.content-visible when-profile="en"}
@@ -112,6 +122,8 @@ for (i in seq_len(nrow(preprints))) {
 (\*: *contribuyeron igualitariamente*)
 :::
 
+::: {.research-list}
+
 ```{r pubs, results='asis'}
 #| echo: false
 
@@ -121,12 +133,14 @@ pubs <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84
   arrange(desc(year))
 
 pub_counter <- 0
-for (yr in unique(pubs$year)) {
-  cat(paste0("#### ", yr, "\n\n"))
-  yr_pubs <- filter(pubs, year == yr)
-  for (i in seq_len(nrow(yr_pubs))) {
-    pub_counter <- pub_counter + 1
-    render_entry(yr_pubs[i, ], use_pdf_col = TRUE, row_id = paste0("pub", pub_counter))
-  }
+prev_year <- ""
+for (i in seq_len(nrow(pubs))) {
+  pub_counter <- pub_counter + 1
+  yr <- as.character(pubs$year[i])
+  year_label <- if (yr != prev_year) yr else ""
+  prev_year <- yr
+  render_entry(pubs[i, ], use_pdf_col = TRUE, row_id = paste0("pub", pub_counter), year_label = year_label)
 }
 ```
+
+:::

@@ -9,7 +9,7 @@ website:
   title: "Guillermo Solovey"
   navbar:
     pinned: true
-    background: "#ffffff"
+    background: "#faf9f7"
     left:
       - href: ./index.html
         text: "{{< fa home >}}"
@@ -30,7 +30,7 @@ website:
         text: "English"
 
   page-footer:
-    background: "#ffffff"
+    background: "#faf9f7"
     right: |
       <a href="https://www.ic.fcen.uba.ar" target="_blank">Instituto de Cálculo</a>
       
@@ -44,7 +44,12 @@ format:
     fontsize: 1.05em
     linestretch: 1.5
     toc: true
-    backgroundcolor: "#ffffff"
+    backgroundcolor: "#faf9f7"
+    include-in-header:
+      - text: |
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
 editor: visual
 
