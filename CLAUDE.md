@@ -67,7 +67,7 @@ All dynamic content is fetched with `gsheet::gsheet2tbl()`. Single spreadsheet:
 
 | Sheet name    | gid        | Used in               | Key columns |
 |---------------|------------|-----------------------|-------------|
-| publicaciones | 1000751275 | research.qmd, media.qmd | type, title, author, year, journaltitle, url, pdf, github, osf |
+| publicaciones | 1000751275 | research.qmd, media.qmd | type, title, author, year, journaltitle, abstract, url, pdf, github, osf |
 | docencia      | 852428719  | teaching.qmd          | year, materia, url, carrera, cargo |
 | grupo         | 1834640090 | grupo.qmd             | nombre, proyecto, carrera, fecha (actual/pasado) |
 | media         | 625135132  | media.qmd             | year, title, medio, url, url2 |
@@ -94,12 +94,15 @@ CV also appears in both navbars: links to `CV-Solovey-eng.pdf` (EN) and `es/CV-S
 
 - Theme: `flatly` (Bootstrap) + `custom.scss`
 - `custom.scss`: white background, dark gray text (#2d2d2d), blue links (#2c5f8a)
-- Entry format: `.pub-entry` divs with `.pub-links` pill-style badges for pdf/github/osf/links
+- Entry format: `.pub-entry` divs with `.pub-links` pill-style badges for pdf/github/osf/links + abstract toggle
+- Abstract block: `.abstract-body` — fondo #f8f9fa, borde izquierdo azul, font 0.88rem
 - Year headers in research: `h4.anchored` at 1.25rem, color #444
 
 ### Publications format (research.qmd)
 
 Uses a `render_entry()` helper. Publications grouped by year with `#### YEAR` headers rendered via `cat()` with `results='asis'`. Same pattern used in media.qmd, teaching.qmd, grupo.qmd.
+
+Each entry renders: title (linked), authors, journal, pill badges (pdf/github/osf) + an **"abstract" toggle badge** (Bootstrap collapse). The abstract text comes from the `abstract` column of the sheet. Papers without abstract simply omit the badge. The collapsible block uses `.abstract-body` class (styled in `custom.scss`).
 
 ### Extensions and icons
 
@@ -121,7 +124,7 @@ PDF files live in `publications/` with naming convention `YYYY_AuthorLastname.pd
 
 - [ ] **Google Sheet privado** — migrate from `gsheet` to `googlesheets4` with service account auth
 - [ ] **Auto-update via GitHub Actions** — scheduled workflow to render and deploy automatically
-- [ ] **Abstracts colapsables** — add abstract column to publicaciones sheet, implement toggle in research.qmd
+- [x] **Abstracts colapsables** — columna `abstract` en sheet, toggle Bootstrap collapse en research.qmd
 - [ ] **Actividades de extensión** — agregar sección o página con contenido de la hoja gid=117290007 del Google Sheet
 - [ ] Remove `gt` and `gtExtras` dependencies (no longer used after switching to list format)
 - [ ] Add `.gitattributes` to fix LF/CRLF warnings on Windows
