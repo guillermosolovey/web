@@ -45,6 +45,18 @@ $link-color:             #2a6e5a;
   max-width: 13em;
 }
 
+// Landing: force left-column links to stack vertically
+.quarto-about-trestles .about-links {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.35rem;
+}
+
+.quarto-about-trestles .about-links .about-link {
+  width: 100%;
+}
+
 // Landing: larger first paragraph as lede
 .quarto-about-trestles .about-contents > p:first-of-type {
   font-size: 1.08rem;
@@ -64,7 +76,7 @@ h3.anchored {
   margin-bottom: 1.1rem;
 }
 
-// Year sub-headers (####) — small, muted, uppercase
+// Year sub-headers (####) — small, muted, uppercase (teaching fallback)
 h4.anchored {
   font-size: 0.75rem;
   font-weight: 700;
@@ -76,7 +88,7 @@ h4.anchored {
   margin-bottom: 0.8rem;
 }
 
-// ---- Base pub-entry: teaching, media ----
+// ---- Base pub-entry: not inside research-list (teaching static, media fallback) ----
 .pub-entry {
   margin-bottom: 0.9rem;
   padding-bottom: 0.75rem;
@@ -95,24 +107,45 @@ h4.anchored {
   font-weight: 700;
 }
 
-// ---- Research list: compact two-column grid ----
+// ---- Compact list (research, teaching courses, media) ----
+.research-list {
+  margin-top: 0.5rem;
+}
+
 .research-list .pub-entry {
   display: grid;
   grid-template-columns: 3rem 1fr;
   column-gap: 1.2rem;
   align-items: start;
-  padding-bottom: 0.65rem;
-  margin-bottom: 0.65rem;
+  padding-bottom: 0.45rem;
+  margin-bottom: 0.45rem;
+  border-bottom: 1px solid #ece9e4;
+}
+
+// Extra top margin between year groups (first entry of each group)
+.research-list .pub-entry:not(.pub-cont) {
+  margin-top: 1.1rem;
+}
+
+.research-list .pub-entry:first-child {
+  margin-top: 0;
 }
 
 .research-list .pub-entry:last-child {
   border-bottom: none;
 }
 
+// Continuation entries: left border on body to show year grouping
+.research-list .pub-entry.pub-cont .pub-body {
+  border-left: 2px solid #ddd9d3;
+  padding-left: 0.65rem;
+}
+
+// Year column
 .pub-year-col {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  color: #c0bbb4;
+  color: #888;
   letter-spacing: 0.03em;
   padding-top: 0.28em;
   text-align: right;
@@ -122,19 +155,14 @@ h4.anchored {
 .pub-title-row {
   font-size: 0.95rem;
   line-height: 1.45;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.15rem;
 }
 
-.pub-title-row .journal-name {
+.pub-journal-row {
   font-size: 0.83rem;
   color: #5a8a7a;
   font-style: italic;
-  margin-left: 0.3rem;
-}
-
-.pub-sep {
-  color: #ccc;
-  margin: 0 0.1rem;
+  margin-bottom: 0.15rem;
 }
 
 .pub-author-row {
@@ -220,4 +248,44 @@ h4.anchored {
   font-size: 0.78rem;
   color: #2a6e5a;
   font-style: italic;
+}
+
+// ---- Interactive apps: card grid ----
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.app-card {
+  display: block;
+  padding: 0.7rem 0.9rem;
+  background-color: #ffffff;
+  border: 1px solid #e0ddd8;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #2d2d2d;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.app-card:hover {
+  border-color: #9ec8b8;
+  background-color: #f4faf8;
+  text-decoration: none;
+  color: #2d2d2d;
+}
+
+.app-name {
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-bottom: 0.15rem;
+}
+
+.app-type {
+  font-size: 0.72rem;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }

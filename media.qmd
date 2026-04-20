@@ -9,17 +9,24 @@ freeze: false
 library(gsheet)
 library(tidyverse)
 
-MEDIA_SHEET_URL  <- "https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=625135132"
-PUBS_SHEET_URL   <- "https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1000751275"
+MEDIA_SHEET_URL <- "https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=625135132"
+PUBS_SHEET_URL  <- "https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1000751275"
+
+html_esc <- function(x) {
+  x <- gsub("&", "&amp;", as.character(x))
+  x <- gsub("<", "&lt;", x)
+  x <- gsub(">", "&gt;", x)
+  x
+}
 ```
 
 ::: {.content-visible when-profile="en"}
-This page collects media appearances — interviews, press coverage, and radio segments — as well as outreach articles written for general audiences. Jump to: [Interviews & press](#interviews-press) · [Articles & outreach](#articles-outreach)
+This page collects media appearances — interviews, press coverage, and radio segments — as well as outreach articles written for general audiences.
 
 ### Interviews & press
 :::
 ::: {.content-visible when-profile="es"}
-Esta página reúne apariciones en medios —entrevistas, notas de prensa y segmentos de radio— y artículos de divulgación escritos para el público general. Ir a: [Entrevistas y prensa](#entrevistas-y-prensa) · [Artículos de divulgación](#artículos-de-divulgación)
+Esta página reúne apariciones en medios —entrevistas, notas de prensa y segmentos de radio— y artículos de divulgación escritos para el público general.
 
 ### Entrevistas y prensa
 :::
@@ -30,41 +37,39 @@ Esta página reúne apariciones en medios —entrevistas, notas de prensa y segm
 media <- gsheet2tbl(MEDIA_SHEET_URL) %>%
   arrange(desc(year))
 
+cat('<div class="research-list">\n')
+prev_year <- ""
 for (i in seq_len(nrow(media))) {
   m <- media[i, ]
+  yr <- as.character(m$year)
+  year_label <- if (yr != prev_year) yr else ""
+  cont_class <- if (year_label == "") " pub-cont" else ""
+  prev_year  <- yr
 
-  title_str <- if (!is.na(m$url) && m$url != "")
-    paste0("[**", m$title, "**](", m$url, ")")
-  else
-    paste0("**", m$title, "**")
+  title_html <- html_esc(as.character(m$title))
 
-  medio_str <- if (!is.na(m$medio) && m$medio != "")
-    paste0("*", m$medio, "*\\\n") else ""
+  medio_html <- if (!is.na(m$medio) && m$medio != "")
+    paste0('<div class="pub-author-row"><em>', html_esc(as.character(m$medio)), '</em></div>\n')
+  else ""
 
-  # Build links
   links <- character(0)
-  if (!is.na(m$url)  && m$url  != "") links <- c(links, paste0('[link](', m$url, ')'))
-  if (!is.na(m$url2) && m$url2 != "") links <- c(links, paste0('[link 2](', m$url2, ')'))
-  links_html <- if (length(links) > 0) {
-    paste0(
-      '<span class="pub-links">',
-      paste(sapply(links, function(l) {
-        mt <- regmatches(l, regexec("\\[(.+?)\\]\\((.+?)\\)", l))[[1]]
-        paste0('<a href="', mt[3], '">', mt[2], '</a>')
-      }), collapse = ""),
-      '</span>'
-    )
-  } else ""
+  if (!is.na(m$url)  && m$url  != "") links <- c(links, paste0('<a href="', m$url,  '">link</a>'))
+  if (!is.na(m$url2) && m$url2 != "") links <- c(links, paste0('<a href="', m$url2, '">link 2</a>'))
+  links_html <- if (length(links) > 0)
+    paste0('<span class="pub-links">', paste(links, collapse = ""), '</span>\n') else ""
 
   cat(paste0(
-    '::: {.pub-entry}\n',
-    '**', m$title, '**\\\n',
-    medio_str,
-    m$year, '\\\n',
-    links_html, '\n',
-    ':::\n\n'
+    '<div class="pub-entry', cont_class, '">\n',
+    '<span class="pub-year-col">', year_label, '</span>\n',
+    '<div class="pub-body">\n',
+    '<div class="pub-title-row">', title_html, '</div>\n',
+    medio_html,
+    links_html,
+    '</div>\n',
+    '</div>\n\n'
   ))
 }
+cat('</div>\n\n')
 ```
 
 ::: {.content-visible when-profile="en"}
@@ -81,22 +86,32 @@ outreach <- gsheet2tbl(PUBS_SHEET_URL) %>%
   filter(type == "media") %>%
   arrange(desc(year))
 
+cat('<div class="research-list">\n')
+prev_year <- ""
 for (i in seq_len(nrow(outreach))) {
   p <- outreach[i, ]
-  title_str <- if (!is.na(p$url) && p$url != "")
-    paste0("[**", p$title, "**](", p$url, ")")
-  else
-    paste0("**", p$title, "**")
+  yr <- as.character(p$year)
+  year_label <- if (yr != prev_year) yr else ""
+  cont_class <- if (year_label == "") " pub-cont" else ""
+  prev_year  <- yr
 
-  journal_str <- if (!is.na(p$journaltitle) && p$journaltitle != "")
-    paste0("*", p$journaltitle, "*\\\n") else ""
+  title_html <- if (!is.na(p$url) && p$url != "")
+    paste0('<a href="', p$url, '">', html_esc(as.character(p$title)), '</a>')
+  else html_esc(as.character(p$title))
+
+  journal_html <- if (!is.na(p$journaltitle) && p$journaltitle != "")
+    paste0('<div class="pub-journal-row">', html_esc(as.character(p$journaltitle)), '</div>\n')
+  else ""
 
   cat(paste0(
-    '::: {.pub-entry}\n',
-    title_str, '\\\n',
-    journal_str,
-    p$year, '\n',
-    ':::\n\n'
+    '<div class="pub-entry', cont_class, '">\n',
+    '<span class="pub-year-col">', year_label, '</span>\n',
+    '<div class="pub-body">\n',
+    '<div class="pub-title-row">', title_html, '</div>\n',
+    journal_html,
+    '</div>\n',
+    '</div>\n\n'
   ))
 }
+cat('</div>\n\n')
 ```

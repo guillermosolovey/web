@@ -19,31 +19,48 @@ I have taught undergraduate and graduate courses at the University of Buenos Air
 
 A collection of experiments and visualizations built for the course *Neurociencia y Psicología Experimental* at Torcuato Di Tella University. Try them in your browser — no installation needed.
 
-:::: {.pub-entry}
-**Experiments**
-
-::: {.pub-links}
-[Two-Armed Bandit](https://gsolovey-utdt.github.io/two-armed-bandit/) —
-[Stroop](https://gsolovey-utdt.github.io/stroop/) —
-[Gambling Game](https://gsolovey-utdt.github.io/azar/) —
-[Detection Threshold](https://gsolovey-utdt.github.io/umbral-de-deteccion/) —
-[Digit Memory](https://gsolovey-utdt.github.io/memoria-de-digitos/)
-:::
-::::
-
-:::: {.pub-entry}
-**Visualizations & Games**
-
-::: {.pub-links}
-[Correlation](https://gsolovey-utdt.github.io/correlacion/) —
-[Random Assignment](https://gsolovey-utdt.github.io/asignacion_aleatoria/) —
-[Random Sampling](https://gsolovey-utdt.github.io/muestreo_aleatorio/) —
-[Set](https://gsolovey-utdt.github.io/set/)
-:::
-::::
+<div class="apps-grid">
+  <a href="https://gsolovey-utdt.github.io/two-armed-bandit/" class="app-card">
+    <div class="app-name">Two-Armed Bandit</div>
+    <div class="app-type">experiment</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/stroop/" class="app-card">
+    <div class="app-name">Stroop</div>
+    <div class="app-type">experiment</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/azar/" class="app-card">
+    <div class="app-name">Gambling Game</div>
+    <div class="app-type">experiment</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/umbral-de-deteccion/" class="app-card">
+    <div class="app-name">Detection Threshold</div>
+    <div class="app-type">experiment</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/memoria-de-digitos/" class="app-card">
+    <div class="app-name">Digit Memory</div>
+    <div class="app-type">experiment</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/correlacion/" class="app-card">
+    <div class="app-name">Correlation</div>
+    <div class="app-type">visualization</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/asignacion_aleatoria/" class="app-card">
+    <div class="app-name">Random Assignment</div>
+    <div class="app-type">visualization</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/muestreo_aleatorio/" class="app-card">
+    <div class="app-name">Random Sampling</div>
+    <div class="app-type">visualization</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/set/" class="app-card">
+    <div class="app-name">Set</div>
+    <div class="app-type">game</div>
+  </a>
+</div>
 
 ### Courses
 :::
+
 ::: {.content-visible when-profile="es"}
 Dicté cursos de grado y posgrado en la Universidad de Buenos Aires y la Universidad Torcuato Di Tella, en áreas como estadística, inferencia bayesiana, visualización de datos y ciencias del comportamiento. También coordiné capacitaciones sobre alfabetización estadística para funcionarios públicos y periodistas. Mi enfoque busca conectar métodos cuantitativos rigurosos con el razonamiento y la toma de decisiones en contextos reales.
 
@@ -51,28 +68,44 @@ Dicté cursos de grado y posgrado en la Universidad de Buenos Aires y la Univers
 
 Una colección de experimentos y visualizaciones desarrollados para el curso *Neurociencia y Psicología Experimental* en la Universidad Torcuato Di Tella. Se pueden usar directamente en el navegador, sin instalación.
 
-:::: {.pub-entry}
-**Experimentos**
-
-::: {.pub-links}
-[Two-Armed Bandit](https://gsolovey-utdt.github.io/two-armed-bandit/) —
-[Stroop](https://gsolovey-utdt.github.io/stroop/) —
-[Juego del Azar](https://gsolovey-utdt.github.io/azar/) —
-[Umbral de Detección](https://gsolovey-utdt.github.io/umbral-de-deteccion/) —
-[Memoria de Dígitos](https://gsolovey-utdt.github.io/memoria-de-digitos/)
-:::
-::::
-
-:::: {.pub-entry}
-**Visualizaciones y Juegos**
-
-::: {.pub-links}
-[Correlación](https://gsolovey-utdt.github.io/correlacion/) —
-[Asignación aleatoria](https://gsolovey-utdt.github.io/asignacion_aleatoria/) —
-[Muestreo aleatorio](https://gsolovey-utdt.github.io/muestreo_aleatorio/) —
-[Set](https://gsolovey-utdt.github.io/set/)
-:::
-::::
+<div class="apps-grid">
+  <a href="https://gsolovey-utdt.github.io/two-armed-bandit/" class="app-card">
+    <div class="app-name">Two-Armed Bandit</div>
+    <div class="app-type">experimento</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/stroop/" class="app-card">
+    <div class="app-name">Stroop</div>
+    <div class="app-type">experimento</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/azar/" class="app-card">
+    <div class="app-name">Juego del Azar</div>
+    <div class="app-type">experimento</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/umbral-de-deteccion/" class="app-card">
+    <div class="app-name">Umbral de Detección</div>
+    <div class="app-type">experimento</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/memoria-de-digitos/" class="app-card">
+    <div class="app-name">Memoria de Dígitos</div>
+    <div class="app-type">experimento</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/correlacion/" class="app-card">
+    <div class="app-name">Correlación</div>
+    <div class="app-type">visualización</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/asignacion_aleatoria/" class="app-card">
+    <div class="app-name">Asignación Aleatoria</div>
+    <div class="app-type">visualización</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/muestreo_aleatorio/" class="app-card">
+    <div class="app-name">Muestreo Aleatorio</div>
+    <div class="app-type">visualización</div>
+  </a>
+  <a href="https://gsolovey-utdt.github.io/set/" class="app-card">
+    <div class="app-name">Set</div>
+    <div class="app-type">juego</div>
+  </a>
+</div>
 
 ### Cursos
 :::
@@ -82,26 +115,37 @@ Una colección de experimentos y visualizaciones desarrollados para el curso *Ne
 
 courses <- gsheet2tbl(SHEET_URL) %>%
   filter(cargo %in% c("prof", "doc")) %>%
-  mutate(
-    materia = ifelse(!is.na(url) & url != "",
-                     paste0("[", materia, "](", url, ")"),
-                     materia)
-  ) %>%
   arrange(desc(year))
 
-years <- unique(courses$year)
-
-for (yr in years) {
-  cat(paste0("#### ", yr, "\n\n"))
-  yr_courses <- filter(courses, year == yr)
-  for (i in seq_len(nrow(yr_courses))) {
-    c <- yr_courses[i, ]
-    cat(paste0(
-      '::: {.pub-entry}\n',
-      '**', c$materia, '**\\\n',
-      '*', c$carrera, '*\n',
-      ':::\n\n'
-    ))
-  }
+html_esc <- function(x) {
+  x <- gsub("&", "&amp;", as.character(x))
+  x <- gsub("<", "&lt;", x)
+  x <- gsub(">", "&gt;", x)
+  x
 }
+
+cat('<div class="research-list">\n')
+prev_year <- ""
+for (i in seq_len(nrow(courses))) {
+  c_row <- courses[i, ]
+  yr    <- as.character(c_row$year)
+  year_label <- if (yr != prev_year) yr else ""
+  cont_class <- if (year_label == "") " pub-cont" else ""
+  prev_year  <- yr
+
+  materia_html <- if (!is.na(c_row$url) && c_row$url != "")
+    paste0('<a href="', c_row$url, '">', html_esc(c_row$materia), '</a>')
+  else html_esc(as.character(c_row$materia))
+
+  cat(paste0(
+    '<div class="pub-entry', cont_class, '">\n',
+    '<span class="pub-year-col">', year_label, '</span>\n',
+    '<div class="pub-body">\n',
+    '<div class="pub-title-row">', materia_html, '</div>\n',
+    '<div class="pub-author-row">', html_esc(as.character(c_row$carrera)), '</div>\n',
+    '</div>\n',
+    '</div>\n\n'
+  ))
+}
+cat('</div>\n\n')
 ```

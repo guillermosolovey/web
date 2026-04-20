@@ -24,9 +24,9 @@ render_entry <- function(p, use_pdf_col = FALSE, row_id = "0", year_label = "") 
   title_html <- if (!is.na(p$url) && p$url != "")
     paste0('<a href="', p$url, '">', t, '</a>') else t
 
-  # Journal
+  # Journal on its own row
   journal_html <- if (!is.na(p$journaltitle) && p$journaltitle != "")
-    paste0('<em class="journal-name">', html_esc(p$journaltitle), '</em>') else ""
+    paste0('<div class="pub-journal-row">', html_esc(p$journaltitle), '</div>\n') else ""
 
   # Links
   link_tags <- character(0)
@@ -63,18 +63,16 @@ render_entry <- function(p, use_pdf_col = FALSE, row_id = "0", year_label = "") 
 
   all_links <- c(link_tags, if (has_abstract) abstract_btn else character(0))
   links_html <- if (length(all_links) > 0)
-    paste0('<span class="pub-links">', paste(all_links, collapse = ""), '</span>')
-  else ""
+    paste0('<span class="pub-links">', paste(all_links, collapse = ""), '</span>') else ""
 
-  title_journal <- if (journal_html != "")
-    paste0(title_html, ' <span class="pub-sep">·</span> ', journal_html)
-  else title_html
+  cont_class <- if (year_label == "") " pub-cont" else ""
 
   cat(paste0(
-    '<div class="pub-entry">\n',
+    '<div class="pub-entry', cont_class, '">\n',
     '<span class="pub-year-col">', year_label, '</span>\n',
     '<div class="pub-body">\n',
-    '<div class="pub-title-row">', title_journal, '</div>\n',
+    '<div class="pub-title-row">', title_html, '</div>\n',
+    journal_html,
     '<div class="pub-author-row">', p$author, '</div>\n',
     links_html, '\n',
     abstract_div, '\n',

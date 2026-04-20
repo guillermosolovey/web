@@ -12,10 +12,7 @@ Personal academic website for Guillermo Solovey, built with **Quarto** and **R**
 # IMPORTANT: always render EN first, then ES.
 # EN render wipes _site/ entirely (including _site/es/), so ES must go second.
 
-# Render English version first
 quarto render --profile en
-
-# Then render Spanish version (outputs to _site/es/)
 quarto render --profile es
 
 # Full path on this machine (quarto not in PATH):
@@ -24,8 +21,6 @@ quarto render --profile es
 ```
 
 **Important:** Pause Dropbox before rendering. Dropbox locks files during sync and causes Quarto to fail when cleaning up temp files.
-
-The `freeze: auto` setting means R code chunks are only re-executed when their source changes.
 
 ## Deploy workflow
 
@@ -47,6 +42,8 @@ To publish: merge `nueva-version` into `main` and push.
 Two Quarto profiles produce parallel output:
 - `_quarto-en.yml` → renders to `_site/` (English)
 - `_quarto-es.yml` → renders to `_site/es/` (Spanish)
+
+Both YAML files include the Google Fonts `<link>` for EB Garamond via `include-in-header`.
 
 **Nav link rules:** All navbar hrefs must point to explicit `.html` files (e.g. `./es/index.html`, not `./es/`), otherwise Chrome shows a directory listing when browsing locally via `file://`.
 
@@ -93,16 +90,48 @@ CV also appears in both navbars: links to `CV-Solovey-eng.pdf` (EN) and `es/CV-S
 ### Styling
 
 - Theme: `flatly` (Bootstrap) + `custom.scss`
-- `custom.scss`: white background, dark gray text (#2d2d2d), blue links (#2c5f8a)
-- Entry format: `.pub-entry` divs with `.pub-links` pill-style badges for pdf/github/osf/links + abstract toggle
-- Abstract block: `.abstract-body` — fondo #f8f9fa, borde izquierdo azul, font 0.88rem
-- Year headers in research: `h4.anchored` at 1.25rem, color #444
+- Font: **EB Garamond** (Google Fonts) for all headings; body stays in system sans
+- Background: warm off-white `#faf9f7` (page, navbar, footer)
+- Text: dark gray `#2d2d2d`
+- Accent color: verde pizarra `#2a6e5a` (links, pill badges, self-author name, member carrera)
 
-### Publications format (research.qmd)
+**Key CSS classes in `custom.scss`:**
+- `.research-list` — wrapper div that activates the compact two-column grid layout (year left, content right). Used in research.qmd, teaching.qmd, media.qmd.
+- `.pub-entry` — individual entry row. Inside `.research-list` renders as a grid.
+- `.pub-cont` — added to entries that continue a year group (year_label == ""). Draws a left border on `.pub-body` to show grouping.
+- `.pub-year-col` — year label in left column (shown only for first entry per year)
+- `.pub-title-row`, `.pub-journal-row`, `.pub-author-row` — content rows within `.pub-body`
+- `.pub-links a` — pill-style badges (pdf, github, osf, abstract toggle)
+- `.abstract-body` — collapsible abstract block (Bootstrap collapse)
+- `.self-author` — highlights "G. Solovey" in author lists (color + bold)
+- `.members-grid` / `.member-card` — CSS grid for group members page
+- `.apps-grid` / `.app-card` — CSS grid for interactive apps in teaching page
 
-Uses a `render_entry()` helper. Publications grouped by year with `#### YEAR` headers rendered via `cat()` with `results='asis'`. Same pattern used in media.qmd, teaching.qmd, grupo.qmd.
+### Compact list format (research, teaching, media)
 
-Each entry renders: title (linked), authors, journal, pill badges (pdf/github/osf) + an **"abstract" toggle badge** (Bootstrap collapse). The abstract text comes from the `abstract` column of the sheet. Papers without abstract simply omit the badge. The collapsible block uses `.abstract-body` class (styled in `custom.scss`).
+All list pages use the same pattern: raw HTML output from R via `cat()` with `results='asis'`, wrapped in a `::: {.research-list}` Quarto div (or `<div class="research-list">` directly in R output).
+
+Year label appears only on the **first entry of each year group**; subsequent entries in the same year get class `pub-cont` which draws a left grouping border.
+
+### research.qmd — render_entry()
+
+Defined in the `load_packages` chunk and shared across preprints and pubs chunks. Takes:
+- `p` — one row of the dataframe
+- `use_pdf_col` — TRUE uses `p$pdf` for the pdf badge (local file), FALSE uses `p$url`
+- `row_id` — unique string for Bootstrap collapse IDs
+- `year_label` — year string or `""` (determines `pub-cont` class)
+
+Entry structure: title (linked) → journal (own row, italic green) → authors → pill badges → collapsible abstract.
+
+`G. Solovey` is replaced in the `author` column via `str_replace_all` with `<strong class="self-author">` before calling render_entry.
+
+### teaching.qmd — interactive apps
+
+The apps section is hardcoded HTML (not from a sheet) as `.apps-grid` / `.app-card` divs, duplicated inside `content-visible` blocks for EN and ES. Each card has `.app-name` and `.app-type` (experiment / visualization / game).
+
+### grupo.qmd — member cards
+
+Members rendered as `.members-grid` of `.member-card` divs. Current and past members use identical card style; section headers (h3) provide the distinction.
 
 ### Extensions and icons
 
@@ -114,7 +143,6 @@ Three Quarto extensions in `_extensions/`:
 ### R packages required
 
 `fontawesome`, `gsheet`, `tidyverse`
-(`gt` and `gtExtras` still loaded in some files but no longer used — can be removed)
 
 ### Publications PDFs
 
@@ -126,11 +154,10 @@ PDF files live in `publications/` with naming convention `YYYY_AuthorLastname.pd
 - [ ] **Auto-update via GitHub Actions** — scheduled workflow to render and deploy automatically
 - [x] **Abstracts colapsables** — columna `abstract` en sheet, toggle Bootstrap collapse en research.qmd
 - [ ] **Actividades de extensión** — agregar sección o página con contenido de la hoja gid=117290007 del Google Sheet
-- [ ] Remove `gt` and `gtExtras` dependencies (no longer used after switching to list format)
-- [ ] Add `.gitattributes` to fix LF/CRLF warnings on Windows
-- [ ] **Figuras por paper** — agregar columna `fig` en el Google Sheet (publicaciones) con URL de imagen por paper; implementar thumbnail a la izquierda de cada entrada en research.qmd. Estructura ya discutida, en espera de imágenes.
-- [ ] **Charlas y presentaciones futuras** — agregar `type == "talk"` en el Google Sheet (publicaciones); mostrar en research.qmd con etiqueta "Upcoming" para las que no ocurrieron aún. En espera de que Guillermo cargue datos.
-- [ ] **Unificar cuentas de GitHub** — actualmente `guillermosolovey` (personal, en el home) y `gsolovey-utdt` (Di Tella, en apps de teaching). Evaluar si consolidar en una sola cuenta.
+- [ ] **Figuras por paper** — agregar columna `fig` en el Google Sheet (publicaciones) con URL de imagen; implementar thumbnail a la izquierda de cada entrada en research.qmd. En espera de imágenes.
+- [ ] **Charlas y presentaciones futuras** — agregar `type == "talk"` en el Google Sheet; mostrar en research.qmd con etiqueta "Upcoming". En espera de que Guillermo cargue datos.
+- [ ] **Featured papers** — agregar columna `featured` (TRUE/FALSE) en el Google Sheet; mostrar sección destacada al tope de research.qmd con más peso visual. Infraestructura pendiente.
+- [ ] **Unificar cuentas de GitHub** — `guillermosolovey` (personal) y `gsolovey-utdt` (Di Tella). Evaluar consolidar.
 - [ ] **Merge a main** — cuando nueva-version esté lista, mergear a main para publicar en gsolovey.netlify.app
 
 ## Known issues
