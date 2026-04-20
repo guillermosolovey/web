@@ -13,7 +13,7 @@ library(gtExtras)
 library(tidyverse)
 
 # Helper: render one publication entry as markdown
-render_entry <- function(p, use_pdf_col = FALSE) {
+render_entry <- function(p, use_pdf_col = FALSE, row_id = "0") {
   # Title linked to URL
   title_link <- if (!is.na(p$url) && p$url != "") {
     paste0("[**", p$title, "**](", p$url, ")")
@@ -31,13 +31,39 @@ render_entry <- function(p, use_pdf_col = FALSE) {
   if (!is.na(p$github) && p$github != "") links <- c(links, paste0("[github](", p$github, ")"))
   if (!is.na(p$osf)    && p$osf    != "") links <- c(links, paste0("[osf](", p$osf, ")"))
 
-  links_html <- if (length(links) > 0) {
+  # Abstract
+  has_abstract <- "abstract" %in% names(p) &&
+                  !is.na(p$abstract) &&
+                  nchar(trimws(as.character(p$abstract))) > 0
+  abs_id <- paste0("abs-", row_id)
+
+  if (has_abstract) {
+    abs_text <- trimws(as.character(p$abstract))
+    abs_text <- gsub("\r?\n\r?\n", "</p><p>", abs_text)
+    abs_text <- gsub("\r?\n", " ", abs_text)
+    abstract_btn <- paste0(
+      '<a class="abstract-toggle" data-bs-toggle="collapse" href="#', abs_id,
+      '" role="button" aria-expanded="false">abstract</a>'
+    )
+    abstract_div <- paste0(
+      '<div id="', abs_id, '" class="collapse abstract-body">',
+      '<p>', abs_text, '</p>',
+      '</div>'
+    )
+  } else {
+    abstract_btn <- ""
+    abstract_div <- ""
+  }
+
+  links_html <- if (length(links) > 0 || has_abstract) {
+    link_items <- paste(sapply(links, function(l) {
+      m <- regmatches(l, regexec("\\[(.+?)\\]\\((.+?)\\)", l))[[1]]
+      paste0('<a href="', m[3], '">', m[2], '</a>')
+    }), collapse = "")
     paste0(
       '<span class="pub-links">',
-      paste(sapply(links, function(l) {
-        m <- regmatches(l, regexec("\\[(.+?)\\]\\((.+?)\\)", l))[[1]]
-        paste0('<a href="', m[3], '">', m[2], '</a>')
-      }), collapse = ""),
+      link_items,
+      abstract_btn,
       '</span>'
     )
   } else ""
@@ -48,6 +74,7 @@ render_entry <- function(p, use_pdf_col = FALSE) {
     p$author, '\\\n',
     '*', p$journaltitle, '*\\\n',
     links_html, '\n',
+    abstract_div, '\n',
     ':::\n\n'
   ))
 }
@@ -72,7 +99,7 @@ preprints <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6
   mutate(author = str_replace_all(author, "G. Solovey", "**G. Solovey**"))
 
 for (i in seq_len(nrow(preprints))) {
-  render_entry(preprints[i, ], use_pdf_col = FALSE)
+  render_entry(preprints[i, ], use_pdf_col = FALSE, row_id = paste0("pre", i))
 }
 ```
 
@@ -95,11 +122,13 @@ pubs <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84
   mutate(author = str_replace_all(author, "G. Solovey", "**G. Solovey**")) %>%
   arrange(desc(year))
 
+pub_counter <- 0
 for (yr in unique(pubs$year)) {
   cat(paste0("#### ", yr, "\n\n"))
   yr_pubs <- filter(pubs, year == yr)
   for (i in seq_len(nrow(yr_pubs))) {
-    render_entry(yr_pubs[i, ], use_pdf_col = TRUE)
+    pub_counter <- pub_counter + 1
+    render_entry(yr_pubs[i, ], use_pdf_col = TRUE, row_id = paste0("pub", pub_counter))
   }
 }
 ```
