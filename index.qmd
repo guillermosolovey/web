@@ -8,7 +8,7 @@ about:
   # template: solana
   template: trestles
   image-shape: rounded
-  image-width: 15em
+  image-width: 12em
   links:
     - text: Email
       icon: envelope

@@ -2,6 +2,7 @@
 title: ""
 toc: false
 editor: source
+freeze: false
 ---
 
 ```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
@@ -30,7 +31,7 @@ for (i in seq_len(nrow(current))) {
   proyecto_line <- if (!is.na(m$proyecto) && m$proyecto != "")
     paste0(m$proyecto, "\\\n") else ""
   cat(paste0(
-    '::: {.pub-entry}\n',
+    '::: {.pub-entry .current-member}\n',
     '**', m$nombre, '**\\\n',
     proyecto_line,
     '*', m$carrera, '*\n',
@@ -56,7 +57,7 @@ for (i in seq_len(nrow(past))) {
   proyecto_line <- if (!is.na(m$proyecto) && m$proyecto != "")
     paste0(m$proyecto, "\\\n") else ""
   cat(paste0(
-    '::: {.pub-entry}\n',
+    '::: {.pub-entry .past-member}\n',
     '**', m$nombre, '**\\\n',
     proyecto_line,
     '*', m$carrera, '*\n',
