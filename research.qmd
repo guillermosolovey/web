@@ -8,8 +8,6 @@ editor: source
 ```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
 library(fontawesome)
 library(gsheet)
-library(gt)
-library(gtExtras)
 library(tidyverse)
 
 # Helper: render one publication entry as markdown
@@ -71,8 +69,7 @@ render_entry <- function(p, use_pdf_col = FALSE, row_id = "0") {
   cat(paste0(
     '::: {.pub-entry}\n',
     title_link, '\\\n',
-    p$author, '\\\n',
-    '*', p$journaltitle, '*\\\n',
+    p$author, ' · *', p$journaltitle, '*\\\n',
     links_html, '\n',
     abstract_div, '\n',
     ':::\n\n'
