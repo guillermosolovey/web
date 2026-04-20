@@ -98,7 +98,7 @@ CV also appears in both navbars: links to `CV-Solovey-eng.pdf` (EN) and `es/CV-S
 **Key CSS classes in `custom.scss`:**
 - `.research-list` — wrapper div that activates the compact two-column grid layout (year left, content right). Used in research.qmd, teaching.qmd, media.qmd.
 - `.pub-entry` — individual entry row. Inside `.research-list` renders as a grid.
-- `.pub-cont` — added to entries that continue a year group (year_label == ""). Draws a left border on `.pub-body` to show grouping.
+- `.pub-cont` — added to entries that continue a year group (year_label == ""). Used only for spacing logic (extra top margin on first entry of each group); the left border applies to **all** `.pub-body` elements.
 - `.pub-year-col` — year label in left column (shown only for first entry per year)
 - `.pub-title-row`, `.pub-journal-row`, `.pub-author-row` — content rows within `.pub-body`
 - `.pub-links a` — pill-style badges (pdf, github, osf, abstract toggle)
@@ -128,6 +128,8 @@ Entry structure: title (linked) → journal (own row, italic green) → authors 
 ### teaching.qmd — interactive apps
 
 The apps section is hardcoded HTML (not from a sheet) as `.apps-grid` / `.app-card` divs, duplicated inside `content-visible` blocks for EN and ES. Each card has `.app-name` and `.app-type` (experiment / visualization / game).
+
+**Important:** the HTML must be inside ` ```{=html} ` fences (not bare HTML), because Pandoc escapes raw HTML inside `::: {.content-visible}` blocks otherwise.
 
 ### grupo.qmd — member cards
 
