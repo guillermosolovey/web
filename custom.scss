@@ -135,8 +135,8 @@ h4.anchored {
   border-bottom: none;
 }
 
-// Continuation entries: left border on body to show year grouping
-.research-list .pub-entry.pub-cont .pub-body {
+// All entries get left border to show year grouping
+.research-list .pub-body {
   border-left: 2px solid #ddd9d3;
   padding-left: 0.65rem;
 }

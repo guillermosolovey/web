@@ -18,7 +18,10 @@ I have taught undergraduate and graduate courses at the University of Buenos Air
 ### Interactive Apps
 
 A collection of experiments and visualizations built for the course *Neurociencia y Psicología Experimental* at Torcuato Di Tella University. Try them in your browser — no installation needed.
+:::
 
+::: {.content-visible when-profile="en"}
+```{=html}
 <div class="apps-grid">
   <a href="https://gsolovey-utdt.github.io/two-armed-bandit/" class="app-card">
     <div class="app-name">Two-Armed Bandit</div>
@@ -57,7 +60,10 @@ A collection of experiments and visualizations built for the course *Neurocienci
     <div class="app-type">game</div>
   </a>
 </div>
+```
+:::
 
+::: {.content-visible when-profile="en"}
 ### Courses
 :::
 
@@ -67,7 +73,10 @@ Dicté cursos de grado y posgrado en la Universidad de Buenos Aires y la Univers
 ### Aplicaciones interactivas
 
 Una colección de experimentos y visualizaciones desarrollados para el curso *Neurociencia y Psicología Experimental* en la Universidad Torcuato Di Tella. Se pueden usar directamente en el navegador, sin instalación.
+:::
 
+::: {.content-visible when-profile="es"}
+```{=html}
 <div class="apps-grid">
   <a href="https://gsolovey-utdt.github.io/two-armed-bandit/" class="app-card">
     <div class="app-name">Two-Armed Bandit</div>
@@ -106,7 +115,10 @@ Una colección de experimentos y visualizaciones desarrollados para el curso *Ne
     <div class="app-type">juego</div>
   </a>
 </div>
+```
+:::
 
+::: {.content-visible when-profile="es"}
 ### Cursos
 :::
 
