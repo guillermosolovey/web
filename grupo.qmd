@@ -41,7 +41,7 @@ render_rol <- function(rol) {
 #| echo: false
 
 members <- gsheet2tbl(SHEET_URL)
-current <- members %>% filter(fecha == "actual")
+current <- members %>% filter(fecha == "actual", is.na(mostrar) | mostrar == TRUE)
 
 cat('<div class="members-grid">\n')
 for (i in seq_len(nrow(current))) {
@@ -70,7 +70,7 @@ cat('</div>\n\n')
 ```{r past-students, results='asis'}
 #| echo: false
 
-past <- members %>% filter(fecha == "pasado")
+past <- members %>% filter(fecha == "pasado", is.na(mostrar) | mostrar == TRUE)
 
 cat('<div class="members-grid">\n')
 for (i in seq_len(nrow(past))) {

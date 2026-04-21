@@ -167,8 +167,9 @@ PDF files live in `publications/` with naming convention `YYYY_AuthorLastname.pd
 - [ ] **Actividades de extensión** — agregar sección o página con contenido de la hoja gid=117290007 del Google Sheet
 - [ ] **Figuras por paper** — agregar columna `fig` en el Google Sheet (publicaciones) con URL de imagen; implementar thumbnail a la izquierda de cada entrada en research.qmd. En espera de imágenes.
 - [ ] **Charlas y presentaciones futuras** — agregar `type == "talk"` en el Google Sheet; mostrar en research.qmd con etiqueta "Upcoming". En espera de que Guillermo cargue datos.
-- [ ] **Featured papers** — agregar columna `featured` (TRUE/FALSE) en el Google Sheet; mostrar sección destacada al tope de research.qmd. Infraestructura pendiente.
+- [ ] **Featured publications** — similar a media cards: mostrar publicaciones recientes (último año o dos) como cards destacadas al tope de research.qmd, con la lista compacta existente como archivo debajo. Mismo patrón que media.qmd (cards 2025+ / lista Earlier).
 - [ ] **Unificar cuentas de GitHub** — `guillermosolovey` (personal) y `gsolovey-utdt` (Di Tella). Evaluar consolidar.
+- [ ] **Duplicados en grupo** — resueltx con columna `mostrar` (TRUE/FALSE) en la sheet `grupo`. El filtro en R ya la usa: `filter(mostrar == TRUE | is.na(mostrar))`. Completar marcando FALSE las filas duplicadas (ej. Nicolás Comay aparece en grado y doctorado).
 - [ ] **Merge a main** — cuando nueva-version esté lista, mergear a main para publicar en gsolovey.netlify.app
 - [ ] **Recortar imágenes de media cards** — las imágenes en `media-img/` son screenshots de celular (portrait). Recortarlas a formato landscape 16:9 o 4:3 para que los cards queden prolijos. Por ahora el CSS usa `height: 180px; object-position: top` como workaround.
 
