@@ -18,6 +18,9 @@ html_esc <- function(x) {
   x <- gsub(">", "&gt;", x)
   x
 }
+
+media   <- gsheet2tbl(MEDIA_SHEET_URL) %>% arrange(desc(year))
+profile <- Sys.getenv("QUARTO_PROFILE", unset = "en")
 ```
 
 ::: {.content-visible when-profile="en"}
@@ -34,42 +37,92 @@ Esta página reúne apariciones en medios —entrevistas, notas de prensa y segm
 ```{r interviews, results='asis'}
 #| echo: false
 
-media <- gsheet2tbl(MEDIA_SHEET_URL) %>%
-  arrange(desc(year))
+media_cards <- media %>% filter(year >= 2025)
+media_list  <- media %>% filter(year < 2025)
 
-cat('<div class="research-list">\n')
-prev_year <- ""
-for (i in seq_len(nrow(media))) {
-  m <- media[i, ]
-  yr <- as.character(m$year)
-  year_label <- if (yr != prev_year) yr else ""
-  cont_class <- if (year_label == "") " pub-cont" else ""
-  prev_year  <- yr
+# ---- Featured cards: 2025+ ----
+if (nrow(media_cards) > 0) {
+  cat('<div class="media-cards-grid">\n')
+  for (i in seq_len(nrow(media_cards))) {
+    m <- media_cards[i, ]
+    title_html <- html_esc(as.character(m$title))
 
-  title_html <- html_esc(as.character(m$title))
+    has_img <- "img" %in% names(m) && !is.na(m$img) && trimws(as.character(m$img)) != ""
+    img_html <- if (has_img)
+      paste0('<img class="media-card-img" src="', trimws(as.character(m$img)), '" alt="">\n')
+    else
+      '<div class="media-card-img-placeholder"></div>\n'
 
-  medio_html <- if (!is.na(m$medio) && m$medio != "")
-    paste0('<div class="pub-author-row"><em>', html_esc(as.character(m$medio)), '</em></div>\n')
-  else ""
+    title_linked <- if (!is.na(m$url) && trimws(as.character(m$url)) != "")
+      paste0('<a href="', m$url, '">', title_html, '</a>')
+    else title_html
 
-  links <- character(0)
-  if (!is.na(m$url)  && m$url  != "") links <- c(links, paste0('<a href="', m$url,  '">link</a>'))
-  if (!is.na(m$url2) && m$url2 != "") links <- c(links, paste0('<a href="', m$url2, '">link 2</a>'))
-  links_html <- if (length(links) > 0)
-    paste0('<span class="pub-links">', paste(links, collapse = ""), '</span>\n') else ""
+    medio_str <- if (!is.na(m$medio) && trimws(as.character(m$medio)) != "")
+      paste0('<span class="media-card-medio">', html_esc(as.character(m$medio)), '</span> · ')
+    else ""
 
-  cat(paste0(
-    '<div class="pub-entry', cont_class, '">\n',
-    '<span class="pub-year-col">', year_label, '</span>\n',
-    '<div class="pub-body">\n',
-    '<div class="pub-title-row">', title_html, '</div>\n',
-    medio_html,
-    links_html,
-    '</div>\n',
-    '</div>\n\n'
-  ))
+    # url2 as secondary link pill (title already links to url)
+    links <- character(0)
+    if (!is.na(m$url2) && trimws(as.character(m$url2)) != "")
+      links <- c(links, paste0('<a href="', m$url2, '">link 2</a>'))
+    links_html <- if (length(links) > 0)
+      paste0('<span class="pub-links">', paste(links, collapse = ""), '</span>\n') else ""
+
+    cat(paste0(
+      '<div class="media-card">\n',
+      img_html,
+      '<div class="media-card-body">\n',
+      '<div class="media-card-title">', title_linked, '</div>\n',
+      '<div class="media-card-meta">', medio_str, as.character(m$year), '</div>\n',
+      links_html,
+      '</div>\n',
+      '</div>\n\n'
+    ))
+  }
+  cat('</div>\n\n')
 }
-cat('</div>\n\n')
+
+# ---- Archive list: pre-2025 ----
+if (nrow(media_list) > 0) {
+  if (nrow(media_cards) > 0) {
+    label <- if (profile == "es") "Anteriores" else "Earlier"
+    cat(paste0('<p class="media-archive-label">', label, '</p>\n'))
+  }
+
+  cat('<div class="research-list">\n')
+  prev_year <- ""
+  for (i in seq_len(nrow(media_list))) {
+    m <- media_list[i, ]
+    yr <- as.character(m$year)
+    year_label <- if (yr != prev_year) yr else ""
+    cont_class <- if (year_label == "") " pub-cont" else ""
+    prev_year  <- yr
+
+    title_html <- html_esc(as.character(m$title))
+
+    medio_html <- if (!is.na(m$medio) && m$medio != "")
+      paste0('<div class="pub-author-row"><em>', html_esc(as.character(m$medio)), '</em></div>\n')
+    else ""
+
+    links <- character(0)
+    if (!is.na(m$url)  && m$url  != "") links <- c(links, paste0('<a href="', m$url,  '">link</a>'))
+    if (!is.na(m$url2) && m$url2 != "") links <- c(links, paste0('<a href="', m$url2, '">link 2</a>'))
+    links_html <- if (length(links) > 0)
+      paste0('<span class="pub-links">', paste(links, collapse = ""), '</span>\n') else ""
+
+    cat(paste0(
+      '<div class="pub-entry', cont_class, '">\n',
+      '<span class="pub-year-col">', year_label, '</span>\n',
+      '<div class="pub-body">\n',
+      '<div class="pub-title-row">', title_html, '</div>\n',
+      medio_html,
+      links_html,
+      '</div>\n',
+      '</div>\n\n'
+    ))
+  }
+  cat('</div>\n\n')
+}
 ```
 
 ::: {.content-visible when-profile="en"}

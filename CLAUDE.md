@@ -57,6 +57,8 @@ Spanish text
 :::
 ```
 
+**Detecting the active profile in R:** use `Sys.getenv("QUARTO_PROFILE", unset = "en")`. Used in `media.qmd` and `grupo.qmd` to conditionally render language-specific labels.
+
 ### Google Sheets data
 
 All dynamic content is fetched with `gsheet::gsheet2tbl()`. Single spreadsheet:
@@ -66,8 +68,8 @@ All dynamic content is fetched with `gsheet::gsheet2tbl()`. Single spreadsheet:
 |---------------|------------|-----------------------|-------------|
 | publicaciones | 1000751275 | research.qmd, media.qmd | type, title, author, year, journaltitle, abstract, url, pdf, github, osf |
 | docencia      | 852428719  | teaching.qmd          | year, materia, url, carrera, cargo |
-| grupo         | 1834640090 | grupo.qmd             | nombre, proyecto, carrera, fecha (actual/pasado) |
-| media         | 625135132  | media.qmd             | year, title, medio, url, url2 |
+| grupo         | 1834640090 | grupo.qmd             | nombre, proyecto, carrera, fecha (actual/pasado), rol |
+| media         | 625135132  | media.qmd             | year, title, medio, url, url2, img (optional) |
 
 **Filtering logic:**
 - `research.qmd`: `type == "pre-print"` for preprints, `type == "Article"` for publications
@@ -92,30 +94,32 @@ CV also appears in both navbars: links to `CV-Solovey-eng.pdf` (EN) and `es/CV-S
 - Theme: `flatly` (Bootstrap) + `custom.scss`
 - Font: **EB Garamond** (Google Fonts) for all headings; body stays in system sans
 - Background: warm off-white `#faf9f7` (page, navbar, footer)
-- Text: dark gray `#2d2d2d`
-- Accent color: verde pizarra `#2a6e5a` (links, pill badges, self-author name, member carrera)
+- Text: dark gray `#2d2d2d`; metadata/authors: `#5a5a5a`
+- Accent color: verde pizarra `#2a6e5a` (links, pill badges, self-author, member carrera)
 
 **Key CSS classes in `custom.scss`:**
-- `.research-list` — wrapper div that activates the compact two-column grid layout (year left, content right). Used in research.qmd, teaching.qmd, media.qmd.
+- `.research-list` — wrapper div activating the compact two-column grid (year left, content right). Used in research.qmd, teaching.qmd, media.qmd.
 - `.pub-entry` — individual entry row. Inside `.research-list` renders as a grid.
-- `.pub-cont` — added to entries that continue a year group (year_label == ""). Used only for spacing logic (extra top margin on first entry of each group); the left border applies to **all** `.pub-body` elements.
-- `.pub-year-col` — year label in left column (shown only for first entry per year)
+- `.pub-cont` — entries continuing a year group (year_label == ""). Triggers extra top margin on the first entry of each group (`:not(.pub-cont)`). The left border applies to **all** `.pub-body` elements.
+- `.pub-year-col` — year label in left column (shown only for first entry per year, `color: #5a5a5a`)
 - `.pub-title-row`, `.pub-journal-row`, `.pub-author-row` — content rows within `.pub-body`
 - `.pub-links a` — pill-style badges (pdf, github, osf, abstract toggle)
 - `.abstract-body` — collapsible abstract block (Bootstrap collapse)
-- `.self-author` — highlights "G. Solovey" in author lists (color + bold)
-- `.members-grid` / `.member-card` — CSS grid for group members page
+- `.self-author` — highlights "G. Solovey" in author lists (green + bold)
+- `.members-grid` / `.member-card` / `.member-rol` — CSS grid for group members; `.member-rol` is a small pill badge for supervisor/co-supervisor role
 - `.apps-grid` / `.app-card` — CSS grid for interactive apps in teaching page
+- `.media-cards-grid` / `.media-card` — featured card grid for media entries (year ≥ 2025); supports optional image via `.media-card-img` or placeholder via `.media-card-img-placeholder`
+- `.media-archive-label` — small uppercase "Earlier" label separating featured cards from archive list
 
 ### Compact list format (research, teaching, media)
 
-All list pages use the same pattern: raw HTML output from R via `cat()` with `results='asis'`, wrapped in a `::: {.research-list}` Quarto div (or `<div class="research-list">` directly in R output).
+All list pages use the same pattern: raw HTML output from R via `cat()` with `results='asis'`, wrapped in `<div class="research-list">`.
 
-Year label appears only on the **first entry of each year group**; subsequent entries in the same year get class `pub-cont` which draws a left grouping border.
+Year label appears only on the **first entry of each year group**; subsequent entries get class `pub-cont`. All entries have a left border on `.pub-body`.
 
 ### research.qmd — render_entry()
 
-Defined in the `load_packages` chunk and shared across preprints and pubs chunks. Takes:
+Defined in the `load_packages` chunk, shared across preprints and pubs chunks. Takes:
 - `p` — one row of the dataframe
 - `use_pdf_col` — TRUE uses `p$pdf` for the pdf badge (local file), FALSE uses `p$url`
 - `row_id` — unique string for Bootstrap collapse IDs
@@ -123,17 +127,22 @@ Defined in the `load_packages` chunk and shared across preprints and pubs chunks
 
 Entry structure: title (linked) → journal (own row, italic green) → authors → pill badges → collapsible abstract.
 
-`G. Solovey` is replaced in the `author` column via `str_replace_all` with `<strong class="self-author">` before calling render_entry.
+`G. Solovey` is replaced with `<strong class="self-author">` via `str_replace_all` before calling render_entry.
 
 ### teaching.qmd — interactive apps
 
-The apps section is hardcoded HTML (not from a sheet) as `.apps-grid` / `.app-card` divs, duplicated inside `content-visible` blocks for EN and ES. Each card has `.app-name` and `.app-type` (experiment / visualization / game).
+Hardcoded HTML (not from a sheet) as `.apps-grid` / `.app-card` divs, duplicated inside `content-visible` blocks for EN and ES. Each card has `.app-name` and `.app-type`.
 
-**Important:** the HTML must be inside ` ```{=html} ` fences (not bare HTML), because Pandoc escapes raw HTML inside `::: {.content-visible}` blocks otherwise.
+**Important:** the HTML must be inside ` ```{=html} ` fences (not bare HTML), because Pandoc escapes raw HTML inside `::: {.content-visible}` blocks.
+
+### media.qmd — two-tier layout
+
+- **Featured cards** (`year >= 2025`): rendered as `.media-cards-grid` with `.media-card` cards. Supports an optional `img` column (URL) for a cover image; falls back to a colored placeholder. Title links to `url`; `url2` shown as a secondary pill badge.
+- **Archive list** (`year < 2025`): compact `.research-list` grid, same as research/teaching. If featured cards are present, a small "Earlier" / "Anteriores" label separates the two sections.
 
 ### grupo.qmd — member cards
 
-Members rendered as `.members-grid` of `.member-card` divs. Current and past members use identical card style; section headers (h3) provide the distinction.
+Members rendered as `.members-grid` of `.member-card` divs. If the `rol` column is non-empty, a `.member-rol` pill badge is shown (e.g. "supervisor", "co-supervisor"). Role labels are translated EN/ES via `render_rol()` using `QUARTO_PROFILE`.
 
 ### Extensions and icons
 
@@ -158,9 +167,10 @@ PDF files live in `publications/` with naming convention `YYYY_AuthorLastname.pd
 - [ ] **Actividades de extensión** — agregar sección o página con contenido de la hoja gid=117290007 del Google Sheet
 - [ ] **Figuras por paper** — agregar columna `fig` en el Google Sheet (publicaciones) con URL de imagen; implementar thumbnail a la izquierda de cada entrada en research.qmd. En espera de imágenes.
 - [ ] **Charlas y presentaciones futuras** — agregar `type == "talk"` en el Google Sheet; mostrar en research.qmd con etiqueta "Upcoming". En espera de que Guillermo cargue datos.
-- [ ] **Featured papers** — agregar columna `featured` (TRUE/FALSE) en el Google Sheet; mostrar sección destacada al tope de research.qmd con más peso visual. Infraestructura pendiente.
+- [ ] **Featured papers** — agregar columna `featured` (TRUE/FALSE) en el Google Sheet; mostrar sección destacada al tope de research.qmd. Infraestructura pendiente.
 - [ ] **Unificar cuentas de GitHub** — `guillermosolovey` (personal) y `gsolovey-utdt` (Di Tella). Evaluar consolidar.
 - [ ] **Merge a main** — cuando nueva-version esté lista, mergear a main para publicar en gsolovey.netlify.app
+- [ ] **Recortar imágenes de media cards** — las imágenes en `media-img/` son screenshots de celular (portrait). Recortarlas a formato landscape 16:9 o 4:3 para que los cards queden prolijos. Por ahora el CSS usa `height: 180px; object-position: top` como workaround.
 
 ## Known issues
 

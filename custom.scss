@@ -80,7 +80,7 @@ h3.anchored {
 h4.anchored {
   font-size: 0.75rem;
   font-weight: 700;
-  color: #c0bbb4;
+  color: #999;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   border: none;
@@ -145,7 +145,7 @@ h4.anchored {
 .pub-year-col {
   font-size: 0.72rem;
   font-weight: 700;
-  color: #888;
+  color: #5a5a5a;
   letter-spacing: 0.03em;
   padding-top: 0.28em;
   text-align: right;
@@ -167,7 +167,7 @@ h4.anchored {
 
 .pub-author-row {
   font-size: 0.82rem;
-  color: #888;
+  color: #5a5a5a;
   line-height: 1.4;
   margin-bottom: 0.25rem;
 }
@@ -250,6 +250,17 @@ h4.anchored {
   font-style: italic;
 }
 
+.member-rol {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: #2a6e5a;
+  border: 1px solid #9ec8b8;
+  border-radius: 3px;
+  padding: 1px 6px;
+  margin-top: 0.35rem;
+  font-style: normal;
+}
+
 // ---- Interactive apps: card grid ----
 .apps-grid {
   display: grid;
@@ -285,7 +296,86 @@ h4.anchored {
 
 .app-type {
   font-size: 0.72rem;
-  color: #aaa;
+  color: #777;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+}
+
+// ---- Media feature cards (2025+) ----
+.media-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.media-card {
+  background-color: #ffffff;
+  border: 1px solid #e0ddd8;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.media-card:hover {
+  border-color: #9ec8b8;
+  box-shadow: 0 2px 8px rgba(42, 110, 90, 0.08);
+}
+
+.media-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.media-card-img-placeholder {
+  width: 100%;
+  height: 180px;
+  background-color: #edf5f2;
+  display: block;
+}
+
+.media-card-body {
+  padding: 0.7rem 0.9rem 0.8rem;
+}
+
+.media-card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.3rem;
+}
+
+.media-card-title a {
+  color: #2d2d2d;
+  text-decoration: none;
+}
+
+.media-card-title a:hover {
+  color: #2a6e5a;
+  text-decoration: none;
+}
+
+.media-card-meta {
+  font-size: 0.78rem;
+  color: #5a5a5a;
+  margin-bottom: 0.35rem;
+}
+
+.media-card-medio {
+  font-style: italic;
+  color: #2a6e5a;
+}
+
+.media-archive-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
 }

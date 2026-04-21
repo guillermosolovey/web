@@ -10,10 +10,28 @@ library(gsheet)
 library(tidyverse)
 
 SHEET_URL <- "https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1834640090"
+
+profile <- Sys.getenv("QUARTO_PROFILE", unset = "en")
+
+rol_translations <- c(
+  "director"    = "supervisor",
+  "co-director" = "co-supervisor"
+)
+
+render_rol <- function(rol) {
+  if (is.na(rol) || trimws(rol) == "") return("")
+  label <- if (profile == "en") {
+    key <- str_to_lower(trimws(rol))
+    ifelse(key %in% names(rol_translations), rol_translations[[key]], rol)
+  } else {
+    rol
+  }
+  paste0('<div><span class="member-rol">', label, '</span></div>\n')
+}
 ```
 
 ::: {.content-visible when-profile="en"}
-### Current members
+### Current
 :::
 ::: {.content-visible when-profile="es"}
 ### Actuales
@@ -35,6 +53,7 @@ for (i in seq_len(nrow(current))) {
     '<div class="member-name">', m$nombre, '</div>\n',
     proyecto_html,
     '<div class="member-carrera">', m$carrera, '</div>\n',
+    render_rol(m$rol),
     '</div>\n'
   ))
 }
@@ -42,7 +61,7 @@ cat('</div>\n\n')
 ```
 
 ::: {.content-visible when-profile="en"}
-### Past members
+### Past
 :::
 ::: {.content-visible when-profile="es"}
 ### Anteriores
@@ -63,6 +82,7 @@ for (i in seq_len(nrow(past))) {
     '<div class="member-name">', m$nombre, '</div>\n',
     proyecto_html,
     '<div class="member-carrera">', m$carrera, '</div>\n',
+    render_rol(m$rol),
     '</div>\n'
   ))
 }
