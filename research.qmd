@@ -11,6 +11,12 @@ library(fontawesome)
 library(gsheet)
 library(tidyverse)
 
+PUBS_SHEET_URL <- "https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1000751275"
+profile <- Sys.getenv("QUARTO_PROFILE", unset = "en")
+
+all_pubs <- gsheet2tbl(PUBS_SHEET_URL) %>%
+  mutate(author = str_replace_all(author, "G. Solovey", '<strong class="self-author">G. Solovey</strong>'))
+
 html_esc <- function(x) {
   x <- gsub("&", "&amp;", as.character(x))
   x <- gsub("<", "&lt;", x)
@@ -84,6 +90,59 @@ render_entry <- function(p, use_pdf_col = FALSE, row_id = "0", year_label = "") 
 
 
 ::: {.content-visible when-profile="en"}
+### Selected publications
+:::
+
+::: {.content-visible when-profile="es"}
+### Publicaciones seleccionadas
+:::
+
+```{r featured_pubs, results='asis'}
+#| echo: false
+
+featured <- all_pubs %>%
+  filter(type == "Article") %>%
+  filter(tolower(as.character(`img-mostrar`)) == "true") %>%
+  arrange(desc(year)) %>%
+  slice_head(n = 4)
+
+if (nrow(featured) > 0) {
+  cat('<div class="media-cards-grid">\n')
+  for (i in seq_len(nrow(featured))) {
+    p <- featured[i, ]
+    title_html <- html_esc(as.character(p$title))
+
+    has_img <- "img" %in% names(p) && !is.na(p$img) && trimws(as.character(p$img)) != ""
+    img_html <- if (has_img)
+      paste0('<img class="pub-card-img" src="publications-img/', trimws(as.character(p$img)), '" alt="">\n')
+    else
+      '<div class="media-card-img-placeholder"></div>\n'
+
+    title_linked <- if (!is.na(p$url) && trimws(as.character(p$url)) != "")
+      paste0('<a href="', p$url, '">', title_html, '</a>')
+    else title_html
+
+    journal_html <- if (!is.na(p$journaltitle) && p$journaltitle != "")
+      paste0('<div class="pub-journal-row">', html_esc(as.character(p$journaltitle)), '</div>\n')
+    else ""
+
+    cat(paste0(
+      '<div class="media-card">\n',
+      img_html,
+      '<div class="media-card-body">\n',
+      '<div class="media-card-title">', title_linked, '</div>\n',
+      journal_html,
+      '<div class="media-card-meta">', as.character(p$year), '</div>\n',
+      '</div>\n',
+      '</div>\n\n'
+    ))
+  }
+  cat('</div>\n\n')
+
+}
+```
+
+::: {.content-visible when-profile="en"}
 ### Pre-prints
 (\*: *equal contribution*)
 :::
@@ -98,9 +157,8 @@ render_entry <- function(p, use_pdf_col = FALSE, row_id = "0", year_label = "") 
 ```{r preprints, results='asis'}
 #| echo: false
 
-preprints <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1000751275") %>%
-  filter(type == "pre-print") %>%
-  mutate(author = str_replace_all(author, "G. Solovey", '<strong class="self-author">G. Solovey</strong>'))
+preprints <- all_pubs %>%
+  filter(type == "pre-print")
 
 for (i in seq_len(nrow(preprints))) {
   render_entry(preprints[i, ], use_pdf_col = FALSE, row_id = paste0("pre", i), year_label = "")
@@ -125,9 +183,8 @@ for (i in seq_len(nrow(preprints))) {
 ```{r pubs, results='asis'}
 #| echo: false
 
-pubs <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1000751275") %>%
+pubs <- all_pubs %>%
   filter(type == "Article") %>%
-  mutate(author = str_replace_all(author, "G. Solovey", '<strong class="self-author">G. Solovey</strong>')) %>%
   arrange(desc(year))
 
 pub_counter <- 0

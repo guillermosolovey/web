@@ -5,6 +5,7 @@ project:
     - "*.qmd"
   resources:
     - media-img/
+    - publications-img/
 
 website:
   search: false
