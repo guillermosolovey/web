@@ -24,32 +24,35 @@ courses <- gsheet2tbl(SHEET_URL) %>%
   arrange(desc(year))
 
 apps <- gsheet2tbl(APPS_SHEET_URL) %>%
-  filter(trimws(as.character(incluir)) == "TRUE")
+  filter(trimws(as.character(incluir)) == "TRUE",
+         !is.na(nombre), trimws(as.character(nombre)) != "")
 
 render_apps <- function(prof = "en") {
   if (nrow(apps) == 0) return(invisible(NULL))
-  cat('<div class="apps-grid">\n')
+  cards <- character(0)
   for (i in seq_len(nrow(apps))) {
-    a <- apps[i, ]
-    name <- html_esc(if (prof == "es") as.character(a$nombre_es) else as.character(a$nombre))
-    tipo <- html_esc(if (prof == "es") as.character(a$tipo_es) else as.character(a$tipo))
-    has_img <- "img" %in% names(a) && !is.na(a$img) && trimws(as.character(a$img)) != ""
-    img_src  <- if (has_img) {
+    a       <- apps[i, ]
+    url_str <- trimws(as.character(a$url))
+    name    <- html_esc(trimws(if (prof == "es") as.character(a$nombre_es) else as.character(a$nombre)))
+    tipo    <- html_esc(trimws(if (prof == "es") as.character(a$tipo_es)   else as.character(a$tipo)))
+    if (nchar(url_str) == 0 || nchar(name) == 0 || nchar(tipo) == 0) next
+    if (grepl("^NA$", name) || grepl("^NA$", tipo)) next
+    has_img  <- "img" %in% names(a) && !is.na(a$img) && trimws(as.character(a$img)) != ""
+    img_html <- if (has_img) {
       p <- trimws(as.character(a$img))
-      if (!grepl("/", p)) paste0("apps-img/", p) else p
+      src <- if (!grepl("/", p)) paste0("apps-img/", p) else p
+      paste0('<img class="app-card-img" src="', src, '" alt="">')
     } else ""
-    img_html <- if (has_img)
-      paste0('<img class="app-card-img" src="', img_src, '" alt="">\n')
-    else ""
-    cat(paste0(
-      '<a href="', as.character(a$url), '" class="app-card">\n',
+    cards <- c(cards, paste0(
+      '<a href="', url_str, '" class="app-card">',
       img_html,
-      '<div class="app-name">', name, '</div>\n',
-      '<div class="app-type">', tipo, '</div>\n',
-      '</a>\n'
+      '<div class="app-name">', name, '</div>',
+      '<div class="app-type">', tipo, '</div>',
+      '</a>'
     ))
   }
-  cat('</div>\n\n')
+  if (length(cards) == 0) return(invisible(NULL))
+  cat(paste0('<div class="apps-grid">', paste(cards, collapse = "\n"), '</div>'))
 }
 
 render_courses <- function(inst) {
