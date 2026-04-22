@@ -6,6 +6,7 @@ project:
   resources:
     - media-img/
     - publications-img/
+    - apps-img/
 
 website:
   search: false
@@ -34,9 +35,7 @@ website:
 
   page-footer:
     background: "#faf9f7"
-    right: |
-      <a href="https://www.ic.fcen.uba.ar" target="_blank">Instituto de Cálculo</a>
-      
+
 lang: es
 
 format:

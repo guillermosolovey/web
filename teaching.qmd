@@ -10,124 +10,7 @@ library(gsheet)
 library(tidyverse)
 
 SHEET_URL <- "https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=852428719"
-```
-
-::: {.content-visible when-profile="en"}
-I have taught undergraduate and graduate courses at the University of Buenos Aires and Torcuato Di Tella University, covering statistics, Bayesian inference, data visualization, and behavioral science. I have also led training workshops on statistical literacy for public officials and journalists. My teaching aims to connect rigorous quantitative methods with real-world reasoning and decision-making.
-
-### Interactive Apps
-
-A collection of experiments and visualizations built for the course *Neurociencia y Psicología Experimental* at Torcuato Di Tella University. Try them in your browser — no installation needed.
-:::
-
-::: {.content-visible when-profile="en"}
-```{=html}
-<div class="apps-grid">
-  <a href="https://gsolovey-utdt.github.io/two-armed-bandit/" class="app-card">
-    <div class="app-name">Two-Armed Bandit</div>
-    <div class="app-type">experiment</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/stroop/" class="app-card">
-    <div class="app-name">Stroop</div>
-    <div class="app-type">experiment</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/azar/" class="app-card">
-    <div class="app-name">Gambling Game</div>
-    <div class="app-type">experiment</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/umbral-de-deteccion/" class="app-card">
-    <div class="app-name">Detection Threshold</div>
-    <div class="app-type">experiment</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/memoria-de-digitos/" class="app-card">
-    <div class="app-name">Digit Memory</div>
-    <div class="app-type">experiment</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/correlacion/" class="app-card">
-    <div class="app-name">Correlation</div>
-    <div class="app-type">visualization</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/asignacion_aleatoria/" class="app-card">
-    <div class="app-name">Random Assignment</div>
-    <div class="app-type">visualization</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/muestreo_aleatorio/" class="app-card">
-    <div class="app-name">Random Sampling</div>
-    <div class="app-type">visualization</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/set/" class="app-card">
-    <div class="app-name">Set</div>
-    <div class="app-type">game</div>
-  </a>
-</div>
-```
-:::
-
-::: {.content-visible when-profile="en"}
-### Courses
-:::
-
-::: {.content-visible when-profile="es"}
-Dicté cursos de grado y posgrado en la Universidad de Buenos Aires y la Universidad Torcuato Di Tella, en áreas como estadística, inferencia bayesiana, visualización de datos y ciencias del comportamiento. También coordiné capacitaciones sobre alfabetización estadística para funcionarios públicos y periodistas. Mi enfoque busca conectar métodos cuantitativos rigurosos con el razonamiento y la toma de decisiones en contextos reales.
-
-### Aplicaciones interactivas
-
-Una colección de experimentos y visualizaciones desarrollados para el curso *Neurociencia y Psicología Experimental* en la Universidad Torcuato Di Tella. Se pueden usar directamente en el navegador, sin instalación.
-:::
-
-::: {.content-visible when-profile="es"}
-```{=html}
-<div class="apps-grid">
-  <a href="https://gsolovey-utdt.github.io/two-armed-bandit/" class="app-card">
-    <div class="app-name">Two-Armed Bandit</div>
-    <div class="app-type">experimento</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/stroop/" class="app-card">
-    <div class="app-name">Stroop</div>
-    <div class="app-type">experimento</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/azar/" class="app-card">
-    <div class="app-name">Juego del Azar</div>
-    <div class="app-type">experimento</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/umbral-de-deteccion/" class="app-card">
-    <div class="app-name">Umbral de Detección</div>
-    <div class="app-type">experimento</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/memoria-de-digitos/" class="app-card">
-    <div class="app-name">Memoria de Dígitos</div>
-    <div class="app-type">experimento</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/correlacion/" class="app-card">
-    <div class="app-name">Correlación</div>
-    <div class="app-type">visualización</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/asignacion_aleatoria/" class="app-card">
-    <div class="app-name">Asignación Aleatoria</div>
-    <div class="app-type">visualización</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/muestreo_aleatorio/" class="app-card">
-    <div class="app-name">Muestreo Aleatorio</div>
-    <div class="app-type">visualización</div>
-  </a>
-  <a href="https://gsolovey-utdt.github.io/set/" class="app-card">
-    <div class="app-name">Set</div>
-    <div class="app-type">juego</div>
-  </a>
-</div>
-```
-:::
-
-::: {.content-visible when-profile="es"}
-### Cursos
-:::
-
-```{r teaching, results='asis'}
-#| echo: false
-
-courses <- gsheet2tbl(SHEET_URL) %>%
-  filter(cargo %in% c("prof", "doc")) %>%
-  arrange(desc(year))
+APPS_SHEET_URL <- "https://docs.google.com/spreadsheets/d/1id1P5ke9ZJckr_6ePP84FOLeQPoHb57eitX7yaZ_l8A/edit#gid=1560795144"
 
 html_esc <- function(x) {
   x <- gsub("&", "&amp;", as.character(x))
@@ -136,28 +19,204 @@ html_esc <- function(x) {
   x
 }
 
-cat('<div class="research-list">\n')
-prev_year <- ""
-for (i in seq_len(nrow(courses))) {
-  c_row <- courses[i, ]
-  yr    <- as.character(c_row$year)
-  year_label <- if (yr != prev_year) yr else ""
-  cont_class <- if (year_label == "") " pub-cont" else ""
-  prev_year  <- yr
+courses <- gsheet2tbl(SHEET_URL) %>%
+  filter(!is.na(institucion) & trimws(as.character(institucion)) != "") %>%
+  arrange(desc(year))
 
-  materia_html <- if (!is.na(c_row$url) && c_row$url != "")
-    paste0('<a href="', c_row$url, '">', html_esc(c_row$materia), '</a>')
-  else html_esc(as.character(c_row$materia))
+apps <- gsheet2tbl(APPS_SHEET_URL) %>%
+  filter(trimws(as.character(incluir)) == "TRUE")
 
-  cat(paste0(
-    '<div class="pub-entry', cont_class, '">\n',
-    '<span class="pub-year-col">', year_label, '</span>\n',
-    '<div class="pub-body">\n',
-    '<div class="pub-title-row">', materia_html, '</div>\n',
-    '<div class="pub-author-row">', html_esc(as.character(c_row$carrera)), '</div>\n',
-    '</div>\n',
-    '</div>\n\n'
-  ))
+render_apps <- function(prof = "en") {
+  if (nrow(apps) == 0) return(invisible(NULL))
+  cat('<div class="apps-grid">\n')
+  for (i in seq_len(nrow(apps))) {
+    a <- apps[i, ]
+    name <- html_esc(if (prof == "es") as.character(a$nombre_es) else as.character(a$nombre))
+    tipo <- html_esc(if (prof == "es") as.character(a$tipo_es) else as.character(a$tipo))
+    has_img <- "img" %in% names(a) && !is.na(a$img) && trimws(as.character(a$img)) != ""
+    img_src  <- if (has_img) {
+      p <- trimws(as.character(a$img))
+      if (!grepl("/", p)) paste0("apps-img/", p) else p
+    } else ""
+    img_html <- if (has_img)
+      paste0('<img class="app-card-img" src="', img_src, '" alt="">\n')
+    else ""
+    cat(paste0(
+      '<a href="', as.character(a$url), '" class="app-card">\n',
+      img_html,
+      '<div class="app-name">', name, '</div>\n',
+      '<div class="app-type">', tipo, '</div>\n',
+      '</a>\n'
+    ))
+  }
+  cat('</div>\n\n')
 }
-cat('</div>\n\n')
+
+render_courses <- function(inst) {
+  rows <- courses %>% filter(trimws(as.character(institucion)) == inst)
+  if (nrow(rows) == 0) return(invisible(NULL))
+  cat('<div class="research-list">\n')
+  prev_year <- ""
+  for (i in seq_len(nrow(rows))) {
+    c_row <- rows[i, ]
+    yr <- as.character(c_row$year)
+    year_label <- if (yr != prev_year) yr else ""
+    cont_class <- if (year_label == "") " pub-cont" else ""
+    prev_year <- yr
+    materia_html <- if (!is.na(c_row$url) && c_row$url != "")
+      paste0('<a href="', c_row$url, '">', html_esc(c_row$materia), '</a>')
+    else html_esc(as.character(c_row$materia))
+    cat(paste0(
+      '<div class="pub-entry', cont_class, '">\n',
+      '<span class="pub-year-col">', year_label, '</span>\n',
+      '<div class="pub-body">\n',
+      '<div class="pub-title-row">', materia_html, '</div>\n',
+      '<div class="pub-author-row">', html_esc(as.character(c_row$carrera)), '</div>\n',
+      '</div>\n',
+      '</div>\n\n'
+    ))
+  }
+  cat('</div>\n\n')
+}
+```
+
+<!-- ===== INTRO ===== -->
+
+::: {.content-visible when-profile="en"}
+Over more than twenty years I have taught undergraduate and graduate courses at three universities, on topics ranging from physics and statistics to neuroscience. I have also led training courses for high school students, public officials, journalists, and the general public. Below you will find an overview of my teaching at [Torcuato Di Tella University](#utdt-en), the [University of Buenos Aires](#uba-ic-en), and [Universidad de San Andrés](#udesa-en).
+:::
+
+::: {.content-visible when-profile="es"}
+A lo largo de más de veinte años dicté cursos de grado y posgrado en tres universidades, sobre temas que van desde la física y la estadística hasta la neurociencia. También coordiné cursos de formación para estudiantes de secundario, empleados del Estado Nacional, periodistas y público general. A continuación encontrarás información sobre mi docencia en la [Universidad Torcuato Di Tella](#utdt-es), la [Universidad de Buenos Aires](#uba-ic-es) y la [Universidad de San Andrés](#udesa-es).
+:::
+
+<!-- ===== UTDT ===== -->
+
+::: {.content-visible when-profile="en"}
+### Torcuato Di Tella University {#utdt-en}
+
+At Torcuato Di Tella University I teach in the Bachelor's program in Behavioral Science. My core course, *Introduction to Neuroscience and Experimental Psychology*, covers fundamental topics including memory, attention, perception, and decision-making. To support in-class demonstrations, I developed a collection of interactive browser-based experiments and visualizations — no installation needed.
+
+#### Interactive apps
+:::
+
+::: {.content-visible when-profile="es"}
+### Universidad Torcuato Di Tella {#utdt-es}
+
+En la Universidad Torcuato Di Tella dicto materias en la Licenciatura en Ciencias del Comportamiento. Mi curso central, *Introducción a la Neurociencia y la Psicología Experimental*, recorre temas fundamentales como memoria, atención, percepción y toma de decisiones. Para apoyar las clases, desarrollé una colección de experimentos y visualizaciones interactivas que funcionan directamente en el navegador, sin instalación.
+
+#### Aplicaciones interactivas
+:::
+
+```{r apps_grid, results='asis'}
+#| echo: false
+render_apps(Sys.getenv("QUARTO_PROFILE", unset = "en"))
+```
+
+::: {.content-visible when-profile="en"}
+#### Courses
+:::
+
+::: {.content-visible when-profile="es"}
+#### Materias
+:::
+
+```{r utdt_courses, results='asis'}
+#| echo: false
+render_courses("utdt")
+```
+
+<!-- ===== UDESA ===== -->
+
+::: {.content-visible when-profile="en"}
+### Universidad de San Andrés {#udesa-en}
+
+At Universidad de San Andrés I taught *Statistics for Social Sciences*, an introductory course designed for students with minimal mathematical background. Following *Data Analysis for Social Science* by Llaudet and Imai, the course covered the fundamentals of quantitative reasoning in R — causal inference, survey research, and predictive models — with an emphasis on building intuition over formula.
+:::
+
+::: {.content-visible when-profile="es"}
+### Universidad de San Andrés {#udesa-es}
+
+En la Universidad de San Andrés dicté *Estadística para Ciencias Sociales*, un curso introductorio diseñado para estudiantes con escasa formación matemática previa. Siguiendo el libro *Data Analysis for Social Science* de Llaudet e Imai, el curso recorrió los fundamentos del razonamiento cuantitativo en R —inferencia causal, investigación por encuestas y modelos predictivos— con énfasis en construir intuición antes que fórmulas.
+:::
+
+```{r udesa_courses, results='asis'}
+#| echo: false
+render_courses("udesa")
+```
+
+<!-- ===== UBA-IC ===== -->
+
+::: {.content-visible when-profile="en"}
+### UBA — Instituto de Cálculo {#uba-ic-en}
+
+At the Instituto de Cálculo (University of Buenos Aires) I taught graduate and advanced undergraduate courses in statistics and data science, covering Bayesian inference, data visualization, and computational methods.
+:::
+
+::: {.content-visible when-profile="es"}
+### UBA — Instituto de Cálculo {#uba-ic-es}
+
+En el Instituto de Cálculo (Universidad de Buenos Aires) dicté cursos de posgrado y grado avanzado en estadística y ciencia de datos, con énfasis en inferencia bayesiana, visualización de datos y métodos computacionales.
+:::
+
+```{r ubaic_courses, results='asis'}
+#| echo: false
+render_courses("uba-ic")
+```
+
+<!-- ===== UBA-EXT ===== -->
+
+::: {.content-visible when-profile="en"}
+### UBA — Professional Training {#uba-ext-en}
+
+As part of the Instituto de Cálculo's outreach activities, I led workshops on statistical literacy for journalists and public officials. These sessions used real-world examples to help participants recognize chance as a possible explanation, distinguish correlation from causation, and critically assess data quality before turning numbers into stories.
+:::
+
+::: {.content-visible when-profile="es"}
+### UBA — Formación Profesional {#uba-ext-es}
+
+En el marco de las actividades de extensión del Instituto de Cálculo, coordiné talleres de formación en alfabetización estadística para periodistas y funcionarios de la administración pública nacional. Los talleres utilizaron ejemplos reales para ayudar a reconocer al azar como causa posible, distinguir correlación de causalidad y evaluar críticamente la calidad de los datos antes de convertir números en historias.
+:::
+
+```{r ubaext_courses, results='asis'}
+#| echo: false
+render_courses("uba-ext")
+```
+
+<!-- ===== UBA-DF ===== -->
+
+::: {.content-visible when-profile="en"}
+### UBA — Department of Physics {#uba-df-en}
+
+At the Department of Physics (University of Buenos Aires) I taught undergraduate courses to students in the Physics degree program.
+:::
+
+::: {.content-visible when-profile="es"}
+### UBA — Departamento de Física {#uba-df-es}
+
+En el Departamento de Física (Universidad de Buenos Aires) dicté materias de grado para estudiantes de la Licenciatura en Física.
+:::
+
+```{r ubadf_courses, results='asis'}
+#| echo: false
+render_courses("uba-df")
+```
+
+<!-- ===== UBA-CBC ===== -->
+
+::: {.content-visible when-profile="en"}
+### UBA — Ciclo Básico Común {#uba-cbc-en}
+
+At the Ciclo Básico Común (University of Buenos Aires) I taught introductory physics courses to incoming university students.
+:::
+
+::: {.content-visible when-profile="es"}
+### UBA — Ciclo Básico Común {#uba-cbc-es}
+
+En el Ciclo Básico Común (Universidad de Buenos Aires) dicté cursos introductorios de física para ingresantes universitarios.
+:::
+
+```{r ubacbc_courses, results='asis'}
+#| echo: false
+render_courses("uba-cbc")
 ```

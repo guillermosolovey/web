@@ -24,7 +24,7 @@ profile <- Sys.getenv("QUARTO_PROFILE", unset = "en")
 ```
 
 ::: {.content-visible when-profile="en"}
-This page collects media appearances — interviews, press coverage, and radio segments — as well as outreach articles written for general audiences.
+This page collects media appearances — interviews, press coverage, and radio segments — as well as outreach articles written for general audiences. Most interviews and press coverage are in Spanish, from Argentine media.
 
 ### Interviews & press
 :::

@@ -288,6 +288,17 @@ h4.anchored {
   color: #2d2d2d;
 }
 
+.app-card-img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  border-radius: 5px 5px 0 0;
+  margin: -0.7rem -0.9rem 0.6rem;
+  width: calc(100% + 1.8rem);
+}
+
 .app-name {
   font-weight: 600;
   font-size: 0.88rem;
@@ -386,4 +397,47 @@ h4.anchored {
   color: #999;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
+}
+
+// ---- Mobile: landing page ----
+@media (max-width: 767px) {
+  // Center the photo + links column
+  .quarto-about-trestles .about-entity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  // Arrange buttons as a centered row instead of full-width stacked column
+  .quarto-about-trestles .about-links {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .quarto-about-trestles .about-links .about-link {
+    width: auto;
+    padding: 0.45rem 0.6rem;
+  }
+
+  // Icon-only: hide text labels, keep icons visible
+  .quarto-about-trestles .about-links .about-link .about-link-text {
+    font-size: 0;
+    line-height: 0;
+  }
+
+  // Re-set size for icons inside the text span (Scholar, GitHub)
+  .quarto-about-trestles .about-links .about-link .about-link-text i,
+  .quarto-about-trestles .about-links .about-link .about-link-text iconify-icon,
+  .quarto-about-trestles .about-links .about-link .about-link-text svg {
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  // Re-set size for icons outside the text span (Email)
+  .quarto-about-trestles .about-links .about-link > i {
+    font-size: 1.1rem;
+  }
 }
