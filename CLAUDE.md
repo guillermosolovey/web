@@ -67,14 +67,16 @@ All dynamic content is fetched with `gsheet::gsheet2tbl()`. Single spreadsheet:
 | Sheet name    | gid        | Used in               | Key columns |
 |---------------|------------|-----------------------|-------------|
 | publicaciones | 1000751275 | research.qmd, media.qmd | type, title, author, year, journaltitle, abstract, url, pdf, github, osf |
-| docencia      | 852428719  | teaching.qmd          | year, materia, url, carrera, cargo |
+| docencia      | 852428719  | teaching.qmd          | year, materia, url, carrera, cargo, institucion |
 | grupo         | 1834640090 | grupo.qmd             | nombre, proyecto, carrera, fecha (actual/pasado), rol |
 | media         | 625135132  | media.qmd             | year, title, medio, url, url2, img (optional) |
+| apps          | 1560795144 | teaching.qmd          | nombre, nombre_es, tipo, tipo_es, url, incluir, img (optional) |
 
 **Filtering logic:**
 - `research.qmd`: `type == "pre-print"` for preprints, `type == "Article"` for publications
 - `media.qmd` outreach section: `type == "media"` from publicaciones sheet
-- `teaching.qmd`: `cargo %in% c("prof", "doc")`
+- `teaching.qmd`: filtered by `institucion` column (values: `utdt`, `udesa`, `uba-ic`, `uba-ext`, `uba-df`, `uba-cbc`)
+- `teaching.qmd` apps: `incluir == TRUE` and non-empty `nombre`
 - `grupo.qmd`: `fecha == "actual"` and `fecha == "pasado"`
 
 ### Pages
@@ -107,7 +109,7 @@ CV also appears in both navbars: links to `CV-Solovey-eng.pdf` (EN) and `es/CV-S
 - `.abstract-body` — collapsible abstract block (Bootstrap collapse)
 - `.self-author` — highlights "G. Solovey" in author lists (green + bold)
 - `.members-grid` / `.member-card` / `.member-rol` — CSS grid for group members; `.member-rol` is a small pill badge for supervisor/co-supervisor role
-- `.apps-grid` / `.app-card` — CSS grid for interactive apps in teaching page
+- `.apps-grid` / `.app-card` / `.app-card-img` — CSS grid for interactive apps in teaching page; `.app-card-img` for optional cover image (local files in `apps-img/`)
 - `.media-cards-grid` / `.media-card` — featured card grid for media entries (year ≥ 2025); supports optional image via `.media-card-img` or placeholder via `.media-card-img-placeholder`
 - `.media-archive-label` — small uppercase "Earlier" label separating featured cards from archive list
 
@@ -129,11 +131,13 @@ Entry structure: title (linked) → journal (own row, italic green) → authors 
 
 `G. Solovey` is replaced with `<strong class="self-author">` via `str_replace_all` before calling render_entry.
 
-### teaching.qmd — interactive apps
+### teaching.qmd — structure
 
-Hardcoded HTML (not from a sheet) as `.apps-grid` / `.app-card` divs, duplicated inside `content-visible` blocks for EN and ES. Each card has `.app-name` and `.app-type`.
+Page is divided into sections by institution in this order: UTDT → UdeSA → UBA-IC → UBA-ext → UBA-DF → UBA-CBC. Each section has a bilingual intro text (in `content-visible` blocks) followed by an R chunk that calls `render_courses("institucion")`.
 
-**Important:** the HTML must be inside ` ```{=html} ` fences (not bare HTML), because Pandoc escapes raw HTML inside `::: {.content-visible}` blocks.
+Section headers use explicit IDs with `-en`/`-es` suffixes (e.g. `{#utdt-en}`, `{#utdt-es}`) to avoid duplicate-ID warnings from Pandoc (both language blocks are always present in the HTML, just one hidden via CSS).
+
+**Interactive apps (UTDT section):** loaded dynamically from the `apps` sheet via `render_apps(prof)`. Images stored in `apps-img/` (declared as a resource in both YAMLs). The function builds the full HTML string before `cat()`-ing to avoid Pandoc paragraph-wrapping artifacts. Skips rows where `nombre`, `tipo`, or `url` are empty or the string `"NA"`.
 
 ### media.qmd — two-tier layout
 
@@ -179,3 +183,4 @@ PDF files live in `publications/` with naming convention `YYYY_AuthorLastname.pd
 - EN render wipes `_site/` — always render EN before ES
 - `quarto` is not in PATH on this machine — use full path or run from RStudio terminal
 - Git remote uses HTTPS (not SSH) — Windows Credential Manager handles auth
+- Mobile landing page: foto y botones centrados, botones sin borde, íconos solos vía `@media (max-width: 767px)` en `custom.scss`. Scholar usa `iconify-icon` (web component) — verificar si el ícono se ve bien en browsers que no soporten web components.
