@@ -8,6 +8,7 @@ freeze: false
 ::: {.content-visible when-profile="en"}
 
 In recent years I have designed and taught courses and workshops for journalists and media professionals who work with data. 
+
 Through real examples from the media and interactive exercises, these workshops develop a critical eye toward statistics and offer practical tools for communicating quantitative information honestly and effectively. Four central ideas run through every session: chance as a legitimate explanation for patterns in data; the difference between correlation and causation; the quality and origin of data before turning them into stories; and statistics as summaries — useful or useless depending on what they are built to measure.
 
 **What these workshops cover**
