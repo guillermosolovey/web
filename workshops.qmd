@@ -7,8 +7,7 @@ freeze: false
 
 ::: {.content-visible when-profile="en"}
 
-In recent years I have designed and taught courses and workshops for journalists and media professionals who work with data. The need is not new — journalism educators have argued for over a century that quantitative literacy should be a core part of journalism training. It rarely is.
-
+In recent years I have designed and taught courses and workshops for journalists and media professionals who work with data. 
 Through real examples from the media and interactive exercises, these workshops develop a critical eye toward statistics and offer practical tools for communicating quantitative information honestly and effectively. Four central ideas run through every session: chance as a legitimate explanation for patterns in data; the difference between correlation and causation; the quality and origin of data before turning them into stories; and statistics as summaries — useful or useless depending on what they are built to measure.
 
 **What these workshops cover**
@@ -90,7 +89,7 @@ Through real examples from the media and interactive exercises, these workshops 
 
 ::: {.content-visible when-profile="es"}
 
-En los últimos años diseñé y dicté cursos y talleres para periodistas y trabajadores de medios que tienen que trabajar con datos. La necesidad no es nueva — hace más de cien años que los formadores de periodistas argumentan que el razonamiento cuantitativo debería ser parte central de la formación periodística. Rara vez lo es.
+En los últimos años diseñé y dicté cursos y talleres para periodistas y trabajadores de medios que tienen que trabajar con datos. 
 
 A partir de ejemplos reales de los medios de comunicación y ejercicios interactivos, estos talleres entrenan la mirada crítica frente a la estadística y ofrecen herramientas prácticas para comunicar información cuantitativa de manera honesta y efectiva. Cuatro ideas atraviesan cada encuentro: el azar como explicación legítima de los patrones que vemos en los datos; la diferencia entre correlación y causalidad; la calidad y el origen de los datos antes de convertirlos en historia; y la estadística como resumen — útil o inútil según para qué fue construida.
 
