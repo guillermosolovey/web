@@ -1,0 +1,172 @@
+---
+title: ""
+toc: false
+editor: source
+freeze: false
+---
+
+::: {.content-visible when-profile="en"}
+
+In recent years I have designed and taught courses and workshops for journalists and media professionals who work with data. The need is not new — journalism educators have argued for over a century that quantitative literacy should be a core part of journalism training. It rarely is.
+
+Through real examples from the media and interactive exercises, these workshops develop a critical eye toward statistics and offer practical tools for communicating quantitative information honestly and effectively. Four central ideas run through every session: chance as a legitimate explanation for patterns in data; the difference between correlation and causation; the quality and origin of data before turning them into stories; and statistics as summaries — useful or useless depending on what they are built to measure.
+
+**What these workshops cover**
+
+<div class="workshops-grid">
+
+<div class="workshop-card wc1">
+<div class="workshop-card-num">1</div>
+<img class="workshop-card-img" src="workshops-img/w1-azar.png" alt="">
+<div class="workshop-card-title">Chance as an explanation</div>
+<div class="workshop-card-desc">Our brains are pattern-finding machines. A key question is: what would we expect if this were just luck?</div>
+</div>
+
+<div class="workshop-card wc2">
+<div class="workshop-card-num">2</div>
+<img class="workshop-card-img" src="workshops-img/w2-causalidad.png" alt="">
+<div class="workshop-card-title">Correlation vs. causation</div>
+<div class="workshop-card-desc">Two things moving together doesn't mean one causes the other. How to spot the difference and use the right language.</div>
+</div>
+
+<div class="workshop-card wc3">
+<div class="workshop-card-num">3</div>
+<img class="workshop-card-img" src="workshops-img/w3-datos.png" alt="">
+<div class="workshop-card-title">Data quality</div>
+<div class="workshop-card-desc">Where do the numbers come from? Who collected them, how, and for what purpose? The origin of data is the first thing to check.</div>
+</div>
+
+<div class="workshop-card wc4">
+<div class="workshop-card-num">4</div>
+<img class="workshop-card-img" src="workshops-img/w4-resumen.png" alt="">
+<div class="workshop-card-title">Statistics as summaries</div>
+<div class="workshop-card-desc">Every statistic is a compression of reality. The question is whether that compression is useful for the story you're telling.</div>
+</div>
+
+</div>
+
+### Courses & workshops {#courses-en}
+
+<div class="media-cards-grid">
+
+<div class="media-card">
+<img class="media-card-img" src="workshops-img/workshop-ditella.png" alt="">
+<div class="media-card-body">
+<div class="media-card-title"><a href="https://www.utdt.edu/ver_evento_agenda.php?id_evento_agenda=12735&id_item_menu=440">Del dato a la nota</a></div>
+<div class="media-card-meta"><span class="media-card-medio">UTDT Live Media · Universidad Torcuato Di Tella</span></div>
+<div class="media-card-meta">Workshop · August 2025</div>
+</div>
+</div>
+
+<div class="media-card">
+<img class="media-card-img" src="workshops-img/workshop-uba.png" alt="">
+<div class="media-card-body">
+<div class="media-card-title"><a href="https://sites.google.com/view/cursoperiodismodatos/curso">Periodismo y Datos 2024</a></div>
+<div class="media-card-meta"><span class="media-card-medio">UBA · Specialization in Science & Technology Communication</span></div>
+<div class="media-card-meta">4 sessions · June 2024</div>
+</div>
+</div>
+
+<div class="media-card">
+<img class="media-card-img" src="workshops-img/workshop-uba.png" alt="">
+<div class="media-card-body">
+<div class="media-card-title"><a href="https://sites.google.com/view/curso-periodismo-y-datos-2023/curso">Periodismo y Datos 2023</a></div>
+<div class="media-card-meta"><span class="media-card-medio">UBA · Instituto de Cálculo · with Walter Sosa Escudero</span></div>
+<div class="media-card-meta">2 sessions · October 2023</div>
+</div>
+</div>
+
+<div class="media-card">
+<img class="media-card-img" src="workshops-img/workshop-uba.png" alt="">
+<div class="media-card-body">
+<div class="media-card-title"><a href="https://sites.google.com/view/cursoperiodismoydatos2022">Periodismo y Datos 2022</a></div>
+<div class="media-card-meta"><span class="media-card-medio">UBA · Exactas · free with certificate</span></div>
+<div class="media-card-meta">4 sessions · Oct–Nov 2022</div>
+</div>
+</div>
+
+</div>
+:::
+
+::: {.content-visible when-profile="es"}
+
+En los últimos años diseñé y dicté cursos y talleres para periodistas y trabajadores de medios que tienen que trabajar con datos. La necesidad no es nueva — hace más de cien años que los formadores de periodistas argumentan que el razonamiento cuantitativo debería ser parte central de la formación periodística. Rara vez lo es.
+
+A partir de ejemplos reales de los medios de comunicación y ejercicios interactivos, estos talleres entrenan la mirada crítica frente a la estadística y ofrecen herramientas prácticas para comunicar información cuantitativa de manera honesta y efectiva. Cuatro ideas atraviesan cada encuentro: el azar como explicación legítima de los patrones que vemos en los datos; la diferencia entre correlación y causalidad; la calidad y el origen de los datos antes de convertirlos en historia; y la estadística como resumen — útil o inútil según para qué fue construida.
+
+**Qué se trabaja en estos talleres**
+
+<div class="workshops-grid">
+
+<div class="workshop-card wc1">
+<div class="workshop-card-num">1</div>
+<img class="workshop-card-img" src="workshops-img/w1-azar.png" alt="">
+<div class="workshop-card-title">El azar como explicación</div>
+<div class="workshop-card-desc">Nuestro cerebro es una máquina de detectar patrones. La pregunta clave: ¿qué esperaríamos si esto fuera sólo suerte?</div>
+</div>
+
+<div class="workshop-card wc2">
+<div class="workshop-card-num">2</div>
+<img class="workshop-card-img" src="workshops-img/w2-causalidad.png" alt="">
+<div class="workshop-card-title">Correlación y causalidad</div>
+<div class="workshop-card-desc">Que dos cosas vayan juntas no significa que una cause la otra. Cómo distinguirlas y elegir el lenguaje correcto.</div>
+</div>
+
+<div class="workshop-card wc3">
+<div class="workshop-card-num">3</div>
+<img class="workshop-card-img" src="workshops-img/w3-datos.png" alt="">
+<div class="workshop-card-title">Calidad de los datos</div>
+<div class="workshop-card-desc">¿De dónde vienen los números? ¿Quién los recolectó, cómo y para qué? El origen de un dato es lo primero que hay que revisar.</div>
+</div>
+
+<div class="workshop-card wc4">
+<div class="workshop-card-num">4</div>
+<img class="workshop-card-img" src="workshops-img/w4-resumen.png" alt="">
+<div class="workshop-card-title">La estadística como resumen</div>
+<div class="workshop-card-desc">Todo indicador estadístico es una compresión de la realidad. La pregunta es si esa compresión es útil para la historia que querés contar.</div>
+</div>
+
+</div>
+
+### Cursos y talleres {#courses-es}
+
+<div class="media-cards-grid">
+
+<div class="media-card">
+<img class="media-card-img" src="workshops-img/workshop-ditella.png" alt="">
+<div class="media-card-body">
+<div class="media-card-title"><a href="https://www.utdt.edu/ver_evento_agenda.php?id_evento_agenda=12735&id_item_menu=440">Del dato a la nota</a></div>
+<div class="media-card-meta"><span class="media-card-medio">UTDT Live Media · Universidad Torcuato Di Tella</span></div>
+<div class="media-card-meta">Taller · agosto 2025</div>
+</div>
+</div>
+
+<div class="media-card">
+<img class="media-card-img" src="workshops-img/workshop-uba.png" alt="">
+<div class="media-card-body">
+<div class="media-card-title"><a href="https://sites.google.com/view/cursoperiodismodatos/curso">Periodismo y Datos 2024</a></div>
+<div class="media-card-meta"><span class="media-card-medio">UBA · Especialización en Comunicación Científica y Tecnológica</span></div>
+<div class="media-card-meta">4 clases · junio 2024</div>
+</div>
+</div>
+
+<div class="media-card">
+<img class="media-card-img" src="workshops-img/workshop-uba.png" alt="">
+<div class="media-card-body">
+<div class="media-card-title"><a href="https://sites.google.com/view/curso-periodismo-y-datos-2023/curso">Periodismo y Datos 2023</a></div>
+<div class="media-card-meta"><span class="media-card-medio">UBA · Instituto de Cálculo · con Walter Sosa Escudero</span></div>
+<div class="media-card-meta">2 clases · octubre 2023</div>
+</div>
+</div>
+
+<div class="media-card">
+<img class="media-card-img" src="workshops-img/workshop-uba.png" alt="">
+<div class="media-card-body">
+<div class="media-card-title"><a href="https://sites.google.com/view/cursoperiodismoydatos2022">Periodismo y Datos 2022</a></div>
+<div class="media-card-meta"><span class="media-card-medio">UBA · Exactas · gratuito con certificado</span></div>
+<div class="media-card-meta">4 clases · oct–nov 2022</div>
+</div>
+</div>
+
+</div>
+:::

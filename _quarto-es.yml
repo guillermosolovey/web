@@ -7,6 +7,7 @@ project:
     - media-img/
     - publications-img/
     - apps-img/
+    - workshops-img/
 
 website:
   search: false
@@ -25,6 +26,8 @@ website:
         text: "{{< fa people-group >}} grupo"
       - href: ../es/media.html
         text: "{{< fa satellite-dish >}} medios"
+      - href: ../es/workshops.html
+        text: "{{< fa chalkboard >}} talleres"
       - href: ../es/CV-Solovey.pdf
         text: "{{< fa file >}} cv"
     right:

@@ -165,6 +165,28 @@ PDF files live in `publications/` with naming convention `YYYY_AuthorLastname.pd
 
 ## Pending improvements
 
+### outreach.qmd — apps interactivas (Observable JS, nivel 2)
+
+La página `outreach.qmd` tiene 3 secciones temáticas. Cada una puede tener una mini-app interactiva (Observable JS, nativo en Quarto, sin Shiny ni servidor):
+
+- **Sección 1 — Azar:** app donde el usuario ve dos nubes de puntos (2D o 1D) y tiene que adivinar cuál es aleatoria y cuál no. Inspirada en el ejercicio de clase ("¿cuál de estos patrones es random?"). Botón para revelar respuesta + generar nuevas configuraciones.
+
+- **Sección 2 — Correlación vs. causalidad:** mostrar un titular real de los medios que asume causalidad cuando el estudio solo muestra asociación (ej. huevos y Alzheimer). Posiblemente una app con varios ejemplos tipo "quiz": dado este titular, ¿hay causalidad o sólo correlación? ¿Qué confundidor podría explicarlo?
+
+- **Sección 3 — Datos ≠ estadística (promedio vs. mediana):** slider o botón para agregar un "millonario" (valor extremo) a una distribución de edades/ingresos y ver en tiempo real cómo el promedio salta pero la mediana apenas se mueve. Hace evidente cuándo conviene usar cada uno.
+
+**Stack:** Apps standalone en HTML/CSS/JS (mismo esquema que los repos existentes en github.com/gsolovey-utdt). Se hospedan en GitHub Pages y desde outreach.qmd se pone un link, igual que las apps en teaching.qmd. NO son Observable JS dentro de Quarto.
+
+**Repos existentes reutilizables como base:**
+- `azar` — juego human vs. IA sobre aleatoriedad en secuencias binarias. App 1 podría ser una segunda modalidad ("azar-visual") o un repo nuevo.
+- `correlacion` — scatter interactivo con coeficiente de correlación. App 2 es complementaria (enseña por qué correlación ≠ causalidad).
+
+**Ejemplos de confundidores para App 2:** helados/ahogamientos (calor como tercera variable), huevos/Alzheimer (dieta general, estilo de vida), alimentos orgánicos/autismo (tendencia temporal). El humor ayuda a la retención → incluir al menos un ejemplo gracioso.
+
+**App 3 — framing recomendado:** sueldos de una empresa pequeña (9 empleados + el CEO), mismo ejemplo del workshop UTDT Live Media.
+
+
+
 - [ ] **Google Sheet privado** — migrate from `gsheet` to `googlesheets4` with service account auth
 - [ ] **Auto-update via GitHub Actions** — scheduled workflow to render and deploy automatically
 - [x] **Abstracts colapsables** — columna `abstract` en sheet, toggle Bootstrap collapse en research.qmd
@@ -174,8 +196,9 @@ PDF files live in `publications/` with naming convention `YYYY_AuthorLastname.pd
 - [ ] **Featured publications** — similar a media cards: mostrar publicaciones recientes (último año o dos) como cards destacadas al tope de research.qmd, con la lista compacta existente como archivo debajo. Mismo patrón que media.qmd (cards 2025+ / lista Earlier).
 - [ ] **Unificar cuentas de GitHub** — `guillermosolovey` (personal) y `gsolovey-utdt` (Di Tella). Evaluar consolidar.
 - [ ] **Duplicados en grupo** — resueltx con columna `mostrar` (TRUE/FALSE) en la sheet `grupo`. El filtro en R ya la usa: `filter(mostrar == TRUE | is.na(mostrar))`. Completar marcando FALSE las filas duplicadas (ej. Nicolás Comay aparece en grado y doctorado).
-- [ ] **Merge a main** — cuando nueva-version esté lista, mergear a main para publicar en gsolovey.netlify.app
+- [x] **Merge a main** — `nueva-version` mergeada a `main` el 2026-04-22. Sitio live en gsolovey.netlify.app.
 - [ ] **Recortar imágenes de media cards** — las imágenes en `media-img/` son screenshots de celular (portrait). Recortarlas a formato landscape 16:9 o 4:3 para que los cards queden prolijos. Por ahora el CSS usa `height: 180px; object-position: top` como workaround.
+- [ ] **Upcoming events** — agregar sección en index.qmd con eventos próximos (ASSC, CSS). Decidir si hardcodeado o dinámico desde el Google Sheet (`type == "talk"`). Por ahora en espera de decisión.
 
 ## Known issues
 
