@@ -161,7 +161,7 @@ preprints <- all_pubs %>%
   filter(type == "pre-print")
 
 for (i in seq_len(nrow(preprints))) {
-  render_entry(preprints[i, ], use_pdf_col = FALSE, row_id = paste0("pre", i), year_label = "")
+  render_entry(preprints[i, ], use_pdf_col = TRUE, row_id = paste0("pre", i), year_label = "")
 }
 ```
 
