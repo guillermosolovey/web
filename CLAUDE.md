@@ -191,9 +191,9 @@ La página `outreach.qmd` tiene 3 secciones temáticas. Cada una puede tener una
 - [ ] **Auto-update via GitHub Actions** — scheduled workflow to render and deploy automatically
 - [x] **Abstracts colapsables** — columna `abstract` en sheet, toggle Bootstrap collapse en research.qmd
 - [ ] **Actividades de extensión** — agregar sección o página con contenido de la hoja gid=117290007 del Google Sheet
-- [ ] **Figuras por paper** — agregar columna `fig` en el Google Sheet (publicaciones) con URL de imagen; implementar thumbnail a la izquierda de cada entrada en research.qmd. En espera de imágenes.
+- [x] **Figuras por paper** — implementado: columna `img` en el Google Sheet (publicaciones) con nombre de archivo en `publications-img/`, mostrado como card 800x600 recortado en research.qmd (ver `img-mostrar`).
 - [ ] **Charlas y presentaciones futuras** — agregar `type == "talk"` en el Google Sheet; mostrar en research.qmd con etiqueta "Upcoming". En espera de que Guillermo cargue datos.
-- [ ] **Featured publications** — similar a media cards: mostrar publicaciones recientes (último año o dos) como cards destacadas al tope de research.qmd, con la lista compacta existente como archivo debajo. Mismo patrón que media.qmd (cards 2025+ / lista Earlier).
+- [x] **Featured publications** — implementado: cards destacadas al tope de research.qmd (`.media-cards-grid`), filtradas por `type == "Article"` y `img-mostrar == TRUE`, máx. 4, orden por año desc.
 - [ ] **Unificar cuentas de GitHub** — `guillermosolovey` (personal) y `gsolovey-utdt` (Di Tella). Evaluar consolidar.
 - [ ] **Duplicados en grupo** — resueltx con columna `mostrar` (TRUE/FALSE) en la sheet `grupo`. El filtro en R ya la usa: `filter(mostrar == TRUE | is.na(mostrar))`. Completar marcando FALSE las filas duplicadas (ej. Nicolás Comay aparece en grado y doctorado).
 - [x] **Merge a main** — `nueva-version` mergeada a `main` el 2026-04-22. Sitio live en gsolovey.netlify.app.
